@@ -11,21 +11,28 @@ import Game from './screens/Game';
 import Calculated from "./screens/Calculated";
 import RefreshForPrice from "./screens/RefreshForPrice";
 
+//redux stuff
+import { Provider } from 'react-redux';
+import Store from "./src/redux/store"
+
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Welcome">
-        <Stack.Screen name="Welcome" component={Welcome} options={{ header: () => null }}/>
-        <Stack.Screen name="Home" component={Home} options={{ header: () => null }}/>
-        <Stack.Screen name="Food" component={Food} options={{ header: () => null }}/>
-        <Stack.Screen name="RefreshForPrice" component={RefreshForPrice} options={{ header: () => null }}/>
-        <Stack.Screen name="Price" component={Price} options={{ header: () => null }}/>
-        <Stack.Screen name="Game" component={Game}/>
-        <Stack.Screen name="Calculated" component={Calculated} options={{ header: () => null }}/>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={Store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Welcome">
+          <Stack.Screen name="Welcome" component={Welcome} options={{ header: () => null }} />
+          <Stack.Screen name="Home" component={Home} options={{ header: () => null }} />
+          <Stack.Screen name="Food" component={Food} options={{ header: () => null }} />
+          <Stack.Screen name="RefreshForPrice" component={RefreshForPrice} options={{ header: () => null }} />
+          <Stack.Screen name="Price" component={Price} options={{ header: () => null }} />
+          <Stack.Screen name="Game" component={Game} />
+          <Stack.Screen name="Calculated" component={Calculated} options={{ header: () => null }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
+
   );
 }
 

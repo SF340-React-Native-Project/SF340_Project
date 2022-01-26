@@ -1,16 +1,16 @@
-#Thu Jan 20 10:31:49 ICT 2022
+#Wed Jan 26 21:23:45 ICT 2022
+path.4=3/classes.dex
 path.3=14/classes.dex
 path.2=0/classes.dex
 path.1=0/classes.dex
-renamed.4=classes5.dex
 path.0=classes.dex
+base.4=C\:\\Users\\lucy_\\Documents\\GitHub\\SF340_Project\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\3\\classes.dex
+base.3=C\:\\Users\\lucy_\\Documents\\GitHub\\SF340_Project\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
+base.2=C\:\\Users\\lucy_\\Documents\\GitHub\\SF340_Project\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.1=C\:\\Users\\lucy_\\Documents\\GitHub\\SF340_Project\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
+base.0=C\:\\Users\\lucy_\\Documents\\GitHub\\SF340_Project\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
-base.4=C\:\\Users\\P2OM\\Desktop\\Desktop\\Work\\64_2\\4-SF340-TH-9.30\\Project\\SF340_Project\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\3\\classes.dex
 renamed.0=classes.dex
-base.3=C\:\\Users\\P2OM\\Desktop\\Desktop\\Work\\64_2\\4-SF340-TH-9.30\\Project\\SF340_Project\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
-base.2=C\:\\Users\\P2OM\\Desktop\\Desktop\\Work\\64_2\\4-SF340-TH-9.30\\Project\\SF340_Project\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.1=C\:\\Users\\P2OM\\Desktop\\Desktop\\Work\\64_2\\4-SF340-TH-9.30\\Project\\SF340_Project\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
-base.0=C\:\\Users\\P2OM\\Desktop\\Desktop\\Work\\64_2\\4-SF340-TH-9.30\\Project\\SF340_Project\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-path.4=3/classes.dex
+renamed.4=classes5.dex

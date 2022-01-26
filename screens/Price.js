@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import {View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 
-import NameForPrice from '../components/NameForPrice';
-import RefreshForPrice from './RefreshForPrice';
-import Food from "./Food";
+import { NameForPrice } from '../components/NameForPrice';
+import { RefreshForPrice } from './RefreshForPrice';
+import { Food } from "./Food";
 
 const Price = ({ route, navigation }) => {
   const { text, name, dataPrice } = route.params;
@@ -43,25 +43,25 @@ const Price = ({ route, navigation }) => {
     if (dataPrice[i][0] == data[0]) {
       showPrice = dataPrice[i][1];
       for (let j = 0; j < 9; j++) {
-        data[j+2] = dataPrice[i][j+2];
+        data[j + 2] = dataPrice[i][j + 2];
       };
     }
   };
 
   // /Test
 
-  for(let i = 0; i < name.length; i++){
-    var num = i+2;
+  for (let i = 0; i < name.length; i++) {
+    var num = i + 2;
 
     var colorBg = 'rgba(52, 52, 52, 0.2)';
 
-    if(data[i+2] == 1){
+    if (data[i + 2] == 1) {
       colorBg = 'green';
     };
-
+    {/* actions */ }
     forLoopName.push(
-      <TouchableOpacity style={{ paddingHorizontal: 20 }} onPress={() => switchPrice(i+2)}>
-        <View  style={{
+      <TouchableOpacity style={{ paddingHorizontal: 20 }} onPress={() => switchPrice(i + 2)}>
+        <View style={{
           backgroundColor: colorBg,
           padding: 15,
           borderRadius: 10,
@@ -80,15 +80,15 @@ const Price = ({ route, navigation }) => {
     )
   }
 
-  return(
+  return (
     <ScrollView>
       <View style={styles.container} >
         <Text style={styles.sectionTitle} > Food name: {text}</Text>
         <Text style={styles.sectionTitle1} > Food price: {showPrice}</Text>
 
-        
-        <TextInput 
-          style={styles.input} 
+
+        <TextInput
+          style={styles.input}
           placeholder='1500'
           keyboardType='numeric'
           onChangeText={(val) => setPrice(val)} />
@@ -101,7 +101,7 @@ const Price = ({ route, navigation }) => {
           <Text> Save </Text>
         </TouchableOpacity>
       </View>
-    </ScrollView> 
+    </ScrollView>
   )
 }
 

@@ -1,75 +1,76 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
 
+//redux stuff
+import { getData } from "../src/redux/actions/dataActions"
+import { useSelector, useDispatch } from 'react-redux'
+import { addName, editName, deleteName } from '../src/redux/actions/dataActions'
 import Name from '../components/Name';
 import Food from "./Food";
 
 const Home = ({ navigation }) => {
-    const [name, setName] = useState();
-    const [nameItems, setNameItems] = useState([]);
+  const dispatch = useDispatch();
+  const nameList = useSelector(state => state.data.nameList)
+  const [name, setName] = useState();
 
-    const dataPrice = [];
 
-    const handleAddTask = () => {
-        Keyboard.dismiss();
-        setNameItems([...nameItems, name])
-        setName(null);
-    }
+  const handleAddName = () => {
+    Keyboard.dismiss();
+    dispatch(addName(name));
+    setName(null);
+  }
 
-    const completeTask = (index) => {
-        let itemsCopy = [...nameItems];
-        itemsCopy.splice(index, 1);
-        setNameItems(itemsCopy)
-    }
+  const handleDeleteName = (name) => {
+    dispatch(deleteName(name));
+  }
 
-    return (
+  return (
     <View style={styles.container}>
       {/* Added this scroll view to enable scrolling when list gets longer than the page */}
       <ScrollView
-          contentContainerStyle={{
+        contentContainerStyle={{
           flexGrow: 1
-          }}
-          keyboardShouldPersistTaps='handled'
+        }}
+        keyboardShouldPersistTaps='handled'
       >
 
         {/* Today's Tasks */}
         <View style={styles.tasksWrapper}>
-            <Text style={styles.sectionTitle}>Member</Text>
-            <View style={styles.items}>
+          <Text style={styles.sectionTitle}>Member</Text>
+          <View style={styles.items}>
             {/* This is where the tasks will go! */}
-            {
-              nameItems.map((item, index) => {
-              return (
-                <TouchableOpacity key={index}  onPress={() => completeTask(index)}>
-                    <Name text={item} /> 
+            <>{
+              nameList.map((item, index) =>
+                <TouchableOpacity key={index} onPress={() => handleDeleteName(item)}>
+                  <Name text={item} /> 
                 </TouchableOpacity>
-              )
-              })
-            }
-            </View>
+              )}</>
+          </View>
         </View>
-          
+
       </ScrollView>
 
       {/* Write a task */}
       {/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
-      <KeyboardAvoidingView 
+      <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
       >
+        {/* actions */}
         <TextInput style={styles.input} placeholder={' Enter name'} value={name} onChangeText={text => setName(text)} />
-        <TouchableOpacity onPress={() => handleAddTask()}>
-            <View style={styles.addWrapper}>
-                <Text style={styles.addText}>+</Text>
-            </View>
+        <TouchableOpacity  onPress={() => handleAddName()} >
+          <View style={styles.addWrapper}>
+            <Text style={styles.addText}>+</Text>
+          </View>
         </TouchableOpacity>
       </KeyboardAvoidingView>
 
-      <TouchableOpacity onPress={() => { navigation.navigate('Food', { name: nameItems, dataPrice: dataPrice }); }} >
-        <Text style={{paddingLeft: 340}}> Next </Text>
-      </TouchableOpacity>
-      
+      {/* actions */}
+      {/* <TouchableOpacity onPress={() => { navigation.navigate('Food', { name: nameList, dataPrice: dataPrice }); }} >
+        <Text style={{ paddingLeft: 340 }}> Next </Text>
+      </TouchableOpacity> */}
+
     </View>
   );
 }

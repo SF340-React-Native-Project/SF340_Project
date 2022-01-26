@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
 
-import Foodname from '../components/Foodname';
-import Price from "./Price";
-import Calculated from "./Calculated";
-import Game from "./Game";
+import { Foodname } from '../components/Foodname';
+import { Price } from "./Price";
+import { Calculated } from "./Calculated";
+import { Game } from "./Game";
 
 const Food = ({ route, navigation }) => {
   const [task, setTask] = useState();
@@ -47,19 +47,19 @@ const Food = ({ route, navigation }) => {
     setTaskItems(itemsCopy)
   }
 
-  if(dataPrice.length > 0){
-    for(let i = 0; i < dataPrice.length; i++){
+  if (dataPrice.length > 0) {
+    for (let i = 0; i < dataPrice.length; i++) {
       const dataName = [];
       const dataShowName = [];
 
-      for(let j = 0; j < 9; j++){
-        if(dataPrice[i][j+2] == 1){
+      for (let j = 0; j < 9; j++) {
+        if (dataPrice[i][j + 2] == 1) {
           dataName.push(name[j])
         }
       };
-      for(let j = 0; j < dataName.length; j++){
+      for (let j = 0; j < dataName.length; j++) {
         dataShowName.push(
-          <Text style={{position: 'absolute', left: j * 50, paddingTop: 20}}>{'\n' + dataName[j]}</Text>
+          <Text style={{ position: 'absolute', left: j * 50, paddingTop: 20 }}>{'\n' + dataName[j]}</Text>
         )
       };
       forLoopData.push(
@@ -72,51 +72,51 @@ const Food = ({ route, navigation }) => {
       )
     }
   }
-  
+
 
   return (
     <View style={styles.container}>
-    {/* Added this scroll view to enable scrolling when list gets longer than the page */}
+      {/* Added this scroll view to enable scrolling when list gets longer than the page */}
       <ScrollView
-          contentContainerStyle={{
+        contentContainerStyle={{
           flexGrow: 1
-          }}
-          keyboardShouldPersistTaps='handled'
+        }}
+        keyboardShouldPersistTaps='handled'
       >
 
         {/* Today's Tasks */}
         <View style={styles.tasksWrapper}>
           <Text style={styles.sectionTitle}>Food items</Text>
-          
+
           <View style={styles.items}>
-          {/* This is where the tasks will go! */}
-          {
+            {/* This is where the tasks will go! */}
+            {
               taskItems.map((item, index) => {
-              return (
+                return (
                   <TouchableOpacity key={index} onPress={() => { navigation.navigate('Price', { text: item, name: name, dataPrice: dataPrice }); }} >
-                      <Foodname text={item} /> 
+                    <Foodname text={item} />
                   </TouchableOpacity>
-              )
+                )
               })
-          }
+            }
           </View>
         </View>
 
         {forLoopData}
-          
+
       </ScrollView>
 
       {/* Write a task */}
       {/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
-      <KeyboardAvoidingView 
+      <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
       >
         <TextInput style={styles.input} placeholder={' Enter name'} value={task} onChangeText={text => setTask(text)} />
         <TouchableOpacity onPress={() => handleAddTask()}>
-        <View style={styles.addWrapper}>
-          <Text style={styles.addText}>+</Text>
-        </View>
+          <View style={styles.addWrapper}>
+            <Text style={styles.addText}>+</Text>
+          </View>
         </TouchableOpacity>
       </KeyboardAvoidingView>
 
@@ -125,9 +125,9 @@ const Food = ({ route, navigation }) => {
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.navigate('Calculated', { name: name, dataPrice: dataPrice })}>
-        <Text style={{paddingLeft: 320}}> Calculate </Text>
+        <Text style={{ paddingLeft: 320 }}> Calculate </Text>
       </TouchableOpacity>
-    
+
     </View>
   );
 }
