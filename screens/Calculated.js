@@ -1,61 +1,44 @@
 import React from "react";
-import {View, Text, StyleSheet, } from 'react-native';
+import { View, Text, StyleSheet, } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+
+//redux stuff
+import { getData } from "../src/redux/actions/dataActions"
+import { useSelector, useDispatch } from 'react-redux'
+import { setMemberValue, setFoodPrice, calculate } from '../src/redux/actions/dataActions'
 
 import NameForCalculated from '../components/NameForCalculated';
 import Welcome from "./Welcome";
 
-const Calculated = ({ route, navigation }) => {
-    const { name, dataPrice } = route.params;
 
-    var forLoopName = [];
 
-    var num = 0;
-    var share = 0;
-    const sum = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+const Calculated = ({ navigation }) => {
 
-    for(let i = 0; i < dataPrice.length; i++){
-      for(let j = 0; j < 9; j++){
-        if(dataPrice[i][j+2] == 1){
-          num += 1;
-        };
-      };
-      share = dataPrice[i][1] / num;
-      for(let j = 0; j < 9; j++){
-        if(dataPrice[i][j+2] == 1){
-          sum[j] += share;
-        };
-      };
-      num = 0;
-    }
+  const dispatch = useDispatch();
+  const name = useSelector(state => state.data.namecalculate)
 
-    for(let i = 0; i < name.length; i++){
-        forLoopName.push(
-        <TouchableOpacity style={{ paddingHorizontal: 20 }}>
-            <NameForCalculated text={name[i]} price={sum[i]}/> 
+  const goBlack = () => {
+    navigation.navigate('Welcome');
+  }
+
+  return (
+    <ScrollView>
+      <View style={styles.container} >
+        <Text style={styles.sectionTitle} > Calculated </Text>
+        <View style={{ paddingTop: 20 }}></View>
+        <View>
+          {name.map((val, idx) =>
+            <TouchableOpacity key={idx} style={{ paddingHorizontal: 20 }}>
+              <NameForCalculated text={val[0]} price={val[1]} />
+            </TouchableOpacity>)}
+        </View>
+        <TouchableOpacity onPress={() => goBlack()}>
+          <Text> Exit </Text>
         </TouchableOpacity>
-        )
-    }
-
-    const goBlack = () => {
-      navigation.navigate('Welcome');
-    }
-
-    return(
-        <ScrollView>
-            <View style={styles.container} >
-                <Text style={styles.sectionTitle} > Calculated </Text>
-                <View style={{ paddingTop: 20 }}></View>
-                <View>
-                    {forLoopName}
-                </View>
-                <TouchableOpacity onPress={() => goBlack()}>
-                    <Text> Exit </Text>
-                </TouchableOpacity>
-            </View>
-        </ScrollView> 
-    )
+      </View>
+    </ScrollView>
+  )
 }
 
 const styles = StyleSheet.create({

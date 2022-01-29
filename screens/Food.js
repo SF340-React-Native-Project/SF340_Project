@@ -2,75 +2,32 @@ import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
 
-import { Foodname } from '../components/Foodname';
-import { Price } from "./Price";
-import { Calculated } from "./Calculated";
-import { Game } from "./Game";
+//redux stuff
+import { getData } from "../src/redux/actions/dataActions"
+import { useSelector, useDispatch } from 'react-redux'
+import { addFood, calculate } from '../src/redux/actions/dataActions'
 
-const Food = ({ route, navigation }) => {
-  const [task, setTask] = useState();
-  const [taskItems, setTaskItems] = useState([]);
+import Foodname from '../components/Foodname';
 
-  const { name, dataPrice, data, poom } = route.params;
 
-  var num = 0;
-  var check = 0;
+const Food = ({ navigation }) => {
+  const dispatch = useDispatch();
+  const foodList = useSelector(state => state.data.foodList)
 
-  var forLoopData = [];
+  const [food, setFood] = useState();
 
-  if (poom == 1) {
-    for (let i = 0; i < dataPrice.length; i++) {
-      if (dataPrice[i][0] != data[0]) {
-        num += 1;
-      } else {
-        check = i;
-      }
-    };
-    if (num == dataPrice.length) {
-      dataPrice.push(data);
-    } else {
-      dataPrice[check] = data;
-    }
-    num = 0;
-    check = 0;
-  }
 
   const handleAddTask = () => {
-    Keyboard.dismiss();
-    setTaskItems([...taskItems, task])
-    setTask(null);
-  }
-
-  const completeTask = (index) => {
-    let itemsCopy = [...taskItems];
-    itemsCopy.splice(index, 1);
-    setTaskItems(itemsCopy)
-  }
-
-  if (dataPrice.length > 0) {
-    for (let i = 0; i < dataPrice.length; i++) {
-      const dataName = [];
-      const dataShowName = [];
-
-      for (let j = 0; j < 9; j++) {
-        if (dataPrice[i][j + 2] == 1) {
-          dataName.push(name[j])
-        }
-      };
-      for (let j = 0; j < dataName.length; j++) {
-        dataShowName.push(
-          <Text style={{ position: 'absolute', left: j * 50, paddingTop: 20 }}>{'\n' + dataName[j]}</Text>
-        )
-      };
-      forLoopData.push(
-        <View style={{ paddingLeft: 20 }}>
-          <View style={{ paddingTop: 15, paddingBottom: 20 }}>
-            <Text>{dataPrice[i][0]} - price {dataPrice[i][1]}</Text>
-            {dataShowName}
-          </View>
-        </View>
-      )
+    if (food !== null && food.length > 0) {
+      Keyboard.dismiss();
+      dispatch(addFood(food))
     }
+    setFood(null);
+  }
+
+  const toCalculate = () => {
+    dispatch(calculate())
+    navigation.navigate('Calculated')
   }
 
 
@@ -86,23 +43,19 @@ const Food = ({ route, navigation }) => {
 
         {/* Today's Tasks */}
         <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>Food items</Text>
-
+          <Text style={styles.sectionTitle}>Food</Text>
           <View style={styles.items}>
             {/* This is where the tasks will go! */}
-            {
-              taskItems.map((item, index) => {
-                return (
-                  <TouchableOpacity key={index} onPress={() => { navigation.navigate('Price', { text: item, name: name, dataPrice: dataPrice }); }} >
-                    <Foodname text={item} />
-                  </TouchableOpacity>
-                )
-              })
-            }
+            <>{
+              foodList.map((item, index) =>
+                <TouchableOpacity key={index} onPress={() => { navigation.navigate('Price', { foodname: item.foodname, member: item.member, price: item.price, id: item.id }); }}>
+                  <Foodname foodname={item.foodname} price={item.price} />
+                </TouchableOpacity>
+              )}</>
           </View>
         </View>
 
-        {forLoopData}
+        {/* {foodList} */}
 
       </ScrollView>
 
@@ -112,7 +65,7 @@ const Food = ({ route, navigation }) => {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
       >
-        <TextInput style={styles.input} placeholder={' Enter name'} value={task} onChangeText={text => setTask(text)} />
+        <TextInput style={styles.input} placeholder={' Enter name'} value={food} onChangeText={text => setFood(text)} />
         <TouchableOpacity onPress={() => handleAddTask()}>
           <View style={styles.addWrapper}>
             <Text style={styles.addText}>+</Text>
@@ -123,11 +76,10 @@ const Food = ({ route, navigation }) => {
       <TouchableOpacity onPress={() => navigation.navigate('Game')}>
         <Text> Game </Text>
       </TouchableOpacity>
-
-      <TouchableOpacity onPress={() => navigation.navigate('Calculated', { name: name, dataPrice: dataPrice })}>
+      
+      <TouchableOpacity onPress={() => toCalculate()}>
         <Text style={{ paddingLeft: 320 }}> Calculate </Text>
       </TouchableOpacity>
-
     </View>
   );
 }

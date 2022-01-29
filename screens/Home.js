@@ -6,6 +6,7 @@ import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpaci
 import { getData } from "../src/redux/actions/dataActions"
 import { useSelector, useDispatch } from 'react-redux'
 import { addName, editName, deleteName } from '../src/redux/actions/dataActions'
+
 import Name from '../components/Name';
 import Food from "./Food";
 
@@ -67,9 +68,9 @@ const Home = ({ navigation }) => {
       </KeyboardAvoidingView>
 
       {/* actions */}
-      {/* <TouchableOpacity onPress={() => { navigation.navigate('Food', { name: nameList, dataPrice: dataPrice }); }} >
+      <TouchableOpacity onPress={() => { navigation.navigate('Food'); }} >
         <Text style={{ paddingLeft: 340 }}> Next </Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
 
     </View>
   );

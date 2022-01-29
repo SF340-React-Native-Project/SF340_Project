@@ -2,12 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const Foodname = (props) => {
-
+  console.log(props, 'foodname')
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
         <View style={styles.square}></View>
-        <Text style={styles.itemText}>{props.text}</Text>
+        <Text style={styles.itemText}>{props.foodname}</Text>
       </View>
       <Text style={styles.itemText}>{props.price}</Text>
     </View>

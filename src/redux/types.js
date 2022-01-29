@@ -7,3 +7,5 @@ export const DELETE_FOOD = "DELETE_FOOD"
 export const SET_FOOD_PRICE = "SET_FOOD_PRICE"
 export const SET_NEW_PRICE = "SET_NEW_PRICE"
 export const SET_MEMBER_VALUE = "SET_MEMBER_VALUE"
+
+export const CALCULATE = "CALCULATE"

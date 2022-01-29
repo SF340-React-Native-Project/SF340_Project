@@ -3,99 +3,79 @@ import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 
-import { NameForPrice } from '../components/NameForPrice';
-import { RefreshForPrice } from './RefreshForPrice';
-import { Food } from "./Food";
+//redux stuff
+
+import { useDispatch } from 'react-redux'
+import { setMemberValue, setFoodPrice } from '../src/redux/actions/dataActions'
+
+import NameForPrice from '../components/NameForPrice';
+
 
 const Price = ({ route, navigation }) => {
-  const { text, name, dataPrice } = route.params;
+  const dispatch = useDispatch();
 
-  var forLoopName = [];
+  const { foodname, member, price, id } = route.params;
 
-  // Test Poom 500 Ing 500 A 40 B 540 C 40
+  const [newprice, setNewprice] = useState(0)
 
-  var showPrice = 0;
+  
 
-  const [price, setPrice] = useState(0);
-
-  const data = [text, price, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-  const switchPrice = (i) => {
-    if (data[i] == 0) {
-      data[i] = 1;
-    } else {
-      data[i] = 0;
-    };
-    if (price == 0) {
-      data[1] = showPrice;
-    };
-    navigation.navigate('RefreshForPrice', { data: data, poom: 1, dataPrice: dataPrice });
+  const handleTouchPrice = (name) => {
+    dispatch(setMemberValue(id, name))
   }
 
   const goBlack = () => {
-    if (price == 0) {
-      data[1] = showPrice;
-    };
-    navigation.navigate('Food', { data: data, poom: 1 })
+    if (newprice > 0) {
+      dispatch(setFoodPrice(id, newprice))
+    }
+
+    navigation.navigate('Food')
   }
 
-  for (let i = 0; i < dataPrice.length; i++) {
-    if (dataPrice[i][0] == data[0]) {
-      showPrice = dataPrice[i][1];
-      for (let j = 0; j < 9; j++) {
-        data[j + 2] = dataPrice[i][j + 2];
-      };
-    }
-  };
+  const LoopName = () => {
+    var forLoopName = [];
 
-  // /Test
-
-  for (let i = 0; i < name.length; i++) {
-    var num = i + 2;
-
-    var colorBg = 'rgba(52, 52, 52, 0.2)';
-
-    if (data[i + 2] == 1) {
-      colorBg = 'green';
-    };
-    {/* actions */ }
-    forLoopName.push(
-      <TouchableOpacity style={{ paddingHorizontal: 20 }} onPress={() => switchPrice(i + 2)}>
-        <View style={{
-          backgroundColor: colorBg,
-          padding: 15,
-          borderRadius: 10,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginBottom: 20,
-        }}>
-          <View style={styles.itemLeft}>
-            <View style={styles.square}></View>
-            <NameForPrice text={name[i]} />
+    for (const [key, value] of Object.entries(member)) {
+      forLoopName.push(
+        <TouchableOpacity key={key} style={{ paddingHorizontal: 20 }} onPress={() => handleTouchPrice(key)}>
+          <View style={{
+            backgroundColor: value === 0 ? 'rgba(52, 52, 52, 0.2)' : 'green',
+            padding: 15,
+            borderRadius: 10,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginBottom: 20,
+          }}>
+            <View style={styles.itemLeft}>
+              <View style={styles.square}></View>
+              <NameForPrice text={key} />
+            </View>
+            <View style={styles.circular}></View>
           </View>
-          <View style={styles.circular}></View>
-        </View>
-      </TouchableOpacity>
-    )
+        </TouchableOpacity>)
+    }
+
+    return (forLoopName);
   }
 
   return (
     <ScrollView>
       <View style={styles.container} >
-        <Text style={styles.sectionTitle} > Food name: {text}</Text>
-        <Text style={styles.sectionTitle1} > Food price: {showPrice}</Text>
+        <Text style={styles.sectionTitle} > Food name: {foodname}</Text>
+        <Text style={styles.sectionTitle1} > Food price: {price}</Text>
 
 
         <TextInput
           style={styles.input}
           placeholder='1500'
           keyboardType='numeric'
-          onChangeText={(val) => setPrice(val)} />
+          onChangeText={(val) => setNewprice(val)}
+        />
 
         <View style={{ paddingTop: 20 }}></View>
         <View>
-          {forLoopName}
+          {LoopName()}
         </View>
         <TouchableOpacity onPress={() => goBlack()}>
           <Text> Save </Text>

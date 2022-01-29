@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         height:60,
         backgroundColor:'rgb(242,197,4)',
         textAlign:'center',
-        marginTop:180,
+        marginTop:250,
         marginBottom:100,
     }
     ,
