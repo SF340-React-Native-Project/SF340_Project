@@ -12,6 +12,10 @@ target 'Project_SF340' do
     :hermes_enabled => false
   )
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
   target 'Project_SF340Tests' do
     inherit! :complete
     # Pods for testing
