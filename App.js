@@ -3,17 +3,13 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-
-
-import Welcome from './src/screens/Welcome'
-import Home from './src/screens/Home'
-import Food from './src/screens/Food';
-import Price from './src/screens/Price';
-import Game from './src/screens/Game';
-import Calculated from "./src/screens/Calculated";
-import RefreshForPrice from "./src/screens/RefreshForPrice";
-
-
+import Welcome from './screens/Welcome'
+import Home from './screens/Home'
+import Food from './screens/Food';
+import Price from './screens/Price';
+import Game from './screens/Game';
+import Calculated from "./screens/Calculated";
+import RefreshForPrice from "./screens/RefreshForPrice";
 
 //redux stuff
 import { Provider } from 'react-redux';
@@ -24,7 +20,6 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <Provider store={Store}>
-    
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Welcome">
           <Stack.Screen name="Welcome" component={Welcome} options={{ header: () => null }} />
