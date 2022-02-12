@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, Button,Image,ImageBackground, View, SafeAreaView, Text, Alert } from 'react-native';
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 
-import Home from "./Home";
 
 
 const Welcome = ({navigation}) => {

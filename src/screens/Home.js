@@ -57,6 +57,7 @@ const Home = ({ navigation }) => {
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
                 style={styles.writeTaskWrapper}
               >
+
                 {/* actions */}
                 <TextInput style={styles.input} placeholder={' Enter name'} value={name} onChangeText={text => setName(text)} />
                 <TouchableOpacity onPress={() => handleAddName()} >
