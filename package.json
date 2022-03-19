@@ -11,21 +11,20 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "*",
-    "react-native-gesture-handler": "~1.10.2",
-    "react-native-reanimated": "~2.2.0",
-    "react-native-safe-area-context": "3.3.2",
-    "react-native-screens": "~3.8.0",
     "@react-navigation/drawer": "6.1.3",
     "@react-navigation/elements": "1.0.4",
     "@react-navigation/native": "6.0.2",
     "@react-navigation/stack": "6.0.6",
-
-
-    
     "react": "17.0.2",
     "react-native": "0.66.4",
     "react-native-elements": "^3.4.2",
+    "react-native-gesture-handler": "~1.10.2",
     "react-native-nav": "^2.0.2",
+    "react-native-reanimated": "~2.2.0",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-screens": "~3.8.0",
+    "react-native-svg": "^12.1.1",
+    "react-native-wheel-of-fortune-dp": "^1.6.4",
     "react-navigation": "^4.4.4",
     "react-navigation-stack": "^2.10.4",
     "react-redux": "^7.2.6",

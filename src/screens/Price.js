@@ -28,7 +28,7 @@ const Price = ({ route, navigation }) => {
       dispatch(setFoodPrice(id, newprice))
     }
 
-    navigation.navigate('Food')
+    navigation.navigate('FoodList')
   }
 
   const LoopName = () => {

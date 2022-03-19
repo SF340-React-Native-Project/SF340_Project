@@ -12,6 +12,7 @@ MERGED from [:react-native-community_masked-view] C:\Users\lucy_\Documents\GitHu
 MERGED from [:react-native-gesture-handler] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-safe-area-context] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-svg] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:react-native:0.66.4] C:\Users\lucy_\.gradle\caches\transforms-3\7403ebe5571a2ce5a6a5fc9876af4814\transformed\jetified-react-native-0.66.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\lucy_\.gradle\caches\transforms-3\9341f36f0ce470d4b55127e33c2ce075\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [org.webkit:android-jsc:r250230] C:\Users\lucy_\.gradle\caches\transforms-3\7873a5158addb5bf75ec8bc5226b9f2a\transformed\jetified-android-jsc-r250230\AndroidManifest.xml:2:1-11:12
@@ -172,6 +173,8 @@ MERGED from [:react-native-safe-area-context] C:\Users\lucy_\Documents\GitHub\SF
 MERGED from [:react-native-safe-area-context] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-svg] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-svg] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.66.4] C:\Users\lucy_\.gradle\caches\transforms-3\7403ebe5571a2ce5a6a5fc9876af4814\transformed\jetified-react-native-0.66.4\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.66.4] C:\Users\lucy_\.gradle\caches\transforms-3\7403ebe5571a2ce5a6a5fc9876af4814\transformed\jetified-react-native-0.66.4\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\lucy_\.gradle\caches\transforms-3\9341f36f0ce470d4b55127e33c2ce075\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
