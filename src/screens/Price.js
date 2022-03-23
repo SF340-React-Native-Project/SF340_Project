@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 
 //redux stuff
 
 import { useDispatch, useSelector } from 'react-redux'
-import { setMemberValue, setFoodPrice } from '../redux/actions/dataActions'
+import { setMemberValue, setFoodPrice, calculate } from '../redux/actions/dataActions'
 
 import NameForPrice from '../components/NameForPrice';
 
@@ -17,18 +17,26 @@ const Price = ({ route, navigation }) => {
 
   const [newprice, setNewprice] = useState(0)
 
-  
+
 
   const handleTouchPrice = (name) => {
     dispatch(setMemberValue(id, name))
+    dispatch(calculate())
   }
 
+  
   const goBlack = () => {
     if (newprice > 0) {
       dispatch(setFoodPrice(id, newprice))
     }
 
     navigation.navigate('FoodList')
+  }
+
+  const setPrice = (val) => {
+    dispatch(setFoodPrice(id, val))
+    // setNewprice(val)
+    dispatch(calculate())
   }
 
   const LoopName = () => {
@@ -69,7 +77,7 @@ const Price = ({ route, navigation }) => {
           style={styles.input}
           placeholder='1500'
           keyboardType='numeric'
-          onChangeText={(val) => setNewprice(val)}
+          onChangeText={(val) => setPrice(val)}
         />
 
         <View style={{ paddingTop: 20 }}></View>

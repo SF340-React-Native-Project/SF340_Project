@@ -10,12 +10,14 @@ import Name from '../components/Name';
 
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
-  const nameList = useSelector(state => state.data.nameList)
+  const {nameList, foodList, namecalculate} = useSelector(state => state.data)
   const [name, setName] = useState();
   const [toggle, setToggle] = useState(true);
 
 
-  console.log(toggle);
+  console.log(nameList, "HOME");
+  console.log(foodList, "HOME");
+  console.log(namecalculate, "HOME");
   const handleAddName = () => {
     Keyboard.dismiss();
     dispatch(addName(name));
@@ -42,7 +44,8 @@ const Home = ({ navigation }) => {
           <View style={styles.items}>
             {/* This is where the tasks will go! */}
             <>{
-              nameList.map((item, index) =>
+
+              nameList && nameList.map((item, index) =>
                 <TouchableOpacity key={index} onPress={() => handleDeleteName(item)}>
                   <Name text={item} />
                 </TouchableOpacity>

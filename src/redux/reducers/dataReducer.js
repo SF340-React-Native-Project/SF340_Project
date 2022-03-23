@@ -2,9 +2,13 @@ import { Value } from 'react-native-reanimated';
 import { ADD_NAME, EDIT_NAME, DELETE_NAME, ADD_FOOD, EDIT_FOOD, DELETE_FOOD, SET_FOOD_PRICE, SET_NEW_PRICE, SET_MEMBER_VALUE, CALCULATE } from '../types'
 
 const initialState = {
-    nameList: ["wonyus", "macdecade", "man", "poom"],
-    foodList: [{ 'foodname': 'beer', 'price': 30, 'id': 0, 'member': { "wonyus": 1, "macdecade": 1, "man": 0, "poom": 1 } },{ 'foodname': 'water', 'price': 30, 'id': 1, 'member': { "wonyus": 1, "macdecade": 1, "man": 1, "poom": 0 } }],
+    nameList: [],
+    foodList: [],
     namecalculate: []
+
+    // nameList: ["wonyus", "macdecade", "man", "poom"],
+    // foodList: [{ 'foodname': 'beer', 'price': 30, 'id': 0, 'member': { "wonyus": 1, "macdecade": 1, "man": 0, "poom": 1 } },{ 'foodname': 'water', 'price': 30, 'id': 1, 'member': { "wonyus": 1, "macdecade": 1, "man": 1, "poom": 0 } }],
+    // namecalculate: []
 };
 
 export default function (state = initialState, action) {
@@ -29,7 +33,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 nameList: addNameTemp,
-                foodList: foodListTemp,
+                // foodList: foodListTemp,
             }
         case EDIT_NAME:
             var editNameTemp = []
@@ -83,12 +87,14 @@ export default function (state = initialState, action) {
             }
         case SET_FOOD_PRICE:
             // ใส่จำนวนเงินของอาหาร
+
+            console.log(action.payload, "reducer");
             var foodPriceTemp = state.foodList;
             foodPriceTemp[action.payload.id].price = action.payload.price
 
             return {
                 ...state,
-                foodList: foodPriceTemp,
+                foodList: [...foodPriceTemp],
             }
 
         case SET_MEMBER_VALUE:
@@ -102,6 +108,7 @@ export default function (state = initialState, action) {
                 foodList: listTemp,
             }
         case CALCULATE:
+            console.log(state.foodList, "reducer");
             var calculateTemp = [];
             state.foodList.forEach((data) => {
                 var nameTemp = []

@@ -16,6 +16,7 @@ export const editName = (name) => (dispatch) => {
 export const deleteName = (name) => (dispatch) => {
 
     dispatch({ type: DELETE_NAME, payload: name });
+    dispatch(calculate())
 
 }
 export const addFood = (food) => (dispatch) => {

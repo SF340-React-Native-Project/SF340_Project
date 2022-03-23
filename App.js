@@ -17,8 +17,9 @@ import Calculated from "./src/screens/Calculated";
 
 
 //redux stuff
+import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
-import Store from "./src/redux/store"
+import { Store, persistor } from "./src/redux/store"
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -33,7 +34,15 @@ function Components() {
       }}>
       <Stack.Screen name="FoodList" component={Food} />
       <Stack.Screen name="Price" component={Price} />
-      <Stack.Screen name="Calculated" component={Calculated} />
+      <Stack.Screen name="Calculated" component={Calculated}
+        options={{
+          headerShown: true,
+          headerMode: 'screen',
+          headerTintColor: 'white',
+          headerStyle: { backgroundColor: 'tomato' },
+          title: 'Awesome app',
+        }}
+      />
     </Stack.Navigator>
   );
 }
@@ -41,18 +50,20 @@ function Components() {
 const App = () => {
   return (
     <Provider store={Store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <NavigationContainer>
+          <Drawer.Navigator initialRouteName="Welcome"
+            screenOptions={{
 
-      <NavigationContainer>
-        <Drawer.Navigator initialRouteName="Welcome"
-          screenOptions={{
-            headerShown: false
-          }}>
-          <Drawer.Screen name="Welcome" component={Welcome} />
-          <Drawer.Screen name="Home" component={Home} />
-          <Drawer.Screen name="Food" component={Components} />
-          <Drawer.Screen name="Game" component={Game} />
-        </Drawer.Navigator>
-      </NavigationContainer>
+              headerShown: false
+            }}>
+            <Drawer.Screen name="Welcome" component={Welcome} />
+            <Drawer.Screen name="Home" component={Home} />
+            <Drawer.Screen name="Food" component={Components} />
+            <Drawer.Screen name="Game" component={Game} />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </PersistGate>
     </Provider>
 
   );

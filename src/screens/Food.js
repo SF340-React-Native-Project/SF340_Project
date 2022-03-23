@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
 
 //redux stuff
@@ -11,10 +11,8 @@ import Foodname from '../components/Foodname';
 
 const Food = ({ navigation }) => {
   const dispatch = useDispatch();
-  const foodList = useSelector(state => state.data)
-
+  const { foodList } = useSelector(state => state.data)
   const [food, setFood] = useState();
-
 
   const handleAddTask = () => {
     if (food !== null && food.length > 0) {
@@ -25,14 +23,14 @@ const Food = ({ navigation }) => {
   }
 
   const toCalculate = () => {
-    dispatch(calculate())
     navigation.navigate('Calculated')
   }
+
 
   const loopFoods = () => {
     const foods = [];
 
-    foodList.foodList.map((item, index) =>
+    foodList.map((item, index) =>
       foods.push(
         <TouchableOpacity key={index} onPress={() => { navigation.navigate('Price', { foodname: item.foodname, member: item.member, price: item.price, id: item.id }); }}>
           <Foodname foodname={item.foodname} price={item.price} />
