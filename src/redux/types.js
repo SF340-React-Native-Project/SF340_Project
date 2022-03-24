@@ -9,3 +9,6 @@ export const SET_NEW_PRICE = "SET_NEW_PRICE"
 export const SET_MEMBER_VALUE = "SET_MEMBER_VALUE"
 
 export const CALCULATE = "CALCULATE"
+
+
+export const CHANGE_THEME = "CHANGE_THEME"

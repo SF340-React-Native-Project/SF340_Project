@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import ColorPalette from './src/components/ColorPalette';
 
 
 
@@ -20,6 +21,7 @@ import Calculated from "./src/screens/Calculated";
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { Store, persistor } from "./src/redux/store"
+import CustomDrawer from './src/components/CustomDrawer';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -52,16 +54,26 @@ const App = () => {
     <Provider store={Store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
-          <Drawer.Navigator initialRouteName="Welcome"
+          <Drawer.Navigator
+            drawerContent={props => <CustomDrawer {...props} />}
             screenOptions={{
+              headerShown: false,
+              drawerActiveBackgroundColor: '#aa18ea',
+              drawerActiveTintColor: '#fff',
+              drawerInactiveTintColor: '#333',
+              drawerLabelStyle: {
+                marginLeft: 5,
+                fontFamily: 'Roboto-Medium',
+                fontSize: 15,
+              },
+            }} >
 
-              headerShown: false
-            }}>
             <Drawer.Screen name="Welcome" component={Welcome} />
             <Drawer.Screen name="Home" component={Home} />
             <Drawer.Screen name="Food" component={Components} />
             <Drawer.Screen name="Game" component={Game} />
           </Drawer.Navigator>
+
         </NavigationContainer>
       </PersistGate>
     </Provider>
