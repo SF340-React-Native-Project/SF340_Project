@@ -1,6 +1,9 @@
 import * as React from 'react';
+
+//Navigation
 import { createStackNavigator } from '@react-navigation/stack';
 
+//Screen
 import Food from '../screens/Food';
 import Price from '../screens/Price';
 import Calculated from "../screens/Calculated";

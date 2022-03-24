@@ -20,23 +20,18 @@ const CustomDrawer = props => {
                 {...props}
                 contentContainerStyle={{ backgroundColor: '#8200d6' }}>
 
-                <Text
-                    style={{
-                        color: '#fff',
-                        fontSize: 18,
-                        fontFamily: 'Roboto-Medium',
-                        marginBottom: 5,
-                    }}>
-                    John Doe
-                </Text>
-                <View style={{ flexDirection: 'row' }}>
+                <View style={{
+                    alignItems:'center',
+                    padding:10
+                }}>
                     <Text
                         style={{
                             color: '#fff',
-                            fontFamily: 'Roboto-Regular',
-                            marginRight: 5,
+                            fontSize: 20,
+                            fontFamily: 'Roboto-Medium',
+                            marginBottom: 5,
                         }}>
-                        280 Coins
+                        WONG LOU
                     </Text>
                 </View>
 
@@ -45,7 +40,7 @@ const CustomDrawer = props => {
                 </View>
             </DrawerContentScrollView>
             <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: '#ccc' }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft:-55,paddingBottom:20 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: -55, paddingBottom: 20 }}>
                     <ColorPalette />
                 </View>
                 <TouchableOpacity onPress={() => { }} style={{ paddingVertical: 15 }}>
