@@ -1,140 +1,202 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, TextInput } from 'react-native';
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import React, {useEffect, useState} from 'react';
+import {View, Text, StyleSheet, TextInput} from 'react-native';
+import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 
 //redux stuff
 
-import { useDispatch, useSelector } from 'react-redux'
-import { setMemberValue, setFoodPrice, calculate } from '../redux/actions/dataActions'
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  setMemberValue,
+  setFoodPrice,
+  calculate,
+} from '../redux/actions/dataActions';
 
 import NameForPrice from '../components/NameForPrice';
 
-
-const Price = ({ route, navigation }) => {
+const Price = ({route, navigation}) => {
   const dispatch = useDispatch();
   const foodList = useSelector(state => state.data.foodList);
-  const { foodname, member, price, id } = route.params;
+  const {foodname, member, price, id} = route.params;
 
-  const [newprice, setNewprice] = useState(0)
+  const [newprice, setNewprice] = useState(0);
 
+  const handleTouchPrice = name => {
+    dispatch(setMemberValue(id, name));
+    dispatch(calculate());
+  };
 
-
-  const handleTouchPrice = (name) => {
-    dispatch(setMemberValue(id, name))
-    dispatch(calculate())
-  }
-
-  
   const goBlack = () => {
     if (newprice > 0) {
-      dispatch(setFoodPrice(id, newprice))
+      dispatch(setFoodPrice(id, newprice));
     }
 
-    navigation.navigate('FoodList')
-  }
+    navigation.navigate('FoodList');
+  };
 
-  const setPrice = (val) => {
-    dispatch(setFoodPrice(id, val))
+  const setPrice = val => {
+    dispatch(setFoodPrice(id, val));
     // setNewprice(val)
-    dispatch(calculate())
-  }
+    dispatch(calculate());
+  };
 
   const LoopName = () => {
     var forLoopName = [];
 
     for (const [key, value] of Object.entries(member)) {
       forLoopName.push(
-        <TouchableOpacity key={key} style={{ paddingHorizontal: 20 }} onPress={() => handleTouchPrice(key)}>
-          <View style={{
-            backgroundColor: value === 0 ? 'rgba(52, 52, 52, 0.2)' : 'green',
-            padding: 15,
-            borderRadius: 10,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: 20,
-          }}>
+        <TouchableOpacity
+          key={key}
+          style={{paddingHorizontal: 20}}
+          onPress={() => handleTouchPrice(key)}>
+          <View
+            style={{
+              padding: 15,
+              borderRadius: 10,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginBottom: 20,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: 10,
+              fontSize: 15,
+              fontWeight: 'bold',
+              borderRadius: 15,
+              borderColor: value === 0 ? '#ffffff' : '#7B68EE',
+              borderWidth: 2,
+              borderStyle: 'dashed',
+              color: '#90EE90', // *** Color ***
+              marginBottom: 20,
+            }}>
             <View style={styles.itemLeft}>
               <View style={styles.square}></View>
               <NameForPrice text={key} />
             </View>
-            <View style={styles.circular}></View>
+            <View style={{
+              width: 12,
+              height: 12,
+              borderColor: value === 0 ? '#DC143C' : '#32CD32', // *** Color ***
+              borderWidth: 3.5,
+              borderRadius: 15,
+            }}></View>
           </View>
-        </TouchableOpacity>)
+        </TouchableOpacity>,
+      );
     }
 
-    return (forLoopName);
-  }
+    return forLoopName;
+  };
 
   return (
     <ScrollView>
-      <View style={styles.container} >
-        <Text style={styles.sectionTitle} > Food name: {foodname}</Text>
-        <Text style={styles.sectionTitle1} > Food price: {price}</Text>
-
+      <View style={styles.container}>
+        <Text style={styles.sectionTitle}>
+          {''} Name: <Text style={styles.textShow}>{foodname}</Text>
+          {'\n'} Price: <Text style={styles.textShow}>{price}</Text>
+        </Text>
 
         <TextInput
           style={styles.input}
-          placeholder='1500'
-          keyboardType='numeric'
-          onChangeText={(val) => setPrice(val)}
+          placeholder="Enter amount"
+          placeholderTextColor={'white'}
+          keyboardType="numeric"
+          onChangeText={val => setPrice(val)}
         />
 
-        <View style={{ paddingTop: 20 }}></View>
-        <View>
-          {LoopName()}
-        </View>
+        <View style={{paddingTop: 20}}></View>
+        <View>{LoopName()}</View>
         <TouchableOpacity onPress={() => goBlack()}>
-          <Text> Save </Text>
+          <Text style={styles.saveButton}> Save </Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-  itemLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flexWrap: 'wrap'
-  },
-  square: {
-    width: 24,
-    height: 24,
-    backgroundColor: '#55BCF6',
-    opacity: 0.4,
-    borderRadius: 5,
-    marginRight: 15,
-  },
-  circular: {
-    width: 12,
-    height: 12,
-    borderColor: '#55BCF6',
-    borderWidth: 2,
-    borderRadius: 5,
-  },
   container: {
-    flex: 1,
-    paddingTop: 15,
-    paddingHorizontal: 20,
+    height: 720,
+    backgroundColor: 'rgb(15,35,45)', // *** Color ***
   },
   sectionTitle: {
-    fontSize: 24,
-    fontWeight: 'bold'
-  },
-  sectionTitle1: {
-    fontSize: 18,
+    fontSize: 30,
+    marginTop: 30,
+    marginLeft: 'auto',
+    marginRight: 'auto',
     fontWeight: 'bold',
-    paddingTop: 5,
-    paddingLeft: 2,
+    borderRadius: 15,
+    borderColor: '#FF3CBE', // *** Color ***
+    borderWidth: 4,
+    borderStyle: 'dashed',
+    color: '#FF3CBE', // *** Color ***
+    width: 300,
+    paddingTop: 20,
+    paddingBottom: 20,
+    shadowColor: '#A540FF', // *** Color ***
+    elevation: 80,
+    textShadowColor: '#f50abe', // *** Color ***
+    textShadowOffset: {width: 2, height: 2},
+    textShadowRadius: 20,
+  },
+  textShow: {
+    fontSize: 25,
+    color: '#FFFFFF', // *** Color ***
+  },
+  edit: {
+    color: '#FF2281', // *** Color ***
+    fontSize: 20,
+    marginTop: 30,
+    marginBottom: 5,
+    marginLeft: 20,
+    borderStyle: 'dashed',
+    textShadowColor: '#f50abe', // *** Color ***
+    textShadowOffset: {width: 2, height: 2},
+    textShadowRadius: 10,
   },
   input: {
-    borderWidth: 1,
-    borderColor: '#777',
+    placeholder: '#FFFFFF', // *** Color ***
     padding: 5,
     paddingLeft: 10,
-    margin: 10,
+    marginTop: 10,
+    marginBottom: 25,
+    marginLeft: 20,
+    marginRight: 'auto',
     width: 200,
+    fontWeight: 'bold',
+    borderRadius: 10,
+    borderColor: '#8A2BE2', // *** Color ***
+    borderWidth: 2,
+    color: 'white', // *** Color ***
+    textAlign: 'center',
+    alignContent: 'center',
+  },
+  itemLeft: {
+    width: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    borderRadius: 15,
+  },
+  saveButton: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 15,
+    marginBottom: 15,
+    borderRadius: 15,
+    borderColor: '#FF3CBE', // *** Color ***
+    borderWidth: 2,
+    color: '#FF3CBE', // *** Color ***
+    textAlign: 'center',
+    fontSize: 35,
+    fontFamily: 'Neonderthaw-Regular',
+    textShadowColor: '#f50abe', // *** Color ***
+    textShadowOffset: {width: 3, height: 3},
+    textShadowRadius: 20,
+    width: 300,
+    height: 60,
+    shadowColor: '#A540FF', // *** Color ***
+    elevation: 22,
   },
 });
 

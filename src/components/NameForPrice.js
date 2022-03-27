@@ -11,6 +11,11 @@ const NameForPrice = (props) => {
 const styles = StyleSheet.create({
   itemText: {
     maxWidth: '80%',
+    fontWeight: 'bold',
+    color : '#FF3CBE', // *** Color ***
+    textShadowColor: '#f50abe', // *** Color ***
+    textShadowOffset: {width: 2, height: 2},
+    textShadowRadius: 10, 
   },
 });
 
