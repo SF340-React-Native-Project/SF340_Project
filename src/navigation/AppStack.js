@@ -16,6 +16,7 @@ import CustomDrawer from '../components/CustomDrawer';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { Store, persistor } from "../redux/store"
+import Calendar from '../screens/Calendar';
 
 
 
@@ -44,6 +45,7 @@ const AppStack = () => {
             <Drawer.Screen name="Home" component={Home} />
             <Drawer.Screen name="Food" component={FoodStack} />
             <Drawer.Screen name="Suggest" component={Suggestion} />
+            <Drawer.Screen name="Calendar" component={Calendar} />
             <Drawer.Screen name="Game" component={Game} />
           </Drawer.Navigator>
 
