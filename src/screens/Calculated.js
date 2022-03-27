@@ -33,7 +33,7 @@ const Calculated = ({ navigation }) => {
             </TouchableOpacity>)}
         </View>
         <TouchableOpacity onPress={() => goBlack()}>
-          <Text> Exit </Text>
+          <Text style={styles.toggleExit}> Exit </Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -43,26 +43,54 @@ const Calculated = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
-    paddingHorizontal: 20,
+    backgroundColor: 'rgb(15,35,45)', // *** Color ***
+    flexDirection: "column",
+    width: 400,
+    height: 720,
   },
   sectionTitle: {
-    fontSize: 24,
-    fontWeight: 'bold'
-  },
-  sectionTitle1: {
-    fontSize: 18,
+    marginTop:30,
+    marginLeft: 'auto',
+    marginRight: 'auto',
     fontWeight: 'bold',
-    paddingTop: 5,
-    paddingLeft: 2,
+    borderRadius: 15,
+    borderColor: '#FF3CBE', // *** Color ***
+    borderWidth: 3,
+    color :'rgb(242,197,4)', // *** Color ***
+    textAlign: 'center',
+    width: 300,
+    height: 70,
+    fontSize : 45,
+    fontFamily: 'Neonderthaw-Regular',
+    shadowColor: "#A540FF", // *** Color ***
+    elevation: 50,
+    textShadowColor: '#f50abe', // *** Color ***
+    textShadowOffset: {width: 2, height: 2},
+    textShadowRadius: 25,
   },
-  input: {
-    borderWidth: 1,
-    borderColor: '#777',
-    padding: 5,
-    paddingLeft: 10,
-    margin: 10,
-    width: 200,
+  toggleExit:{
+    borderRadius: 8,
+    borderColor: '#FF0000', // *** Color ***
+    borderWidth: 2,
+    color : '#FF0000', // *** Color ***
+    textAlign: "center",
+    fontSize : 30,
+    width : 80,
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    shadowColor: "#D2691E", // *** Color ***
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 5,
+    shadowRadius: 16.00,
+    elevation: 16,
+    textShadowColor: '#D2691E', // *** Color ***
+    textShadowOffset: {width: 2, height: 2},
+    textShadowRadius: 15,
   },
 });
 
