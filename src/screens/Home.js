@@ -150,6 +150,7 @@ const styles = StyleSheet.create({
   addText: {
     fontSize: 35,
     color: '#10FF92', // *** Color ***
+    paddingBottom: 10
   },
   toggleAdd: {
     borderRadius: 15,

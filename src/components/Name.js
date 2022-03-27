@@ -6,46 +6,46 @@ const Name = (props) => {
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
-        <View style={styles.square}></View>
+        <View style={styles.circular}></View>
         <Text style={styles.itemText}>{props.text}</Text>
       </View>
-      <View style={styles.circular}></View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: '#FFF',
-    padding: 15,
-    borderRadius: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 20,
+    padding: 10,
+    fontSize: 15,
+    fontWeight: 'bold',
+    borderRadius: 15,
+    borderColor: '#CCFF33', // *** Color ***
+    borderWidth: 2,
+    borderStyle: 'dashed',
+    color : '#90EE90', // *** Color ***
+    shadowColor: "#A540FF", // *** Color ***
+    elevation: 50,
+    marginBottom: 15,
   },
   itemLeft: {
     flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'wrap'
   },
-  square: {
-    width: 24,
-    height: 24,
-    backgroundColor: '#55BCF6',
+  circular: {
+    width: 15,
+    height: 15,
+    backgroundColor: '#FF3CBE', // *** Color ***
     opacity: 0.4,
-    borderRadius: 5,
-    marginRight: 15,
+    borderRadius: 100,
+    marginRight: 10,
   },
   itemText: {
-    maxWidth: '80%',
-  },
-  circular: {
-    width: 12,
-    height: 12,
-    borderColor: '#55BCF6',
-    borderWidth: 2,
-    borderRadius: 5,
+    color : '#90EE90', // *** Color ***
+    textAlign: 'center',
+    textShadowColor: '#f50abe', // *** Color ***
+    textShadowOffset: {width: 1, height: 1},
+    textShadowRadius: 10,
   },
 });
 
