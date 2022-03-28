@@ -1,22 +1,26 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+
 
 const Foodname = (props) => {
   console.log(props, 'foodname')
+  const { theme } = useSelector(state => state.theme);
+
   return (
-    <View style={styles.item}>
-      <View style={styles.itemLeft}>
-        <View style={styles.circular}></View>
-        <Text style={styles.itemText}>{props.foodname}</Text>
+    <View style={styles(theme).item}>
+      <View style={styles(theme).itemLeft}>
+        <View style={styles(theme).circular}></View>
+        <Text style={styles(theme).itemText}>{props.foodname}</Text>
       </View>
-      <View style={styles.itemRight}>
-        <Text style={styles.itemText}>{props.price}</Text>
+      <View style={styles(theme).itemRight}>
+        <Text style={styles(theme).itemText}>{props.price}</Text>
       </View>
     </View>
   )
 }
 
-const styles = StyleSheet.create({
+const styles = (theme) => StyleSheet.create({
   item: {
     padding: 10,
     fontSize: 15,

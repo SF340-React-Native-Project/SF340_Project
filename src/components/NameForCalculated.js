@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 
 const NameForCalculated = (props) => {
-
+  const { theme } = useSelector(state => state.theme);
+  
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
@@ -15,7 +17,7 @@ const NameForCalculated = (props) => {
 }
 
 
-const styles = StyleSheet.create({
+const styles = (theme) => StyleSheet.create({
   item: {
     flexDirection: 'row',
     alignItems: 'center',
