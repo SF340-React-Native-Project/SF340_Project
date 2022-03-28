@@ -45,44 +45,44 @@ const Calculated = ({ navigation }) => {
 const styles = (theme) => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgb(15,35,45)', // *** Color ***
+    backgroundColor: theme.background.pri100, // *** Color ***
     flexDirection: "column",
     width: 400,
     height: 720,
   },
   sectionTitle: {
-    marginTop:30,
+    marginTop: 30,
     marginLeft: 'auto',
     marginRight: 'auto',
     fontWeight: 'bold',
     borderRadius: 15,
-    borderColor: '#FF3CBE', // *** Color ***
+    borderColor: theme.border.pri200, // *** Color ***
     borderWidth: 3,
-    color :'rgb(242,197,4)', // *** Color ***
+    color: theme.text.pri800, // *** Color ***
     textAlign: 'center',
     width: 300,
     height: 70,
-    fontSize : 45,
+    fontSize: 45,
     fontFamily: 'Neonderthaw-Regular',
-    shadowColor: "#A540FF", // *** Color ***
+    shadowColor: theme.shadow.pri300, // *** Color ***
     elevation: 50,
-    textShadowColor: '#f50abe', // *** Color ***
-    textShadowOffset: {width: 2, height: 2},
+    textShadowColor: theme.shadow.pri100, // *** Color ***
+    textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 25,
   },
-  toggleExit:{
+  toggleExit: {
     borderRadius: 8,
-    borderColor: '#FF0000', // *** Color ***
+    borderColor: theme.border.pri110, // *** Color ***
     borderWidth: 2,
-    color : '#FF0000', // *** Color ***
+    color: theme.text.pri900, // *** Color ***
     textAlign: "center",
-    fontSize : 30,
-    width : 80,
+    fontSize: 30,
+    width: 80,
     marginTop: 10,
     marginBottom: 10,
     marginLeft: 'auto',
     marginRight: 'auto',
-    shadowColor: "#D2691E", // *** Color ***
+    shadowColor: theme.shadow.pri500, // *** Color ***
     shadowOffset: {
       width: 0,
       height: 12,
@@ -90,8 +90,8 @@ const styles = (theme) => StyleSheet.create({
     shadowOpacity: 5,
     shadowRadius: 16.00,
     elevation: 16,
-    textShadowColor: '#D2691E', // *** Color ***
-    textShadowOffset: {width: 2, height: 2},
+    textShadowColor: theme.shadow.pri500, // *** Color ***
+    textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 15,
   },
 });

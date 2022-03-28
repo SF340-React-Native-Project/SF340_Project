@@ -103,18 +103,18 @@ const styles = (theme) => StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     borderRadius: 15,
-    borderColor: '#CCFF33', // *** Color ***
+    borderColor: theme.border.pri500, // *** Color ***
     borderWidth: 2,
     borderStyle: 'dashed',
-    color: '#90EE90', // *** Color ***
+    color: theme.text.pri500, // *** Color ***
     textAlign: 'center',
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 20,
     paddingRight: 20,
-    shadowColor: '#A540FF', // *** Color ***
+    shadowColor: theme.shadow.pri300, // *** Color ***
     elevation: 18,
-    textShadowColor: '#f50abe', // *** Color ***
+    textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 10,
   },
@@ -122,24 +122,24 @@ const styles = (theme) => StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     borderRadius: 15,
-    borderColor: '#CCFF33', // *** Color ***
+    borderColor: theme.border.pri500, // *** Color ***
     borderWidth: 2,
     borderStyle: 'dashed',
-    color: '#90EE90', // *** Color ***
+    color: theme.text.pri500, // *** Color ***
     textAlign: 'center',
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 20,
     paddingRight: 20,
-    shadowColor: '#A540FF', // *** Color ***
+    shadowColor: theme.shadow.pri300, // *** Color ***
     elevation: 18,
-    textShadowColor: '#f50abe', // *** Color ***
+    textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 10,
   },
   container: {
     flex: 1,
-    backgroundColor: 'rgb(15,35,45)', // *** Color ***
+    backgroundColor: theme.background.pri100, // *** Color ***
   },
   tasksWrapper: {
     paddingTop: 15,
@@ -152,17 +152,17 @@ const styles = (theme) => StyleSheet.create({
     marginRight: 'auto',
     fontWeight: 'bold',
     borderRadius: 15,
-    borderColor: '#FF3CBE', // *** Color ***
+    borderColor: theme.border.pri200, // *** Color ***
     borderWidth: 4,
     borderStyle: 'dashed',
-    color: '#FF3CBE', // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
     width: 300,
     paddingTop: 20,
     paddingBottom: 20,
-    shadowColor: '#A540FF', // *** Color ***
+    shadowColor: theme.shadow.pri300, // *** Color ***
     elevation: 67,
-    textShadowColor: '#f50abe', // *** Color ***
+    textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 3, height: 3 },
     textShadowRadius: 20,
   },
@@ -184,30 +184,29 @@ const styles = (theme) => StyleSheet.create({
     borderColor: 'white', // *** Color ***
     borderWidth: 3,
     width: 250,
-    color: '#90EE90', // *** Color ***
+    color: theme.textinput.pri100, // *** Color ***
   },
   addWrapper: {
     width: 60,
     height: 60,
-    color: '#0CF4FF', // *** Color ***
     borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#A540FF', // *** Color ***
+    borderColor: theme.border.pri300, // *** Color ***
     borderWidth: 5,
   },
   toggleAdd: {
     bottom: 15,
     borderRadius: 15,
-    borderColor: '#FF3CBE', // *** Color ***
+    borderColor: theme.border.pri200, // *** Color ***
     borderWidth: 2,
-    color: '#FF3CBE', // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
     width: 300,
     height: 60,
     fontSize: 40,
     fontFamily: 'Neonderthaw-Regular',
-    shadowColor: '#A540FF', // *** Color ***
+    shadowColor: theme.border.pri300, // *** Color ***
     shadowOffset: {
       width: 0,
       height: 12,
@@ -215,7 +214,7 @@ const styles = (theme) => StyleSheet.create({
     shadowOpacity: 5,
     shadowRadius: 16.0,
     elevation: 55,
-    textShadowColor: '#f50abe', // *** Color ***
+    textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 3, height: 3 },
     textShadowRadius: 15,
   },
@@ -225,8 +224,8 @@ const styles = (theme) => StyleSheet.create({
   },
   addText: {
     fontSize: 35,
-    color: '#10FF92', // *** Color ***
-    textShadowColor: '#f50abe', // *** Color ***
+    color: theme.text.pri300, // *** Color ***
+    textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 10,
   },

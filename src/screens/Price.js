@@ -64,10 +64,10 @@ const Price = ({ route, navigation }) => {
               fontSize: 15,
               fontWeight: 'bold',
               borderRadius: 15,
-              borderColor: value === 0 ? '#ffffff' : '#7B68EE',
+              borderColor: value === 0 ? theme.border.pri100 : theme.border.pri600,
               borderWidth: 2,
               borderStyle: 'dashed',
-              color: '#90EE90', // *** Color ***
+              color: theme.text.pri500, // *** Color ***
               marginBottom: 20,
             }}>
             <View style={styles(theme).itemLeft}>
@@ -77,7 +77,7 @@ const Price = ({ route, navigation }) => {
             <View style={{
               width: 12,
               height: 12,
-              borderColor: value === 0 ? '#DC143C' : '#32CD32', // *** Color ***
+              borderColor: value === 0 ? theme.border.pri700 : theme.border.pri800, // *** Color ***
               borderWidth: 3.5,
               borderRadius: 15,
             }}></View>
@@ -127,36 +127,36 @@ const styles = (theme) => StyleSheet.create({
     marginRight: 'auto',
     fontWeight: 'bold',
     borderRadius: 15,
-    borderColor: '#FF3CBE', // *** Color ***
+    borderColor: theme.border.pri200, // *** Color ***
     borderWidth: 4,
     borderStyle: 'dashed',
-    color: '#FF3CBE', // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     width: 300,
     paddingTop: 20,
     paddingBottom: 20,
-    shadowColor: '#A540FF', // *** Color ***
+    shadowColor: theme.shadow.pri300, // *** Color ***
     elevation: 80,
-    textShadowColor: '#f50abe', // *** Color ***
+    textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 20,
   },
   textShow: {
     fontSize: 25,
-    color: '#FFFFFF', // *** Color ***
+    color: theme.text.pri600, // *** Color ***
   },
   edit: {
-    color: '#FF2281', // *** Color ***
+    color: theme.text.pri700, // *** Color ***
     fontSize: 20,
     marginTop: 30,
     marginBottom: 5,
     marginLeft: 20,
     borderStyle: 'dashed',
-    textShadowColor: '#f50abe', // *** Color ***
+    textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 10,
   },
   input: {
-    placeholder: '#FFFFFF', // *** Color ***
+    placeholder: theme.textinput.pri200, // *** Color ***
     padding: 5,
     paddingLeft: 10,
     marginTop: 10,
@@ -166,7 +166,7 @@ const styles = (theme) => StyleSheet.create({
     width: 200,
     fontWeight: 'bold',
     borderRadius: 10,
-    borderColor: '#8A2BE2', // *** Color ***
+    borderColor: theme.border.pri900, // *** Color ***
     borderWidth: 2,
     color: 'white', // *** Color ***
     textAlign: 'center',
@@ -185,18 +185,18 @@ const styles = (theme) => StyleSheet.create({
     marginTop: 15,
     marginBottom: 15,
     borderRadius: 15,
-    borderColor: '#FF3CBE', // *** Color ***
+    borderColor: theme.border.pri200, // *** Color ***
     borderWidth: 2,
-    color: '#FF3CBE', // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
     fontSize: 35,
     fontFamily: 'Neonderthaw-Regular',
-    textShadowColor: '#f50abe', // *** Color ***
+    textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 3, height: 3 },
     textShadowRadius: 20,
     width: 300,
     height: 60,
-    shadowColor: '#A540FF', // *** Color ***
+    shadowColor: theme.shadow.pri300, // *** Color ***
     elevation: 22,
   },
 });

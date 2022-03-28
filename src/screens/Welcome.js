@@ -14,6 +14,7 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Home from './Home';
 import { color } from 'react-native-reanimated';
 import { useSelector, useDispatch } from 'react-redux';
+import Blink from '../components/Blink';
 
 
 const Welcome = ({ navigation }) => {
@@ -30,12 +31,15 @@ const Welcome = ({ navigation }) => {
         />
       </View>
       <View style={{ flexDirection: 'row' }}>
-        <Text
-          style={styles(theme).textbut}
-          onPress={() => navigation.navigate('Home')}>
-          {' '}
-          {'HANG \nOUT!!'}{' '}
-        </Text>
+        <Blink duration={400}>
+          <Text
+            style={styles(theme).textbut}
+            onPress={() => navigation.navigate('Home')}>
+            {' '}
+            {'HANG \nOUT!!'}{' '}
+          </Text>
+        </Blink>
+
         <Image style={styles(theme).beerimg} source={require('./../../image/beer2.png')} />
       </View>
     </View>

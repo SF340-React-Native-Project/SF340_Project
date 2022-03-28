@@ -6,12 +6,12 @@ const NameForCalculated = (props) => {
   const { theme } = useSelector(state => state.theme);
   
   return (
-    <View style={styles.item}>
-      <View style={styles.itemLeft}>
-        <View style={styles.circular}></View>
-        <Text style={styles.itemText}>{props.text}</Text>
+    <View style={styles(theme).item}>
+      <View style={styles(theme).itemLeft}>
+        <View style={styles(theme).circular}></View>
+        <Text style={styles(theme).itemText}>{props.text}</Text>
       </View>
-      <Text style={styles.itemText}>{props.price}</Text>
+      <Text style={styles(theme).itemText}>{props.price}</Text>
     </View>
   )
 }

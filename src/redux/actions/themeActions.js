@@ -7,14 +7,42 @@ export const themeOptions = {
             pri200: '#d61cff',
             pri300: '#10FF92',
             pri400: '#F7FA13',
+            pri500: '#90EE90',
+            pri600: '#ffffff',
+            pri700: '#FF2281',
+            pri800: '#f2c504',
+            pri900: '#FF0000',
+
+
+
+
+            // theme.text.pri100: '#FF3CBE',   
+            // theme.text.pri200: '#d61cff',
+            // theme.text.pri300: '#10FF92',
+            // theme.text.pri400: '#F7FA13',
+            // theme.text.pri500: '#90EE90',
+            // theme.text.pri600: '#ffffff',
+            // theme.text.pri700: '#FF2281',
+            // theme.text.pri800: '#f2c504',
+            // theme.text.pri900: '#FF0000',
+
+
 
         },
         textinput: {
             pri100: '#90EE90',
+            pri200: '#ffffff',
+
+
+            // theme.textinput.pri100: '#90EE90',
+            // theme.textinput.pri200: '#ffffff',
+
 
         },
         background: {
             pri100: '#0f232d',
+
+            // theme.background.pri100: '#0f232d',
 
         },
         border: {
@@ -22,6 +50,28 @@ export const themeOptions = {
             pri200: '#FF3CBE',
             pri300: '#A540FF',
             pri400: '#F7FA13',
+            pri500: '#CCFF33',
+            pri600: '#7B68EE',
+            pri700: '#DC143C',
+            pri800: '#32CD32',
+            pri900: '#8A2BE2',
+            pri110: '#FF0000',
+
+
+
+
+            // theme.border.pri100: '#ffffff',
+            // theme.border.pri200: '#FF3CBE',
+            // theme.border.pri300: '#A540FF',
+            // theme.border.pri400: '#F7FA13',
+            // theme.border.pri500: '#CCFF33',
+            // theme.border.pri600: '#7B68EE',
+            // theme.border.pri700: '#DC143C',
+            // theme.border.pri800: '#32CD32',
+            // theme.border.pri900: '#8A2BE2',
+            // theme.border.pri110: '#FF0000',
+
+
 
 
         },
@@ -30,6 +80,18 @@ export const themeOptions = {
             pri200: '#d61cff',
             pri300: '#A540FF',
             pri400: '#F7FA13',
+            pri500: '#D2691E',
+
+
+            
+
+            // theme.shadow.pri100: '#f50abe',
+            // theme.shadow.pri200: '#d61cff',
+            // theme.shadow.pri300: '#A540FF',
+            // theme.shadow.pri400: '#F7FA13',
+            // theme.shadow.pri500: '#D2691E',
+
+            
 
         },
     },
