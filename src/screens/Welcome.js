@@ -9,36 +9,40 @@ import {
   Text,
   Alert,
 } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Home from './Home';
-import {color} from 'react-native-reanimated';
+import { color } from 'react-native-reanimated';
+import { useSelector, useDispatch } from 'react-redux';
 
-const Welcome = ({navigation}) => {
+
+const Welcome = ({ navigation }) => {
+  const { theme } = useSelector(state => state.theme);
+
   return (
-    <View style={styles.container}>
-      <Image style={styles.tinyLogo} source={require('./../../image/newbg.png')} />
-      <View style={{flexDirection: 'row'}}>
-        <Image style={styles.label} source={require('./../../image/label.png')} />
+    <View style={styles(theme).container}>
+      <Image style={styles(theme).tinyLogo} source={require('./../../image/newbg.png')} />
+      <View style={{ flexDirection: 'row' }}>
+        <Image style={styles(theme).label} source={require('./../../image/label.png')} />
         <Image
-          style={styles.pinkbeer}
+          style={styles(theme).pinkbeer}
           source={require('./../../image/pinkbeer.png')}
         />
       </View>
-      <View style={{flexDirection: 'row'}}>
+      <View style={{ flexDirection: 'row' }}>
         <Text
-          style={styles.textbut}
+          style={styles(theme).textbut}
           onPress={() => navigation.navigate('Home')}>
           {' '}
           {'HANG \nOUT!!'}{' '}
         </Text>
-        <Image style={styles.beerimg} source={require('./../../image/beer2.png')} />
+        <Image style={styles(theme).beerimg} source={require('./../../image/beer2.png')} />
       </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const styles = (theme) => StyleSheet.create({
   tinyLogo: {
     width: '90%',
     height: 200,
@@ -53,7 +57,7 @@ const styles = StyleSheet.create({
   label: {
     width: 125,
     height: 125,
-    transform: [{rotate: '5deg'}, {translateX: 170}, {translateY: 90}],
+    transform: [{ rotate: '5deg' }, { translateX: 170 }, { translateY: 90 }],
     zIndex: -1,
   },
   textbut: {
@@ -72,25 +76,25 @@ const styles = StyleSheet.create({
     shadowOpacity: 5,
     shadowRadius: 16.0,
     elevation: 50,
-    transform: [{translateX: 15}, {translateY: -50}, {rotate: '-8deg'}],
+    transform: [{ translateX: 15 }, { translateY: -50 }, { rotate: '-8deg' }],
     textAlign: 'center',
     justifyContent: 'center',
     marginBottom: 140,
     textShadowColor: '#f50abe',
-    textShadowOffset: {width: 2, height: 2},
+    textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 22,
   },
   beerimg: {
     width: 200,
     height: 200,
     marginTop: 50,
-    transform: [{translateY: -20}, {translateX: 35}, {rotate: '10deg'}],
+    transform: [{ translateY: -20 }, { translateX: 35 }, { rotate: '10deg' }],
     zIndex: -1,
   },
   pinkbeer: {
     width: 150,
     height: 150,
-    transform: [{translateY: 250}, {translateX: -150}, {rotate: '-10deg'}],
+    transform: [{ translateY: 250 }, { translateX: -150 }, { rotate: '-10deg' }],
   },
 });
 

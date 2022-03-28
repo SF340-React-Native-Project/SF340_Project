@@ -24,6 +24,7 @@ class Game extends Component {
         };
         this.child = null;
         this.participants = props.data;
+        this.theme = props.theme;
 
     }
 
@@ -50,7 +51,7 @@ class Game extends Component {
 
 
         return (
-            <View style={styles.container}>
+            <View style={styles(this.theme).container}>
                 <StatusBar barStyle={'light-content'} />
                 <WheelOfFortune
                     options={wheelOptions}
@@ -59,17 +60,17 @@ class Game extends Component {
                     }}
                 />
                 {!this.state.started && (
-                    <View style={styles.startButtonView}>
+                    <View style={styles(this.theme).startButtonView}>
                         <TouchableOpacity
                             onPress={() => this.buttonPress()}
-                            style={styles.startButton}>
-                            <Text style={styles.startButtonText}>Spin to win!</Text>
+                            style={styles(this.theme).startButton}>
+                            <Text style={styles(this.theme).startButtonText}>Spin to win!</Text>
                         </TouchableOpacity>
                     </View>
                 )}
                 {this.state.winnerIndex != null && (
-                    <View style={styles.winnerView}>
-                        <Text style={styles.winnerText}>
+                    <View style={styles(this.theme).winnerView}>
+                        <Text style={styles(this.theme).winnerText}>
                             You win {this.participants[this.state.winnerIndex]}
                         </Text>
                         <TouchableOpacity
@@ -77,8 +78,8 @@ class Game extends Component {
                                 this.setState({ winnerIndex: null });
                                 this.child._tryAgain();
                             }}
-                            style={styles.tryAgainButton}>
-                            <Text style={styles.tryAgainText}>TRY AGAIN</Text>
+                            style={styles(this.theme).tryAgainButton}>
+                            <Text style={styles(this.theme).tryAgainText}>TRY AGAIN</Text>
                         </TouchableOpacity>
                     </View>
                 )}
@@ -89,15 +90,18 @@ class Game extends Component {
 
 const mapStateToProps = (state) => {
     const dataTemp = state.data.nameList
+    const theme = state.theme.theme
+
 
     return {
-        data: dataTemp
+        data: dataTemp,
+        theme: theme
     }
 }
 
 export default connect(mapStateToProps)(Game);
 
-const styles = StyleSheet.create({
+const styles = (theme) => StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',

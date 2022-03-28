@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, TextInput} from 'react-native';
-import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
 //redux stuff
 
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   setMemberValue,
   setFoodPrice,
@@ -13,10 +13,11 @@ import {
 
 import NameForPrice from '../components/NameForPrice';
 
-const Price = ({route, navigation}) => {
+const Price = ({ route, navigation }) => {
   const dispatch = useDispatch();
   const foodList = useSelector(state => state.data.foodList);
-  const {foodname, member, price, id} = route.params;
+  const { theme } = useSelector(state => state.theme);
+  const { foodname, member, price, id } = route.params;
 
   const [newprice, setNewprice] = useState(0);
 
@@ -46,7 +47,7 @@ const Price = ({route, navigation}) => {
       forLoopName.push(
         <TouchableOpacity
           key={key}
-          style={{paddingHorizontal: 20}}
+          style={{ paddingHorizontal: 20 }}
           onPress={() => handleTouchPrice(key)}>
           <View
             style={{
@@ -69,8 +70,8 @@ const Price = ({route, navigation}) => {
               color: '#90EE90', // *** Color ***
               marginBottom: 20,
             }}>
-            <View style={styles.itemLeft}>
-              <View style={styles.square}></View>
+            <View style={styles(theme).itemLeft}>
+              <View style={styles(theme).square}></View>
               <NameForPrice text={key} />
             </View>
             <View style={{
@@ -90,31 +91,31 @@ const Price = ({route, navigation}) => {
 
   return (
     <ScrollView>
-      <View style={styles.container}>
-        <Text style={styles.sectionTitle}>
-          {''} Name: <Text style={styles.textShow}>{foodname}</Text>
-          {'\n'} Price: <Text style={styles.textShow}>{price}</Text>
+      <View style={styles(theme).container}>
+        <Text style={styles(theme).sectionTitle}>
+          {''} Name: <Text style={styles(theme).textShow}>{foodname}</Text>
+          {'\n'} Price: <Text style={styles(theme).textShow}>{price}</Text>
         </Text>
 
         <TextInput
-          style={styles.input}
+          style={styles(theme).input}
           placeholder="Enter amount"
           placeholderTextColor={'white'}
           keyboardType="numeric"
           onChangeText={val => setPrice(val)}
         />
 
-        <View style={{paddingTop: 20}}></View>
+        <View style={{ paddingTop: 20 }}></View>
         <View>{LoopName()}</View>
         <TouchableOpacity onPress={() => goBlack()}>
-          <Text style={styles.saveButton}> Save </Text>
+          <Text style={styles(theme).saveButton}> Save </Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
   );
 };
 
-const styles = StyleSheet.create({
+const styles = (theme) => StyleSheet.create({
   container: {
     height: 720,
     backgroundColor: 'rgb(15,35,45)', // *** Color ***
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
     shadowColor: '#A540FF', // *** Color ***
     elevation: 80,
     textShadowColor: '#f50abe', // *** Color ***
-    textShadowOffset: {width: 2, height: 2},
+    textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 20,
   },
   textShow: {
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     borderStyle: 'dashed',
     textShadowColor: '#f50abe', // *** Color ***
-    textShadowOffset: {width: 2, height: 2},
+    textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 10,
   },
   input: {
@@ -191,7 +192,7 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontFamily: 'Neonderthaw-Regular',
     textShadowColor: '#f50abe', // *** Color ***
-    textShadowOffset: {width: 3, height: 3},
+    textShadowOffset: { width: 3, height: 3 },
     textShadowRadius: 20,
     width: 300,
     height: 60,

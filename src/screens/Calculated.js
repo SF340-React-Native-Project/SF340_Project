@@ -16,6 +16,8 @@ const Calculated = ({ navigation }) => {
 
   const dispatch = useDispatch();
   const name = useSelector(state => state.data.namecalculate)
+  const { theme } = useSelector(state => state.theme);
+
 
   const goBlack = () => {
     navigation.navigate('Welcome');
@@ -23,8 +25,8 @@ const Calculated = ({ navigation }) => {
 
   return (
     <ScrollView>
-      <View style={styles.container} >
-        <Text style={styles.sectionTitle} > Calculated </Text>
+      <View style={styles(theme).container} >
+        <Text style={styles(theme).sectionTitle} > Calculated </Text>
         <View style={{ paddingTop: 20 }}></View>
         <View>
           {name.map((val, idx) =>
@@ -33,14 +35,14 @@ const Calculated = ({ navigation }) => {
             </TouchableOpacity>)}
         </View>
         <TouchableOpacity onPress={() => goBlack()}>
-          <Text style={styles.toggleExit}> Exit </Text>
+          <Text style={styles(theme).toggleExit}> Exit </Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
   )
 }
 
-const styles = StyleSheet.create({
+const styles = (theme) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgb(15,35,45)', // *** Color ***

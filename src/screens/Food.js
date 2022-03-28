@@ -12,6 +12,8 @@ import Foodname from '../components/Foodname';
 const Food = ({ navigation }) => {
   const dispatch = useDispatch();
   const { foodList } = useSelector(state => state.data)
+  const { theme } = useSelector(state => state.theme);
+
   const [food, setFood] = useState();
 
   const handleAddTask = () => {
@@ -41,7 +43,7 @@ const Food = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles(theme).container}>
       {/* Added this scroll view to enable scrolling when list gets longer than the page */}
       <ScrollView
         contentContainerStyle={{
@@ -51,9 +53,9 @@ const Food = ({ navigation }) => {
       >
 
         {/* Today's Tasks */}
-        <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>Food Items</Text>
-          <View style={styles.items}>
+        <View style={styles(theme).tasksWrapper}>
+          <Text style={styles(theme).sectionTitle}>Food Items</Text>
+          <View style={styles(theme).items}>
             {/* This is where the tasks will go! */}
             {loopFoods()}
           </View>
@@ -67,36 +69,36 @@ const Food = ({ navigation }) => {
       {/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.writeTaskWrapper}
+        style={styles(theme).writeTaskWrapper}
       >
         <TextInput
-          style={styles.input}
+          style={styles(theme).input}
           placeholder={'Enter food name'}
           placeholderTextColor={'#90EE90'} // *** Color ***
           value={food}
           onChangeText={text => setFood(text)} />
         <TouchableOpacity onPress={() => handleAddTask()}>
-          <View style={styles.addWrapper}>
-            <Text style={styles.addText}>+</Text>
+          <View style={styles(theme).addWrapper}>
+            <Text style={styles(theme).addText}>+</Text>
           </View>
         </TouchableOpacity>
       </KeyboardAvoidingView>
 
 
-      <View style={styles.bottombar}>
+      <View style={styles(theme).bottombar}>
         <TouchableOpacity onPress={() => navigation.navigate('Game')}>
-          <Text style={styles.Game}> Game </Text>
+          <Text style={styles(theme).Game}> Game </Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => toCalculate()}>
-          <Text style={styles.Calculated}> Calculate </Text>
+          <Text style={styles(theme).Calculated}> Calculate </Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = (theme) => StyleSheet.create({
   Game: {
     fontSize: 15,
     fontWeight: 'bold',
