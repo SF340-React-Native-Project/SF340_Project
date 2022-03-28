@@ -23,8 +23,8 @@ import Calendar from '../screens/Calendar';
 const Drawer = createDrawerNavigator();
 
 const AppStack = () => {
-    return (
-        <Provider store={Store}>
+  return (
+    <Provider store={Store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
           <Drawer.Navigator
@@ -53,7 +53,7 @@ const AppStack = () => {
       </PersistGate>
     </Provider>
 
-    );
+  );
 }
 
 

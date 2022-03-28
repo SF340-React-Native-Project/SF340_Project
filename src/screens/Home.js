@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   KeyboardAvoidingView,
   StyleSheet,
@@ -11,14 +11,15 @@ import {
 } from 'react-native';
 
 //redux stuff
-import {useSelector, useDispatch} from 'react-redux';
-import {addName, editName, deleteName} from '../redux/actions/dataActions';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { addName, editName, deleteName } from '../redux/actions/dataActions';
 import Name from '../components/Name';
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
   const dispatch = useDispatch();
-  const {nameList, foodList, namecalculate} = useSelector(state => state.data);
+  const { nameList, foodList, namecalculate } = useSelector(state => state.data);
+  const { theme } = useSelector(state => state.theme);
+
   const [name, setName] = useState();
   const [toggle, setToggle] = useState(true);
 
@@ -35,8 +36,9 @@ const Home = ({navigation}) => {
     dispatch(deleteName(name));
   };
 
+  console.log(theme);
   return (
-    <View style={styles.container}>
+    <View style={styles(theme).container}>
       {/* Added this scroll view to enable scrolling when list gets longer than the page */}
       <ScrollView
         contentContainerStyle={{
@@ -44,10 +46,10 @@ const Home = ({navigation}) => {
         }}
         keyboardShouldPersistTaps="handled">
         {/* Today's Tasks */}
-        <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>Member</Text>
-          <Text style={styles.nameText}>Name</Text>
-          <View style={styles.items}>
+        <View style={styles(theme).tasksWrapper}>
+          <Text style={styles(theme).sectionTitle}>Member</Text>
+          <Text style={styles(theme).nameText}>Name</Text>
+          <View style={styles(theme).items}>
             {/* This is where the tasks will go! */}
             <>
               {nameList &&
@@ -62,25 +64,25 @@ const Home = ({navigation}) => {
 
             {toggle ? (
               <TouchableOpacity
-                style={styles.toggleButton}
+                style={styles(theme).toggleButton}
                 onPress={() => setToggle(toggle ? false : true)}>
-                <Text style={styles.toggleAdd}>ADD MEMBER</Text>
+                <Text style={styles(theme).toggleAdd}>ADD MEMBER</Text>
               </TouchableOpacity>
             ) : (
               <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={styles.writeTaskWrapper}>
+                style={styles(theme).writeTaskWrapper}>
                 {/* actions */}
                 <TextInput
-                  style={styles.input}
+                  style={styles(theme).input}
                   placeholder={' Enter name'}
                   placeholderTextColor={'#90EE90'}
                   value={name}
                   onChangeText={text => setName(text)}
                 />
                 <TouchableOpacity onPress={() => handleAddName()}>
-                  <View style={styles.addWrapper}>
-                    <Text style={styles.addText}>+</Text>
+                  <View style={styles(theme).addWrapper}>
+                    <Text style={styles(theme).addText}>+</Text>
                   </View>
                 </TouchableOpacity>
               </KeyboardAvoidingView>
@@ -97,16 +99,16 @@ const Home = ({navigation}) => {
         onPress={() => {
           navigation.navigate('Food');
         }}>
-        <Text style={styles.toggleNext}> Next </Text>
+        <Text style={styles(theme).toggleNext}> Next </Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const styles = (theme) => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgb(15,35,45)', // *** Color ***
+    backgroundColor: theme.pri200, // *** Color ***
   },
   tasksWrapper: {
     paddingTop: 15,
@@ -115,9 +117,9 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: 'rgb(214,28,255)', // *** Color ***
-    textShadowColor: '#f50abe', // *** Color ***
-    textShadowOffset: {width: 3, height: 3},
+    color: theme.pri240, // *** Color ***
+    textShadowColor: theme.pri330, // *** Color ***
+    textShadowOffset: { width: 3, height: 3 },
     textShadowRadius: 20,
   },
   items: {
@@ -135,34 +137,34 @@ const styles = StyleSheet.create({
     borderColor: 'white', // *** Color ***
     borderWidth: 3,
     width: 250,
-    color: '#90EE90', // *** Color ***
+    color: theme.pri510, // *** Color ***
   },
   addWrapper: {
     width: 60,
     height: 60,
-    color: '#0CF4FF', // *** Color ***
+    color: theme.pri530, // *** Color ***
     borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#A540FF', // *** Color ***
+    borderColor: theme.pri230, // *** Color ***
     borderWidth: 5,
   },
   addText: {
     fontSize: 35,
-    color: '#10FF92', // *** Color ***
+    color: theme.pri520, // *** Color ***
     paddingBottom: 10
   },
   toggleAdd: {
     borderRadius: 15,
-    borderColor: '#FF3CBE', // *** Color ***
+    borderColor: theme.pri340, // *** Color ***
     borderWidth: 2,
-    color: '#FF3CBE', // *** Color ***
+    color: theme.pri340, // *** Color ***
     textAlign: 'center',
     width: 300,
     height: 70,
     fontSize: 45,
     fontFamily: 'Neonderthaw-Regular',
-    shadowColor: '#A540FF', // *** Color ***
+    shadowColor: theme.pri230, // *** Color ***
     shadowOffset: {
       width: 0,
       height: 12,
@@ -170,8 +172,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 5,
     shadowRadius: 16.0,
     elevation: 50,
-    textShadowColor: '#f50abe', // *** Color ***
-    textShadowOffset: {width: 3, height: 3},
+    textShadowColor: theme.pri330, // *** Color ***
+    textShadowOffset: { width: 3, height: 3 },
     textShadowRadius: 20,
   },
   toggleButton: {
@@ -179,17 +181,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   nameText: {
-    color: '#F7FA13', // *** Color ***
+    color: theme.pri420, // *** Color ***
     fontSize: 20,
-    textShadowColor: '#F7FA13', // *** Color ***
-    textShadowOffset: {width: 1, height: 1},
+    textShadowColor: theme.pri420, // *** Color ***
+    textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 10,
   },
   toggleNext: {
     borderRadius: 10,
-    borderColor: '#F7FA13', // *** Color ***
+    borderColor: theme.pri420, // *** Color ***
     borderWidth: 2,
-    color: 'rgb(214,28,255)', // *** Color ***
+    color: theme.pri240, // *** Color ***
     textAlign: 'center',
     fontSize: 30,
     width: 80,
@@ -197,7 +199,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginLeft: 'auto',
     marginRight: 'auto',
-    shadowColor: 'rgb(214,28,255)', // *** Color ***
+    shadowColor: theme.pri240, // *** Color ***
     shadowOffset: {
       width: 0,
       height: 12,
@@ -205,8 +207,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 5,
     shadowRadius: 16.0,
     elevation: 16,
-    textShadowColor: '#f50abe', // *** Color ***
-    textShadowOffset: {width: 2, height: 2},
+    textShadowColor: theme.pri330, // *** Color ***
+    textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 15,
   },
 });
