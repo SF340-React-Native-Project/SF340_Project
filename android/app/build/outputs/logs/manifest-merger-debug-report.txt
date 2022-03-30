@@ -5,6 +5,7 @@ INJECTED from C:\Users\lucy_\Documents\GitHub\SF340_Project\android\app\src\main
 INJECTED from C:\Users\lucy_\Documents\GitHub\SF340_Project\android\app\src\main\AndroidManifest.xml:1:1-25:12
 INJECTED from C:\Users\lucy_\Documents\GitHub\SF340_Project\android\app\src\main\AndroidManifest.xml:1:1-25:12
 MERGED from C:\Users\lucy_\Documents\GitHub\SF340_Project\android\app\src\main\AndroidManifest.xml:1:1-25:12
+MERGED from [hermes-debug.aar] C:\Users\lucy_\.gradle\caches\transforms-3\b2da0498bc78dbf8c570aeab0611ead7\transformed\jetified-hermes-debug\AndroidManifest.xml:2:1-7:12
 MERGED from [com.facebook.flipper:flipper:0.99.0] C:\Users\lucy_\.gradle\caches\transforms-3\2f5725507f1929c6ddf8255f0bef77bd\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:8:1-18:12
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.99.0] C:\Users\lucy_\.gradle\caches\transforms-3\2c29b736c8f2a9d82fade7115b471d70\transformed\jetified-flipper-network-plugin-0.99.0\AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.99.0] C:\Users\lucy_\.gradle\caches\transforms-3\e3a733608d857c466939da27af54ba77\transformed\jetified-flipper-fresco-plugin-0.99.0\AndroidManifest.xml:8:1-15:12
@@ -17,8 +18,7 @@ MERGED from [:react-native-svg] C:\Users\lucy_\Documents\GitHub\SF340_Project\no
 MERGED from [:react-native-vector-icons] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:react-native:0.66.4] C:\Users\lucy_\.gradle\caches\transforms-3\7403ebe5571a2ce5a6a5fc9876af4814\transformed\jetified-react-native-0.66.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\lucy_\.gradle\caches\transforms-3\9341f36f0ce470d4b55127e33c2ce075\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [org.webkit:android-jsc:r250230] C:\Users\lucy_\.gradle\caches\transforms-3\7873a5158addb5bf75ec8bc5226b9f2a\transformed\jetified-android-jsc-r250230\AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-reanimated] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-reanimated\android\build\.transforms\99698847254bf681cabbaae7cae90f20\transformed\jetified-react-native-reanimated-66-jsc\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-reanimated] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-reanimated\android\build\.transforms\d0a0a3c4504ff0bd9f29649ea6cacf3e\transformed\jetified-react-native-reanimated-66-hermes\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:flipper:2.5.0] C:\Users\lucy_\.gradle\caches\transforms-3\5880c3ffcd9f3ffb65016eb160ab2121\transformed\jetified-flipper-2.5.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:stetho:2.5.0] C:\Users\lucy_\.gradle\caches\transforms-3\247a35ea3454e43292f80ed4e869afa6\transformed\jetified-stetho-2.5.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:fresco:2.5.0] C:\Users\lucy_\.gradle\caches\transforms-3\2e3be5b59ff1001e620058abe4b7c8c9\transformed\jetified-fresco-2.5.0\AndroidManifest.xml:2:1-9:12
@@ -161,6 +161,8 @@ uses-sdk
 INJECTED from C:\Users\lucy_\Documents\GitHub\SF340_Project\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\lucy_\Documents\GitHub\SF340_Project\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\lucy_\Documents\GitHub\SF340_Project\android\app\src\main\AndroidManifest.xml
+MERGED from [hermes-debug.aar] C:\Users\lucy_\.gradle\caches\transforms-3\b2da0498bc78dbf8c570aeab0611ead7\transformed\jetified-hermes-debug\AndroidManifest.xml:5:5-44
+MERGED from [hermes-debug.aar] C:\Users\lucy_\.gradle\caches\transforms-3\b2da0498bc78dbf8c570aeab0611ead7\transformed\jetified-hermes-debug\AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.flipper:flipper:0.99.0] C:\Users\lucy_\.gradle\caches\transforms-3\2f5725507f1929c6ddf8255f0bef77bd\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper:0.99.0] C:\Users\lucy_\.gradle\caches\transforms-3\2f5725507f1929c6ddf8255f0bef77bd\transformed\jetified-flipper-0.99.0\AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.99.0] C:\Users\lucy_\.gradle\caches\transforms-3\2c29b736c8f2a9d82fade7115b471d70\transformed\jetified-flipper-network-plugin-0.99.0\AndroidManifest.xml:11:5-13:41
@@ -185,10 +187,8 @@ MERGED from [com.facebook.react:react-native:0.66.4] C:\Users\lucy_\.gradle\cach
 MERGED from [com.facebook.react:react-native:0.66.4] C:\Users\lucy_\.gradle\caches\transforms-3\7403ebe5571a2ce5a6a5fc9876af4814\transformed\jetified-react-native-0.66.4\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\lucy_\.gradle\caches\transforms-3\9341f36f0ce470d4b55127e33c2ce075\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\lucy_\.gradle\caches\transforms-3\9341f36f0ce470d4b55127e33c2ce075\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [org.webkit:android-jsc:r250230] C:\Users\lucy_\.gradle\caches\transforms-3\7873a5158addb5bf75ec8bc5226b9f2a\transformed\jetified-android-jsc-r250230\AndroidManifest.xml:7:5-9:41
-MERGED from [org.webkit:android-jsc:r250230] C:\Users\lucy_\.gradle\caches\transforms-3\7873a5158addb5bf75ec8bc5226b9f2a\transformed\jetified-android-jsc-r250230\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-reanimated] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-reanimated\android\build\.transforms\99698847254bf681cabbaae7cae90f20\transformed\jetified-react-native-reanimated-66-jsc\AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-reanimated] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-reanimated\android\build\.transforms\99698847254bf681cabbaae7cae90f20\transformed\jetified-react-native-reanimated-66-jsc\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-reanimated] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-reanimated\android\build\.transforms\d0a0a3c4504ff0bd9f29649ea6cacf3e\transformed\jetified-react-native-reanimated-66-hermes\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-reanimated] C:\Users\lucy_\Documents\GitHub\SF340_Project\node_modules\react-native-reanimated\android\build\.transforms\d0a0a3c4504ff0bd9f29649ea6cacf3e\transformed\jetified-react-native-reanimated-66-hermes\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:flipper:2.5.0] C:\Users\lucy_\.gradle\caches\transforms-3\5880c3ffcd9f3ffb65016eb160ab2121\transformed\jetified-flipper-2.5.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:flipper:2.5.0] C:\Users\lucy_\.gradle\caches\transforms-3\5880c3ffcd9f3ffb65016eb160ab2121\transformed\jetified-flipper-2.5.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:stetho:2.5.0] C:\Users\lucy_\.gradle\caches\transforms-3\247a35ea3454e43292f80ed4e869afa6\transformed\jetified-stetho-2.5.0\AndroidManifest.xml:5:5-7:41
