@@ -25,19 +25,18 @@ const Calculated = ({ navigation }) => {
 
   return (
 
-      <View style={styles(theme).container} >
-        <Text style={styles(theme).sectionTitle} > Calculated </Text>
-        <View style={{ paddingTop: 20 }}></View>
-        <View>
-          {name.map((val, idx) =>
-            <TouchableOpacity key={idx} style={{ paddingHorizontal: 20 }}>
-              <NameForCalculated text={val[0]} price={val[1]} />
-            </TouchableOpacity>)}
-        </View>
-        <TouchableOpacity onPress={() => goBlack()}>
-          <Text style={styles(theme).toggleExit}> Back </Text>
-        </TouchableOpacity>
-      </View>
+    <View style={styles(theme).container} >
+      <Text style={styles(theme).sectionTitle} > Calculated </Text>
+      <ScrollView >
+        {name.map((val, idx) =>
+          <TouchableOpacity key={idx} style={{ paddingHorizontal: 20 }}>
+            <NameForCalculated text={val[0]} price={val[1]} />
+          </TouchableOpacity>)}
+      </ScrollView>
+      <TouchableOpacity onPress={() => goBlack()}>
+        <Text style={styles(theme).toggleExit}> Back </Text>
+      </TouchableOpacity>
+    </View>
 
   )
 }
@@ -49,6 +48,7 @@ const styles = (theme) => StyleSheet.create({
     flexDirection: "column",
 
   },
+
   sectionTitle: {
     marginTop: 30,
     marginLeft: 'auto',
@@ -72,11 +72,12 @@ const styles = (theme) => StyleSheet.create({
   toggleExit: {
     borderRadius: 10,
     borderColor: theme.border.pri110, // *** Color ***
-    width:'70%',
+    width: '70%',
     borderWidth: 2,
     color: theme.text.pri900, // *** Color ***
     textAlign: "center",
     fontSize: 30,
+    marginBottom: 15,
     marginLeft: 'auto',
     marginRight: 'auto',
     shadowColor: theme.shadow.pri500, // *** Color ***

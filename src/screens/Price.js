@@ -151,7 +151,6 @@ const styles = (theme) => StyleSheet.create({
     textShadowRadius: 10,
   },
   input: {
-    placeholder: theme.textinput.pri200, // *** Color ***
     marginLeft: 'auto',
     marginRight:'auto',
     marginTop:20,
@@ -165,9 +164,7 @@ const styles = (theme) => StyleSheet.create({
     alignContent: 'center',
   },
   itemLeft: {
-    width: 70,
     flexDirection: 'row',
-    alignItems: 'center',
     flexWrap: 'wrap',
     borderRadius: 15,
   },

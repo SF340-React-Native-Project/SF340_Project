@@ -14,7 +14,8 @@ const Food = ({ navigation }) => {
   const { foodList } = useSelector(state => state.data)
   const { theme } = useSelector(state => state.theme);
 
-  const [food, setFood] = useState();
+  const [food, setFood] = useState('');
+  const [showBtn, setShowBtn] = useState(true);
 
   const handleAddTask = () => {
     if (food !== null && food.length > 0) {
@@ -76,16 +77,18 @@ const Food = ({ navigation }) => {
           placeholder={'Enter food name'}
           placeholderTextColor={'#90EE90'} // *** Color ***
           value={food}
+          onPressIn={() => { setShowBtn(false) }}
+          onEndEditing={() => { setShowBtn(true) }}
           onChangeText={text => setFood(text)} />
-        <TouchableOpacity onPress={() => handleAddTask()}>
-          <View style={styles(theme).addWrapper}>
-            <Text style={styles(theme).addText}>+</Text>
-          </View>
-        </TouchableOpacity>
+        {food.length > 0 ?
+          (<TouchableOpacity onPress={() => handleAddTask()}>
+            <View style={styles(theme).addWrapper}>
+              <Text style={styles(theme).addText}>+</Text>
+            </View>
+          </TouchableOpacity>) : <></>}
       </KeyboardAvoidingView>
 
-
-      <View style={styles(theme).bottombar}>
+      {showBtn ? (<View style={styles(theme).bottombar}>
         <TouchableOpacity onPress={() => navigation.navigate('Game')}>
           <Text style={styles(theme).Game}> Game </Text>
         </TouchableOpacity>
@@ -93,7 +96,8 @@ const Food = ({ navigation }) => {
         <TouchableOpacity onPress={() => toCalculate()}>
           <Text style={styles(theme).Calculated}> Calculate </Text>
         </TouchableOpacity>
-      </View>
+      </View>) : (<></>)}
+
     </View>
   );
 }
@@ -144,7 +148,7 @@ const styles = (theme) => StyleSheet.create({
   sectionTitle: {
     fontSize: 30,
     marginTop: 20,
-    marginBottom:20,
+    marginBottom: 20,
     marginLeft: 'auto',
     marginRight: 'auto',
     fontFamily: 'ZenKurenaido-Regular',
@@ -153,8 +157,8 @@ const styles = (theme) => StyleSheet.create({
     borderWidth: 4,
     color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
-    paddingHorizontal:25,
-    paddingVertical:10,
+    paddingHorizontal: 25,
+    paddingVertical: 10,
     shadowColor: theme.shadow.pri300, // *** Color ***
     elevation: 67,
     textShadowColor: theme.shadow.pri100, // *** Color ***
@@ -166,16 +170,17 @@ const styles = (theme) => StyleSheet.create({
     marginTop: 30,
   },
   writeTaskWrapper: {
-    marginTop:15,
+    marginTop: 15,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
   },
   input: {
-    paddingLeft:20,
+    marginBottom: 10,
+    paddingLeft: 20,
     fontFamily: 'ZenKurenaido-Regular',
-    fontSize:20,
+    fontSize: 20,
     borderRadius: 60,
     borderColor: 'white', // *** Color ***
     borderWidth: 2,
