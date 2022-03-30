@@ -45,6 +45,7 @@ const Food = ({ navigation }) => {
   return (
     <View style={styles(theme).container}>
       {/* Added this scroll view to enable scrolling when list gets longer than the page */}
+      <Text style={styles(theme).sectionTitle}>Food Items</Text>
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1
@@ -53,15 +54,14 @@ const Food = ({ navigation }) => {
       >
 
         {/* Today's Tasks */}
+
+        {/* {foodList.foodList} */}
         <View style={styles(theme).tasksWrapper}>
-          <Text style={styles(theme).sectionTitle}>Food Items</Text>
           <View style={styles(theme).items}>
             {/* This is where the tasks will go! */}
             {loopFoods()}
           </View>
         </View>
-
-        {/* {foodList.foodList} */}
 
       </ScrollView>
 
@@ -101,11 +101,9 @@ const Food = ({ navigation }) => {
 const styles = (theme) => StyleSheet.create({
   Game: {
     fontSize: 15,
-    fontWeight: 'bold',
     borderRadius: 15,
     borderColor: theme.border.pri500, // *** Color ***
     borderWidth: 2,
-    borderStyle: 'dashed',
     color: theme.text.pri500, // *** Color ***
     textAlign: 'center',
     paddingTop: 10,
@@ -120,11 +118,9 @@ const styles = (theme) => StyleSheet.create({
   },
   Calculated: {
     fontSize: 15,
-    fontWeight: 'bold',
     borderRadius: 15,
     borderColor: theme.border.pri500, // *** Color ***
     borderWidth: 2,
-    borderStyle: 'dashed',
     color: theme.text.pri500, // *** Color ***
     textAlign: 'center',
     paddingTop: 10,
@@ -148,13 +144,13 @@ const styles = (theme) => StyleSheet.create({
   sectionTitle: {
     fontSize: 30,
     marginTop: 20,
+    marginBottom:20,
     marginLeft: 'auto',
     marginRight: 'auto',
     fontFamily: 'ZenKurenaido-Regular',
     borderRadius: 15,
     borderColor: theme.border.pri200, // *** Color ***
     borderWidth: 4,
-    borderStyle: 'dashed',
     color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
     paddingHorizontal:25,
@@ -170,8 +166,7 @@ const styles = (theme) => StyleSheet.create({
     marginTop: 30,
   },
   writeTaskWrapper: {
-    position: 'absolute',
-    bottom: 80,
+    marginTop:15,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',

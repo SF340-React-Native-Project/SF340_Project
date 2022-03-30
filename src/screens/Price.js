@@ -51,17 +51,12 @@ const Price = ({ route, navigation }) => {
           onPress={() => handleTouchPrice(key)}>
           <View
             style={{
-              padding: 15,
-              borderRadius: 10,
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
+              paddingHorizontal: 15,
+              paddingVertical: 10,
               marginBottom: 20,
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              padding: 10,
-              fontSize: 15,
               fontWeight: 'bold',
               borderRadius: 15,
               borderColor: value === 0 ? theme.border.pri100 : theme.border.pri600,
@@ -90,7 +85,7 @@ const Price = ({ route, navigation }) => {
   };
 
   return (
-    <ScrollView>
+
       <View style={styles(theme).container}>
         <Text style={styles(theme).sectionTitle}>
           {''} Name: <Text style={styles(theme).textShow}>{foodname}</Text>
@@ -106,18 +101,18 @@ const Price = ({ route, navigation }) => {
         />
 
         <View style={{ paddingTop: 20 }}></View>
-        <View>{LoopName()}</View>
+        <ScrollView><View>{LoopName()}</View></ScrollView>
         <TouchableOpacity onPress={() => goBlack()}>
           <Text style={styles(theme).saveButton}> Save </Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+
   );
 };
 
 const styles = (theme) => StyleSheet.create({
   container: {
-    height: 720,
+    flex: 1,
     backgroundColor: 'rgb(15,35,45)', // *** Color ***
   },
   sectionTitle: {
@@ -125,15 +120,13 @@ const styles = (theme) => StyleSheet.create({
     marginTop: 30,
     marginLeft: 'auto',
     marginRight: 'auto',
-    fontWeight: 'bold',
-    borderRadius: 15,
+    borderRadius: 25,
     borderColor: theme.border.pri200, // *** Color ***
     borderWidth: 4,
-    borderStyle: 'dashed',
+    paddingLeft:20,
+    paddingRight:100,
+    paddingVertical:15,
     color: theme.text.pri100, // *** Color ***
-    width: 300,
-    paddingTop: 20,
-    paddingBottom: 20,
     shadowColor: theme.shadow.pri300, // *** Color ***
     elevation: 80,
     textShadowColor: theme.shadow.pri100, // *** Color ***
@@ -141,6 +134,8 @@ const styles = (theme) => StyleSheet.create({
     textShadowRadius: 20,
   },
   textShow: {
+
+    textAlign: 'left',
     fontSize: 25,
     color: theme.text.pri600, // *** Color ***
   },
@@ -157,15 +152,12 @@ const styles = (theme) => StyleSheet.create({
   },
   input: {
     placeholder: theme.textinput.pri200, // *** Color ***
-    padding: 5,
-    paddingLeft: 10,
-    marginTop: 10,
-    marginBottom: 25,
-    marginLeft: 20,
-    marginRight: 'auto',
-    width: 200,
+    marginLeft: 'auto',
+    marginRight:'auto',
+    marginTop:20,
+    width: '80%',
     fontWeight: 'bold',
-    borderRadius: 10,
+    borderRadius: 20,
     borderColor: theme.border.pri900, // *** Color ***
     borderWidth: 2,
     color: 'white', // *** Color ***

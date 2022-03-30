@@ -20,7 +20,7 @@ const Calculated = ({ navigation }) => {
 
 
   const goBlack = () => {
-    navigation.navigate('Welcome');
+    navigation.navigate('FoodList');
   }
 
   return (
@@ -35,7 +35,7 @@ const Calculated = ({ navigation }) => {
             </TouchableOpacity>)}
         </View>
         <TouchableOpacity onPress={() => goBlack()}>
-          <Text style={styles(theme).toggleExit}> Exit </Text>
+          <Text style={styles(theme).toggleExit}> Back </Text>
         </TouchableOpacity>
       </View>
 
@@ -70,15 +70,13 @@ const styles = (theme) => StyleSheet.create({
     textShadowRadius: 25,
   },
   toggleExit: {
-    borderRadius: 8,
+    borderRadius: 10,
     borderColor: theme.border.pri110, // *** Color ***
+    width:'70%',
     borderWidth: 2,
     color: theme.text.pri900, // *** Color ***
     textAlign: "center",
     fontSize: 30,
-    width: 80,
-    marginTop: 10,
-    marginBottom: 10,
     marginLeft: 'auto',
     marginRight: 'auto',
     shadowColor: theme.shadow.pri500, // *** Color ***

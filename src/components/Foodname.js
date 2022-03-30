@@ -23,8 +23,6 @@ const Foodname = (props) => {
 const styles = (theme) => StyleSheet.create({
   item: {
     padding: 10,
-    fontSize: 15,
-    fontWeight: 'bold',
     borderRadius: 15,
     borderColor: '#CCFF33', // *** Color ***
     borderWidth: 2,
@@ -34,7 +32,7 @@ const styles = (theme) => StyleSheet.create({
     elevation: 50,
     marginBottom: 15,
     flexDirection: 'row',
-
+    justifyContent:'space-between',
 
 
   },
@@ -44,9 +42,7 @@ const styles = (theme) => StyleSheet.create({
     flexWrap: 'wrap'
   },
   itemRight: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flexWrap: 'wrap'
+
   },
   circular: {
     width: 15,
@@ -57,6 +53,8 @@ const styles = (theme) => StyleSheet.create({
     marginRight: 10,
   },
   itemText: {
+    fontFamily: 'ZenKurenaido-Regular',
+    fontSize:25,
     color: '#90EE90', // *** Color ***
     textAlign: 'center',
     textShadowColor: '#f50abe', // *** Color ***

@@ -40,6 +40,7 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles(theme).container}>
       {/* Added this scroll view to enable scrolling when list gets longer than the page */}
+      <Text style={styles(theme).sectionTitle}>Member</Text>
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
@@ -47,7 +48,7 @@ const Home = ({ navigation }) => {
         keyboardShouldPersistTaps="handled">
         {/* Today's Tasks */}
         <View style={styles(theme).tasksWrapper}>
-          <Text style={styles(theme).sectionTitle}>Member</Text>
+          
           <View style={styles(theme).items}>
             {/* This is where the tasks will go! */}
             <>
@@ -60,8 +61,11 @@ const Home = ({ navigation }) => {
                   </TouchableOpacity>
                 ))}
             </>
-
-            {toggle ? (
+            
+          </View>
+        </View>
+      </ScrollView>
+      {toggle ? (
               <TouchableOpacity
                 style={styles(theme).toggleButton}
                 onPress={() => setToggle(toggle ? false : true)}>
@@ -86,9 +90,6 @@ const Home = ({ navigation }) => {
                 </TouchableOpacity>
               </KeyboardAvoidingView>
             )}
-          </View>
-        </View>
-      </ScrollView>
 
       {/* Write a task */}
       {/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
@@ -114,6 +115,8 @@ const styles = (theme) => StyleSheet.create({
     paddingHorizontal: 20,
   },
   sectionTitle: {
+    marginLeft:20,
+    marginVertical:15,
     fontSize: 45,
     fontFamily: 'ZenKurenaido-Regular',
     color: theme.text.pri200, // *** Color ***
@@ -125,6 +128,7 @@ const styles = (theme) => StyleSheet.create({
     marginTop: 30,
   },
   writeTaskWrapper: {
+    marginTop:15,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -143,7 +147,7 @@ const styles = (theme) => StyleSheet.create({
   addWrapper: {
     width: 60,
     height: 60,
-    
+
     borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
@@ -156,6 +160,7 @@ const styles = (theme) => StyleSheet.create({
     paddingBottom: 10
   },
   toggleAdd: {
+    marginTop:15,
     borderRadius: 15,
     borderColor: theme.border.pri200, // *** Color ***
     borderWidth: 2,
@@ -192,17 +197,13 @@ const styles = (theme) => StyleSheet.create({
   toggleNext: {
     fontFamily: 'ZenKurenaido-Regular',
     borderRadius: 10,
+    marginHorizontal:60,
+    marginVertical:15,
     borderColor: theme.border.pri400, // *** Color ***
-    borderWidth: 1,
+    borderWidth: 2,
     color: theme.text.pri200, // *** Color ***
     textAlign: 'center',
     fontSize: 35,
-    paddingHorizontal:5,
-    paddingVertical:1,
-    marginTop: 10,
-    marginBottom: 20,
-    marginLeft: 'auto',
-    marginRight: 'auto',
     shadowColor: theme.shadow.pri200, // *** Color ***
     shadowOffset: {
       width: 0,

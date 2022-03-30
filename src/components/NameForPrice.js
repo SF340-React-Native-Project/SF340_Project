@@ -5,17 +5,18 @@ import { useSelector, useDispatch } from 'react-redux';
 const NameForPrice = (props) => {
   const { theme } = useSelector(state => state.theme);
   return (
-    <Text style={styles.itemText}>{props.text}</Text>
+    <Text style={styles(theme).itemText}>{props.text}</Text>
   )
 }
 
 const styles = (theme) => StyleSheet.create({
   itemText: {
-    maxWidth: '80%',
-    fontWeight: 'bold',
-    color: '#FF3CBE', // *** Color ***
+    fontFamily: 'ZenKurenaido-Regular',
+    fontSize:25,
+    color: '#90EE90', // *** Color ***
+    textAlign: 'center',
     textShadowColor: '#f50abe', // *** Color ***
-    textShadowOffset: { width: 2, height: 2 },
+    textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 10,
   },
 });

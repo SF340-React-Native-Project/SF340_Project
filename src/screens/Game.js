@@ -179,10 +179,10 @@ const styles = (theme) => StyleSheet.create({
         padding: 10,
     },
     winnerText: {
-        marginTop:30,
+        marginTop:15,
         paddingHorizontal:10,
         paddingVertical:5,
-        fontSize: 30,
+        fontSize: 25,
  
         color: theme.text.pri100, // *** Color ***
         textAlign: 'center',
@@ -197,9 +197,9 @@ const styles = (theme) => StyleSheet.create({
         padding: 5,
     },
     tryAgainText: {
-        marginTop:30,
+        marginTop:15,
         color: theme.text.pri200,
-        fontSize: 50,
+        fontSize: 30,
         marginLeft: 'auto',
         marginRight: 'auto',
         fontFamily: 'ZenKurenaido-Regular',

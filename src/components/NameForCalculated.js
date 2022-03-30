@@ -47,7 +47,8 @@ const styles = (theme) => StyleSheet.create({
   },
   itemText: {
     maxWidth: '80%',
-    fontWeight: 'bold',
+    fontFamily: 'ZenKurenaido-Regular',
+    fontSize:25,
     color: '#FF3CBE', // *** Color ***
     textShadowColor: '#f50abe', // *** Color ***
     textShadowOffset: { width: 2, height: 2 },
