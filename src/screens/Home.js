@@ -48,7 +48,6 @@ const Home = ({ navigation }) => {
         {/* Today's Tasks */}
         <View style={styles(theme).tasksWrapper}>
           <Text style={styles(theme).sectionTitle}>Member</Text>
-          <Text style={styles(theme).nameText}>Name</Text>
           <View style={styles(theme).items}>
             {/* This is where the tasks will go! */}
             <>
@@ -134,7 +133,7 @@ const styles = (theme) => StyleSheet.create({
   input: {
     paddingLeft:20,
     fontFamily: 'ZenKurenaido-Regular',
-    fontSize:25,
+    fontSize:20,
     borderRadius: 60,
     borderColor: 'white', // *** Color ***
     borderWidth: 2,

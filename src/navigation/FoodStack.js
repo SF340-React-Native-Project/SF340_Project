@@ -20,7 +20,7 @@ function FoodStack() {
             <Stack.Screen name="Price" component={Price} />
             <Stack.Screen name="Calculated" component={Calculated}
                 options={{
-                    headerShown: true,
+                    headerShown: false,
                     headerMode: 'screen',
                     headerTintColor: 'white',
                     headerStyle: { backgroundColor: 'tomato' },

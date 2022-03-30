@@ -24,7 +24,7 @@ const Calculated = ({ navigation }) => {
   }
 
   return (
-    <ScrollView>
+
       <View style={styles(theme).container} >
         <Text style={styles(theme).sectionTitle} > Calculated </Text>
         <View style={{ paddingTop: 20 }}></View>
@@ -38,7 +38,7 @@ const Calculated = ({ navigation }) => {
           <Text style={styles(theme).toggleExit}> Exit </Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+
   )
 }
 
@@ -47,8 +47,7 @@ const styles = (theme) => StyleSheet.create({
     flex: 1,
     backgroundColor: theme.background.pri100, // *** Color ***
     flexDirection: "column",
-    width: 400,
-    height: 720,
+
   },
   sectionTitle: {
     marginTop: 30,

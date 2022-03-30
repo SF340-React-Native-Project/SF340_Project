@@ -147,19 +147,18 @@ const styles = (theme) => StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 30,
-    marginTop: 30,
+    marginTop: 20,
     marginLeft: 'auto',
     marginRight: 'auto',
-    fontWeight: 'bold',
+    fontFamily: 'ZenKurenaido-Regular',
     borderRadius: 15,
     borderColor: theme.border.pri200, // *** Color ***
     borderWidth: 4,
     borderStyle: 'dashed',
     color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
-    width: 300,
-    paddingTop: 20,
-    paddingBottom: 20,
+    paddingHorizontal:25,
+    paddingVertical:10,
     shadowColor: theme.shadow.pri300, // *** Color ***
     elevation: 67,
     textShadowColor: theme.shadow.pri100, // *** Color ***
@@ -179,10 +178,12 @@ const styles = (theme) => StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-    paddingHorizontal: 20,
+    paddingLeft:20,
+    fontFamily: 'ZenKurenaido-Regular',
+    fontSize:20,
     borderRadius: 60,
     borderColor: 'white', // *** Color ***
-    borderWidth: 3,
+    borderWidth: 2,
     width: 250,
     color: theme.textinput.pri100, // *** Color ***
   },

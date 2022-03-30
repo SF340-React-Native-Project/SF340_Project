@@ -13,9 +13,6 @@ export const themeOptions = {
             pri800: '#f2c504',
             pri900: '#FF0000',
 
-
-
-
             // theme.text.pri100: '#FF3CBE',   
             // theme.text.pri200: '#d61cff',
             // theme.text.pri300: '#10FF92',
@@ -26,17 +23,13 @@ export const themeOptions = {
             // theme.text.pri800: '#f2c504',
             // theme.text.pri900: '#FF0000',
 
-
-
         },
         textinput: {
             pri100: '#90EE90',
             pri200: '#ffffff',
 
-
             // theme.textinput.pri100: '#90EE90',
             // theme.textinput.pri200: '#ffffff',
-
 
         },
         background: {
@@ -57,9 +50,6 @@ export const themeOptions = {
             pri900: '#8A2BE2',
             pri110: '#FF0000',
 
-
-
-
             // theme.border.pri100: '#ffffff',
             // theme.border.pri200: '#FF3CBE',
             // theme.border.pri300: '#A540FF',
@@ -71,9 +61,6 @@ export const themeOptions = {
             // theme.border.pri900: '#8A2BE2',
             // theme.border.pri110: '#FF0000',
 
-
-
-
         },
         shadow: {
             pri100: '#f50abe',
@@ -82,18 +69,20 @@ export const themeOptions = {
             pri400: '#F7FA13',
             pri500: '#D2691E',
 
-
-            
-
             // theme.shadow.pri100: '#f50abe',
             // theme.shadow.pri200: '#d61cff',
             // theme.shadow.pri300: '#A540FF',
             // theme.shadow.pri400: '#F7FA13',
             // theme.shadow.pri500: '#D2691E',
 
-            
-
         },
+        wheel: [
+            '#f50abe',
+            '#d61cff',
+            '#A540FF',
+            '#F7FA13',
+            '#D2691E',
+        ],
     },
     '#F7FA13': {
         text: {
@@ -126,6 +115,13 @@ export const themeOptions = {
             pri400: '#F7FA13',
 
         },
+        wheel: [
+            '#f50abe',
+            '#d61cff',
+            '#A540FF',
+            '#F7FA13',
+            '#D2691E',
+        ]
     },
     '#d61cff': {
         pri100: '#ffffff',
