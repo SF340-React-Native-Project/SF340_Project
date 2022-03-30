@@ -37,11 +37,13 @@ const styles = (theme) => StyleSheet.create({
     width: 15,
     height: 15,
     backgroundColor: '#FF3CBE', // *** Color ***
-    opacity: 0.4,
+    opacity: 1,
     borderRadius: 100,
     marginRight: 10,
   },
   itemText: {
+    fontFamily: 'ZenKurenaido-Regular',
+    fontSize:25,
     color: '#90EE90', // *** Color ***
     textAlign: 'center',
     textShadowColor: '#f50abe', // *** Color ***

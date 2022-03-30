@@ -31,7 +31,7 @@ const Welcome = ({ navigation }) => {
         />
       </View>
       <View style={{ flexDirection: 'row' }}>
-        <Blink duration={400}>
+        <Blink duration={250}>
           <Text
             style={styles(theme).textbut}
             onPress={() => navigation.navigate('Home')}>
@@ -66,6 +66,7 @@ const styles = (theme) => StyleSheet.create({
   },
   textbut: {
     fontSize: 40,
+    fontFamily: 'ZenKurenaido-Regular',
     letterSpacing: 2,
     borderRadius: 25,
     height: 'auto',

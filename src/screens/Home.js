@@ -115,8 +115,8 @@ const styles = (theme) => StyleSheet.create({
     paddingHorizontal: 20,
   },
   sectionTitle: {
-    fontSize: 30,
-    fontWeight: 'bold',
+    fontSize: 45,
+    fontFamily: 'ZenKurenaido-Regular',
     color: theme.text.pri200, // *** Color ***
     textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 3, height: 3 },
@@ -132,10 +132,12 @@ const styles = (theme) => StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-    paddingHorizontal: 20,
+    paddingLeft:20,
+    fontFamily: 'ZenKurenaido-Regular',
+    fontSize:25,
     borderRadius: 60,
     borderColor: 'white', // *** Color ***
-    borderWidth: 3,
+    borderWidth: 2,
     width: 250,
     color: theme.textinput.pri100, // *** Color ***
   },
@@ -160,10 +162,10 @@ const styles = (theme) => StyleSheet.create({
     borderWidth: 2,
     color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
-    width: 300,
-    height: 70,
-    fontSize: 45,
-    fontFamily: 'Neonderthaw-Regular',
+    paddingVertical:3,
+    paddingHorizontal:10,
+    fontSize: 40,
+    fontFamily: 'ZenKurenaido-Regular',
     shadowColor: theme.shadow.pri300, // *** Color ***
     shadowOffset: {
       width: 0,
@@ -181,22 +183,25 @@ const styles = (theme) => StyleSheet.create({
     alignItems: 'center',
   },
   nameText: {
+    fontFamily: 'ZenKurenaido-Regular',
     color: theme.text.pri400, // *** Color ***
-    fontSize: 20,
+    fontSize: 25,
     textShadowColor: theme.shadow.pri400, // *** Color ***
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 10,
   },
   toggleNext: {
+    fontFamily: 'ZenKurenaido-Regular',
     borderRadius: 10,
     borderColor: theme.border.pri400, // *** Color ***
-    borderWidth: 2,
+    borderWidth: 1,
     color: theme.text.pri200, // *** Color ***
     textAlign: 'center',
-    fontSize: 30,
-    width: 80,
+    fontSize: 35,
+    paddingHorizontal:5,
+    paddingVertical:1,
     marginTop: 10,
-    marginBottom: 10,
+    marginBottom: 20,
     marginLeft: 'auto',
     marginRight: 'auto',
     shadowColor: theme.shadow.pri200, // *** Color ***

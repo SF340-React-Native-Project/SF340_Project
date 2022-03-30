@@ -12,7 +12,7 @@ export default class Blink extends Component {
         Animated.loop(
             Animated.sequence([
                 Animated.timing(this.fadeAnimation, {
-                    toValue: 0.3,
+                    toValue: 1,
                     duration: this.props.duration,
                     useNativeDriver: true,
                 }),
@@ -22,10 +22,49 @@ export default class Blink extends Component {
                     useNativeDriver: true,
                 }),
                 Animated.timing(this.fadeAnimation, {
-                    toValue: 0.2,
+                    
+                    toValue: 0.75,
                     duration: this.props.duration,
                     useNativeDriver: true,
                 }),
+                Animated.timing(this.fadeAnimation, {
+                    toValue: 0.3,
+                    duration: this.props.duration,
+                    useNativeDriver: true,
+                }),
+                Animated.timing(this.fadeAnimation, {
+                    toValue: 0.75,
+                    duration: this.props.duration,
+                    useNativeDriver: true,
+                }),
+                // Animated.timing(this.fadeAnimation, {
+                //     toValue: 1,
+                //     duration: this.props.duration,
+                //     useNativeDriver: true,
+                // }),
+                Animated.timing(this.fadeAnimation, {
+                    toValue: 0.3,
+                    duration: this.props.duration,
+                    useNativeDriver: true,
+                }),
+                // Animated.timing(this.fadeAnimation, {
+                //     toValue: ,
+                //     duration: this.props.duration,
+                //     useNativeDriver: true,
+                // }),
+                Animated.timing(this.fadeAnimation, {
+                    toValue: 0.75,
+                    duration: this.props.duration,
+                    useNativeDriver: true,
+                }),
+                Animated.timing(this.fadeAnimation, {
+                    toValue: 1,
+                    duration: this.props.duration,
+                    useNativeDriver: true,
+                }),
+
+
+
                 
             ]),
             {
