@@ -32,9 +32,6 @@ const Home = ({ navigation }) => {
     setName(null);
   };
 
-  const handleDeleteName = name => {
-    dispatch(deleteName(name));
-  };
 
   console.log(theme);
   return (
@@ -48,7 +45,7 @@ const Home = ({ navigation }) => {
         keyboardShouldPersistTaps="handled">
         {/* Today's Tasks */}
         <View style={styles(theme).tasksWrapper}>
-          
+
           <View style={styles(theme).items}>
             {/* This is where the tasks will go! */}
             <>
@@ -56,40 +53,40 @@ const Home = ({ navigation }) => {
                 nameList.map((item, index) => (
                   <TouchableOpacity
                     key={index}
-                    onPress={() => handleDeleteName(item)}>
+                  >
                     <Name text={item} />
                   </TouchableOpacity>
                 ))}
             </>
-            
+
           </View>
         </View>
       </ScrollView>
       {toggle ? (
-              <TouchableOpacity
-                style={styles(theme).toggleButton}
-                onPress={() => setToggle(toggle ? false : true)}>
-                <Text style={styles(theme).toggleAdd}>ADD MEMBER</Text>
-              </TouchableOpacity>
-            ) : (
-              <KeyboardAvoidingView
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={styles(theme).writeTaskWrapper}>
-                {/* actions */}
-                <TextInput
-                  style={styles(theme).input}
-                  placeholder={' Enter name'}
-                  placeholderTextColor={'#90EE90'}
-                  value={name}
-                  onChangeText={text => setName(text)}
-                />
-                <TouchableOpacity onPress={() => handleAddName()}>
-                  <View style={styles(theme).addWrapper}>
-                    <Text style={styles(theme).addText}>+</Text>
-                  </View>
-                </TouchableOpacity>
-              </KeyboardAvoidingView>
-            )}
+        <TouchableOpacity
+          style={styles(theme).toggleButton}
+          onPress={() => setToggle(toggle ? false : true)}>
+          <Text style={styles(theme).toggleAdd}>ADD MEMBER</Text>
+        </TouchableOpacity>
+      ) : (
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={styles(theme).writeTaskWrapper}>
+          {/* actions */}
+          <TextInput
+            style={styles(theme).input}
+            placeholder={' Enter name'}
+            placeholderTextColor={'#90EE90'}
+            value={name}
+            onChangeText={text => setName(text)}
+          />
+          <TouchableOpacity onPress={() => handleAddName()}>
+            <View style={styles(theme).addWrapper}>
+              <Text style={styles(theme).addText}>+</Text>
+            </View>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
+      )}
 
       {/* Write a task */}
       {/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
@@ -115,8 +112,8 @@ const styles = (theme) => StyleSheet.create({
     paddingHorizontal: 20,
   },
   sectionTitle: {
-    marginLeft:20,
-    marginVertical:15,
+    marginLeft: 20,
+    marginVertical: 15,
     fontSize: 45,
     fontFamily: 'ZenKurenaido-Regular',
     color: theme.text.pri200, // *** Color ***
@@ -128,16 +125,16 @@ const styles = (theme) => StyleSheet.create({
     marginTop: 30,
   },
   writeTaskWrapper: {
-    marginTop:15,
+    marginTop: 15,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
   },
   input: {
-    paddingLeft:20,
+    paddingLeft: 20,
     fontFamily: 'ZenKurenaido-Regular',
-    fontSize:20,
+    fontSize: 20,
     borderRadius: 60,
     borderColor: 'white', // *** Color ***
     borderWidth: 2,
@@ -160,14 +157,14 @@ const styles = (theme) => StyleSheet.create({
     paddingBottom: 10
   },
   toggleAdd: {
-    marginTop:15,
+    marginTop: 15,
     borderRadius: 15,
     borderColor: theme.border.pri200, // *** Color ***
     borderWidth: 2,
     color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
-    paddingVertical:3,
-    paddingHorizontal:10,
+    paddingVertical: 3,
+    paddingHorizontal: 10,
     fontSize: 40,
     fontFamily: 'ZenKurenaido-Regular',
     shadowColor: theme.shadow.pri300, // *** Color ***
@@ -197,8 +194,8 @@ const styles = (theme) => StyleSheet.create({
   toggleNext: {
     fontFamily: 'ZenKurenaido-Regular',
     borderRadius: 10,
-    marginHorizontal:60,
-    marginVertical:15,
+    marginHorizontal: 60,
+    marginVertical: 15,
     borderColor: theme.border.pri400, // *** Color ***
     borderWidth: 2,
     color: theme.text.pri200, // *** Color ***
