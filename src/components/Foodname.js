@@ -9,7 +9,6 @@ import { deleteFood, editFood } from '../redux/actions/dataActions';
 
 
 const Foodname = (props) => {
-  console.log(props, 'foodname')
   const dispatch = useDispatch();
   const { theme } = useSelector(state => state.theme);
 
@@ -17,17 +16,26 @@ const Foodname = (props) => {
     dispatch(deleteFood(id));
   };
 
-  let swipeBtns = [{
+  let swipeBtnsRight = [{
     text: 'Delete',
     backgroundColor: 'red',
     underlayColor: 'rgba(0, 0, 0, 1, 0.6)',
     onPress: () => { handleDeleteFood(props.idx) }
   }];
 
+  let swipeBtnsLeft = [{
+    text: 'Edit',
+    backgroundColor: 'green',
+    underlayColor: 'rgba(0, 0, 0, 1, 0.6)',
+    onPress: () => { props.navigation.navigate('Price', { foodname: props.foodname, member: props.member, price: props.price, id: props.idx }) }
+  }];
+
   return (
 
     <View style={styles(theme).item}>
-      <Swipeout right={swipeBtns}
+      <Swipeout
+        right={swipeBtnsRight}
+        left={swipeBtnsLeft}
         autoClose={true}
         backgroundColor='transparent'
         style={styles(theme).btndelete}
@@ -76,6 +84,7 @@ const styles = (theme) => StyleSheet.create({
 
   },
   itemLeft: {
+    marginLeft: 10,
     flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'wrap'

@@ -36,7 +36,7 @@ const Food = ({ navigation }) => {
     foodList && foodList.map((item, index) =>
       foods.push(
         <TouchableOpacity key={index} onPress={() => { navigation.navigate('Price', { foodname: item.foodname, member: item.member, price: item.price, id: item.id }); }}>
-          <Foodname foodname={item.foodname} price={item.price} idx={item.id} />
+          <Foodname foodname={item.foodname} price={item.price} idx={item.id} member={item.member} navigation={navigation} />
         </TouchableOpacity>
       )
     )
