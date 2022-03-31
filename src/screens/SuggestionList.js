@@ -1,10 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 
-const SuggestionList = () => {
+const SuggestionList = ({ route, navigation }) => {
+  const { suggestname, data, suggesttype } = route.params;
+
   return (
     <View>
-      <Text>SuggestionList</Text>
+      <Text>{suggestname}</Text>
+      {data && data.map((val, idx) => (
+        <TouchableOpacity key={idx}  >
+          <Text>{val.val}</Text>
+        </TouchableOpacity>
+      ))}
     </View>
   )
 }
@@ -12,5 +19,5 @@ const SuggestionList = () => {
 export default SuggestionList
 
 const styles = StyleSheet.create({
-    
+
 })

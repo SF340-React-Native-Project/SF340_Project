@@ -4,19 +4,21 @@ import * as React from 'react';
 import Welcome from '../screens/Welcome'
 import Home from '../screens/Home'
 import Game from '../screens/Game';
-import Suggestion from '../screens/Suggestion';
 
 //Navigation
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import FoodStack from './FoodStack';
 import CustomDrawer from '../components/CustomDrawer';
+import Calendar from '../screens/Calendar';
+import Suggestion from '../screens/Suggestion';
+
 
 //redux stuff
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { Store, persistor } from "../redux/store"
-import Calendar from '../screens/Calendar';
+import SuggestionList from '../screens/SuggestionList';
 
 
 
@@ -47,6 +49,11 @@ const AppStack = () => {
             <Drawer.Screen name="Suggest" component={Suggestion} />
             <Drawer.Screen name="Calendar" component={Calendar} />
             <Drawer.Screen name="Game" component={Game} />
+            <Drawer.Screen name="SuggestionList" component={SuggestionList}
+              options={{
+                drawerLabel: () => null,
+                drawerItemStyle: { height: 0 }
+              }} />
           </Drawer.Navigator>
 
         </NavigationContainer>

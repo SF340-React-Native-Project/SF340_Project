@@ -5,20 +5,20 @@ import Swipeout from 'react-native-swipeout';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteFood, editFood } from '../redux/actions/dataActions';
 
-const NameForSuggestion = () => {
+const NameForSuggestion = (props) => {
 
     const dispatch = useDispatch();
     const { theme } = useSelector(state => state.theme);
  
 
     return (
-        <View style={styles(theme).item}>
+        <View style={styles(theme).container}>
             
-                <View style={styles(theme).container}>
+                <View style={styles(theme).item}>
                     <View style={styles(theme).itemLeft}>
                         <View style={styles(theme).circular}></View>
                         <View>
-                            <Text style={styles(theme).itemText}>{props.name}</Text>
+                            <Text style={styles(theme).seggestmenu}>{props.name}</Text>
                         </View>
                     </View>
                 </View>
@@ -30,12 +30,11 @@ const NameForSuggestion = () => {
 
 const styles = (theme) => StyleSheet.create({
     container: {
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-
+        justifyContent: 'center',
+        flexDirection: 'column',
     },
     item: {
-        padding: 10,
+        margin:20,
         borderRadius: 15,
         borderColor: '#CCFF33', // *** Color ***
         borderWidth: 2,
@@ -45,8 +44,6 @@ const styles = (theme) => StyleSheet.create({
         elevation: 50,
         marginBottom: 15,
         justifyContent: 'space-between',
-
-
     },
     itemLeft: {
         marginLeft: 10,
@@ -62,15 +59,15 @@ const styles = (theme) => StyleSheet.create({
         borderRadius: 100,
         marginRight: 10,
     },
-    itemText: {
+    seggestmenu:{
+        marginHorizontal:20,
+        padding: 10,
         fontFamily: 'ZenKurenaido-Regular',
         fontSize: 25,
         color: '#90EE90', // *** Color ***
-        textAlign: 'center',
-        textShadowColor: '#f50abe', // *** Color ***
-        textShadowOffset: { width: 1, height: 1 },
-        textShadowRadius: 10,
-    },
+        shadowColor: "#A540FF", // *** Color ***
+        elevation: 50,
+      }
 });
 
 export default NameForSuggestion;

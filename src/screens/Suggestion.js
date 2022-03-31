@@ -3,24 +3,28 @@ import React from "react";
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { useSelector, useDispatch } from 'react-redux';
+import NameForSuggestion from "../components/NameForSuggestion";
 
 const Suggestion = ({ navigation }) => {
     const { theme } = useSelector(state => state.theme);
 
+    const suggest = ['FOOD', 'FRIEND']
+
     return (
-        <View style={styles(theme).layout}>
+        <View style={styles(theme).container}>
             <Text style={styles(theme).sectionTitle}>Suggest</Text>
-            <ScrollView>
-                <View style={styles(theme).circular}></View>
-                <Text style={styles(theme).seggestmenu}>Beer</Text>
-            </ScrollView>
+            {suggest && suggest.map((val, idx) => (
+                <TouchableOpacity key={idx} onPress={() => { navigation.navigate('SuggestionList', { suggestname: val , data: [{val:'1', idx:'1'}, {val:'3', idx:'3'}, {val:'3', idx:'3'}], suggesttype: val }) }} >
+                    <NameForSuggestion name={val} />
+                </TouchableOpacity>
+            ))}
         </View>
     )
 }
 
 const styles = (theme) => StyleSheet.create({
-    layout : {
-        flex:1,
+    container: {
+        flex: 1,
         backgroundColor: 'rgb(15,35,45)',
     },
     sectionTitle: {
@@ -42,9 +46,9 @@ const styles = (theme) => StyleSheet.create({
         textShadowColor: theme.shadow.pri100, // *** Color ***
         textShadowOffset: { width: 3, height: 3 },
         textShadowRadius: 20,
-      },
-      seggestmenu:{
-        marginHorizontal:20,
+    },
+    seggestmenu: {
+        marginHorizontal: 20,
         padding: 10,
         fontFamily: 'ZenKurenaido-Regular',
         fontSize: 25,
@@ -56,7 +60,7 @@ const styles = (theme) => StyleSheet.create({
         shadowColor: "#A540FF", // *** Color ***
         elevation: 50,
         marginBottom: 15,
-      }
+    }
 })
 
 
