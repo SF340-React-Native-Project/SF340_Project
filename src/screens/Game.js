@@ -23,7 +23,7 @@ class Game extends Component {
             started: false,
         };
         this.child = null;
-        this.participants = props.data;
+        this.participants = ['1SHOT', '2SHOT', '3SHOT', '4SHOT', 'NEXT', 'FREE' ];
         this.theme = props.theme;
 
     }
