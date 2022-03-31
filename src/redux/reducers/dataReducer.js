@@ -16,9 +16,10 @@ export default function (state = initialState, action) {
         case ADD_NAME:
             // เพิ่มชื่อ
             var addNameTemp = [...state.nameList, action.payload]
-            var foodListTemp = state.foodList;
+
 
             // เพิ่มชื่อในรายการอาหาร
+            var foodListTemp = state.foodList;
             for (var num = 0; num < state.foodList.length; num++) {
                 var addMemberTemp = state.foodList[num].member
                 var memberTemp = Object.keys(state.foodList[num].member);
@@ -82,8 +83,12 @@ export default function (state = initialState, action) {
                 data: action.payload,
             }
         case DELETE_FOOD:
+
+            var deleteFoodTemp = [...state.foodList.filter(word => word.id !== action.payload)]
+
             return {
-                data: action.payload,
+                ...state,
+                foodList: deleteFoodTemp,
             }
         case SET_FOOD_PRICE:
             // ใส่จำนวนเงินของอาหาร

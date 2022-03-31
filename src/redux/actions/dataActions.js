@@ -29,9 +29,9 @@ export const editFood = (food) => (dispatch) => {
     dispatch({ type: EDIT_FOOD, payload: food });
 
 }
-export const deleteFood = (food) => (dispatch) => {
+export const deleteFood = (id) => (dispatch) => {
 
-    dispatch({ type: DELETE_FOOD, payload: food });
+    dispatch({ type: DELETE_FOOD, payload: id });
 
 }
 export const setFoodPrice = (id, price) => (dispatch) => {

@@ -33,10 +33,10 @@ const Food = ({ navigation }) => {
   const loopFoods = () => {
     const foods = [];
 
-    foodList.map((item, index) =>
+    foodList && foodList.map((item, index) =>
       foods.push(
         <TouchableOpacity key={index} onPress={() => { navigation.navigate('Price', { foodname: item.foodname, member: item.member, price: item.price, id: item.id }); }}>
-          <Foodname foodname={item.foodname} price={item.price} />
+          <Foodname foodname={item.foodname} price={item.price} idx={item.id} />
         </TouchableOpacity>
       )
     )
@@ -225,7 +225,7 @@ const styles = (theme) => StyleSheet.create({
     marginRight: 'auto',
   },
   addText: {
-    marginBottom: 10, 
+    marginBottom: 10,
     fontSize: 35,
     color: theme.text.pri300, // *** Color ***
     textShadowColor: theme.shadow.pri100, // *** Color ***
