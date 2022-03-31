@@ -18,11 +18,11 @@ const Food = ({ navigation }) => {
   const [showBtn, setShowBtn] = useState(true);
 
   const handleAddTask = () => {
-    if (food !== null && food.length > 0) {
+    if (food !== '' && food.length > 0) {
       Keyboard.dismiss();
       dispatch(addFood(food))
     }
-    setFood(null);
+    setFood('');
   }
 
   const toCalculate = () => {
@@ -188,6 +188,7 @@ const styles = (theme) => StyleSheet.create({
     color: theme.textinput.pri100, // *** Color ***
   },
   addWrapper: {
+    marginBottom: 10,
     width: 60,
     height: 60,
     borderRadius: 60,
@@ -224,6 +225,7 @@ const styles = (theme) => StyleSheet.create({
     marginRight: 'auto',
   },
   addText: {
+    marginBottom: 10, 
     fontSize: 35,
     color: theme.text.pri300, // *** Color ***
     textShadowColor: theme.shadow.pri100, // *** Color ***
