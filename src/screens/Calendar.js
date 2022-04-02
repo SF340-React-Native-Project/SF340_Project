@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import DetailForCalendar from '../components/DetailForCalendar';
 
+import CalendarList from '../components/CalendarList';
+
 const Calendar = ({ navigation }) => {
     const dispatch = useDispatch();
     // const { calendarList } = useSelector(state => state.calendar)
@@ -15,11 +17,33 @@ const Calendar = ({ navigation }) => {
 
     const [showBtn, setShowBtn] = useState(true);
 
+    // const loopCaleadar = () => {
+    //     const calendar = [];
+    
+    //     calendarList && calendarList.map((item, index) =>
+    //     calendar.push(
+    //         <TouchableOpacity>
+    //           <CalendarList />
+    //         </TouchableOpacity>
+    //       )
+    //     )
+    //     return calendar;
+    // }
+
     return (
         <View style={styles(theme).container}>
             <Text style={styles(theme).sectionTitle}> Calendar </Text>
 
+            <View style={styles(theme).tasksWrapper}>
+                <View style={styles(theme).items}>
 
+                    {/* calendar list here */}
+                    <TouchableOpacity>
+                        <CalendarList />
+                    </TouchableOpacity>
+
+                </View>
+            </View>
 
             {showBtn ? (<View style={styles(theme).bottombar}>
                 <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
@@ -36,141 +60,78 @@ const Calendar = ({ navigation }) => {
 
 const styles = (theme) => StyleSheet.create({
     Back: {
-      fontSize: 15,
-      borderRadius: 15,
-      borderColor: theme.border.pri500, // *** Color ***
-      borderWidth: 2,
-      color: theme.text.pri500, // *** Color ***
-      textAlign: 'center',
-      paddingTop: 10,
-      paddingBottom: 10,
-      paddingLeft: 20,
-      paddingRight: 20,
-      shadowColor: theme.shadow.pri300, // *** Color ***
-      elevation: 18,
-      textShadowColor: theme.shadow.pri100, // *** Color ***
-      textShadowOffset: { width: 2, height: 2 },
-      textShadowRadius: 10,
+        fontSize: 15,
+        borderRadius: 15,
+        borderColor: theme.border.pri500, // *** Color ***
+        borderWidth: 2,
+        color: theme.text.pri500, // *** Color ***
+        textAlign: 'center',
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        shadowColor: theme.shadow.pri300, // *** Color ***
+        elevation: 18,
+        textShadowColor: theme.shadow.pri100, // *** Color ***
+        textShadowOffset: { width: 2, height: 2 },
+        textShadowRadius: 10,
     },
     Add: {
-      fontSize: 15,
-      borderRadius: 15,
-      borderColor: theme.border.pri500, // *** Color ***
-      borderWidth: 2,
-      color: theme.text.pri500, // *** Color ***
-      textAlign: 'center',
-      paddingTop: 10,
-      paddingBottom: 10,
-      paddingLeft: 20,
-      paddingRight: 20,
-      shadowColor: theme.shadow.pri300, // *** Color ***
-      elevation: 18,
-      textShadowColor: theme.shadow.pri100, // *** Color ***
-      textShadowOffset: { width: 2, height: 2 },
-      textShadowRadius: 10,
+        fontSize: 15,
+        borderRadius: 15,
+        borderColor: theme.border.pri500, // *** Color ***
+        borderWidth: 2,
+        color: theme.text.pri500, // *** Color ***
+        textAlign: 'center',
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        shadowColor: theme.shadow.pri300, // *** Color ***
+        elevation: 18,
+        textShadowColor: theme.shadow.pri100, // *** Color ***
+        textShadowOffset: { width: 2, height: 2 },
+        textShadowRadius: 10,
     },
     container: {
-      flex: 1,
-      backgroundColor: theme.background.pri100, // *** Color ***
+        flex: 1,
+        backgroundColor: theme.background.pri100, // *** Color ***
     },
     tasksWrapper: {
-      paddingTop: 15,
-      paddingHorizontal: 20,
+        paddingTop: 5,
+        paddingHorizontal: 20,
     },
     sectionTitle: {
-      fontSize: 30,
-      marginTop: 20,
-      marginBottom: 20,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      fontFamily: 'ZenKurenaido-Regular',
-      borderRadius: 15,
-      borderColor: theme.border.pri200, // *** Color ***
-      borderWidth: 3,
-      color: theme.text.pri400, // *** Color ***
-      textAlign: 'center',
-      paddingHorizontal: 25,
-      paddingVertical: 10,
-      shadowColor: theme.shadow.pri300, // *** Color ***
-      elevation: 67,
-      textShadowColor: theme.shadow.pri100, // *** Color ***
-      textShadowOffset: { width: 3, height: 3 },
-      textShadowRadius: 20,
-      letterSpacing: 3,
-      borderStyle: 'dashed',
+        fontSize: 30,
+        marginTop: 20,
+        marginBottom: 20,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        fontFamily: 'ZenKurenaido-Regular',
+        borderRadius: 15,
+        borderColor: theme.border.pri200, // *** Color ***
+        borderWidth: 3,
+        color: theme.text.pri400, // *** Color ***
+        textAlign: 'center',
+        paddingHorizontal: 25,
+        paddingVertical: 10,
+        shadowColor: theme.shadow.pri300, // *** Color ***
+        elevation: 67,
+        textShadowColor: theme.shadow.pri100, // *** Color ***
+        textShadowOffset: { width: 3, height: 3 },
+        textShadowRadius: 20,
+        letterSpacing: 3,
+        borderStyle: 'dashed',
     },
     items: {
-      color: 'black', // *** Color ***
-      marginTop: 30,
-    },
-    writeTaskWrapper: {
-      marginTop: 15,
-      width: '100%',
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-      alignItems: 'center',
-    },
-    input: {
-      marginBottom: 10,
-      paddingLeft: 20,
-      fontFamily: 'ZenKurenaido-Regular',
-      fontSize: 20,
-      borderRadius: 60,
-      borderColor: 'white', // *** Color ***
-      borderWidth: 2,
-      width: 250,
-      color: theme.textinput.pri100, // *** Color ***
-    },
-    addWrapper: {
-      marginBottom: 10,
-      width: 60,
-      height: 60,
-      borderRadius: 60,
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderColor: theme.border.pri300, // *** Color ***
-      borderWidth: 5,
-    },
-    toggleAdd: {
-      bottom: 15,
-      borderRadius: 15,
-      borderColor: theme.border.pri200, // *** Color ***
-      borderWidth: 2,
-      color: theme.text.pri100, // *** Color ***
-      textAlign: 'center',
-      width: 300,
-      height: 60,
-      fontSize: 40,
-      fontFamily: 'Neonderthaw-Regular',
-      shadowColor: theme.border.pri300, // *** Color ***
-      shadowOffset: {
-        width: 0,
-        height: 12,
-      },
-      shadowOpacity: 5,
-      shadowRadius: 16.0,
-      elevation: 55,
-      textShadowColor: theme.shadow.pri100, // *** Color ***
-      textShadowOffset: { width: 3, height: 3 },
-      textShadowRadius: 15,
-    },
-    toggleButton: {
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
-    addText: {
-      marginBottom: 10,
-      fontSize: 35,
-      color: theme.text.pri300, // *** Color ***
-      textShadowColor: theme.shadow.pri100, // *** Color ***
-      textShadowOffset: { width: 2, height: 2 },
-      textShadowRadius: 10,
+        color: 'black', // *** Color ***
+        marginTop: 15,
     },
     bottombar: {
-      marginTop: 10,
-      marginBottom: 10,
-      flexDirection: 'row',
-      justifyContent: 'space-around',
+        marginTop: 10,
+        marginBottom: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
     },
 });
 

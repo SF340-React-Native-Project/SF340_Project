@@ -7,7 +7,7 @@ import { Calendar, CalendarList } from 'react-native-calendars';
 import { getData } from "../redux/actions/calendarActions"
 import { useSelector, useDispatch } from 'react-redux'
 
-const DetailForCalendar = ({ navigation }) => {
+const DetailForCalendar = ({ route, navigation }) => {
     const dispatch = useDispatch();
     const { theme } = useSelector(state => state.theme);
 
@@ -20,6 +20,7 @@ const DetailForCalendar = ({ navigation }) => {
     }
 
     const getMarkedDates = (baseDate) => {
+        // baseDate is the date to keep. ***
         console.log(baseDate);
 
         const markedDate = {};
@@ -31,35 +32,54 @@ const DetailForCalendar = ({ navigation }) => {
         <View style={styles(theme).container}>
             <Text style={styles(theme).sectionTitle}> Calendar </Text>
 
-            {/* date */}
-            <View style={styles(theme).calendar}>
-                <Calendar 
-                    onDayPress={this.onDayPress}
-                    markedDates={markedDates}
-                    markingType={"period"}
-                    theme={{
-                        calendarBackground: theme.background.pri100,
+            <ScrollView>
+                {/* date */}
+                <View style={styles(theme).calendar}>
+                    <Calendar 
+                        onDayPress={this.onDayPress}
+                        markedDates={markedDates}
+                        markingType={"period"}
+                        theme={{
+                            calendarBackground: theme.background.pri100,
 
-                        monthTextColor: theme.text.pri200,
-                        textMonthFontWeight: 'bold',
+                            monthTextColor: theme.text.pri200,
+                            textMonthFontWeight: 'bold',
 
-                        arrowColor: theme.border.pri700,
+                            arrowColor: theme.border.pri700,
 
-                        textSectionTitleColor: theme.text.pri100,
+                            textSectionTitleColor: theme.text.pri100,
 
-                        dayTextColor: theme.text.pri500,
-                        textDisabledColor: theme.text.pri700,
-                    }}
+                            dayTextColor: theme.text.pri500,
+                            textDisabledColor: theme.text.pri700,
+                        }}
+                    />
+                </View>
+
+                {/* detail */}
+                <TextInput
+                    style={styles(theme).inputTime}
+                    placeholder="Time"
+                    placeholderTextColor={'white'}
+                    keyboardType="numeric"
+                    // onChangeText={val => setPrice(val)}
                 />
-            </View>
+                <TextInput
+                    style={styles(theme).inputDetail}
+                    placeholder="Detail"
+                    placeholderTextColor={'white'}
+                    // onChangeText={val => setPrice(val)}
+                />
 
-            {/* detail */}
+                {/* add name list here */}
 
-            {/* button */}
-            <View style={{ paddingTop: 20 }}></View>
-            <TouchableOpacity onPress={() => navigation.navigate('CalendarList')}>
-                <Text style={styles(theme).Add}> Add </Text>
-            </TouchableOpacity>
+                {/* button */}
+                <View style={{ paddingTop: 20 }}></View>
+                <TouchableOpacity onPress={() => navigation.navigate('CalendarList')}>
+                    <Text style={styles(theme).Add}> Add </Text>
+                </TouchableOpacity>
+            </ScrollView>
+            
+
         </View>
     )
 }
@@ -113,7 +133,32 @@ const styles = (theme) => StyleSheet.create({
     },
     calendar: {
         justifyContent: 'center',
-    }
+    },
+    inputTime: {
+        marginLeft: 20,
+        marginTop:20,
+        width: '25%',
+        fontWeight: 'bold',
+        borderRadius: 20,
+        borderColor: theme.border.pri900, // *** Color ***
+        borderWidth: 2,
+        color: 'white', // *** Color ***
+        textAlign: 'center',
+        alignContent: 'center',
+    },
+    inputDetail: {
+        marginLeft: 20,
+        marginTop:20,
+        paddingLeft: 20,
+        width: '90%',
+        fontWeight: 'bold',
+        borderRadius: 20,
+        borderColor: theme.border.pri900, // *** Color ***
+        borderWidth: 2,
+        color: 'white', // *** Color ***
+        // textAlign: 'center',
+        alignContent: 'center',
+    },
 });
 
 export default DetailForCalendar;
