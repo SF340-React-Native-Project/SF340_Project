@@ -10,7 +10,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import FoodStack from './FoodStack';
 import CustomDrawer from '../components/CustomDrawer';
-import Calendar from '../screens/Calendar';
+import CalendarStack from './CalendarStack';
 import Suggestion from '../screens/Suggestion';
 
 
@@ -47,7 +47,7 @@ const AppStack = () => {
             <Drawer.Screen name="Home" component={Home} />
             <Drawer.Screen name="Food" component={FoodStack} />
             <Drawer.Screen name="Suggest" component={Suggestion} />
-            <Drawer.Screen name="Calendar" component={Calendar} />
+            <Drawer.Screen name="Calendar" component={CalendarStack} />
             <Drawer.Screen name="Game" component={Game} />
             <Drawer.Screen name="SuggestionList" component={SuggestionList}
               options={{

@@ -1,35 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { Calendar, CalendarList } from 'react-native-calendars';
 
 //redux stuff
 import { getData } from "../redux/actions/calendarActions"
 import { useSelector, useDispatch } from 'react-redux'
-// import { addDay } from '../redux/actions/calendarActions'
 
-import DetailForCalendar from '../components/DetailForCalendar';
+const DetailForCalendar = ({ navigation }) => {
+    state = {
+        markedDates: {'2022-04-04': {startingDay: true, color: '#00B0BF', textColor: '#FFFFFF'}},
+    }
 
-const Calendar = ({ navigation }) => {
+    onDayPress = (day) => {
+        console.log(day);
+
+        
+    }
+
     const dispatch = useDispatch();
-    // const { calendarList } = useSelector(state => state.calendar)
     const { theme } = useSelector(state => state.theme);
-
-    const [showBtn, setShowBtn] = useState(true);
 
     return (
         <View style={styles(theme).container}>
             <Text style={styles(theme).sectionTitle}> Calendar </Text>
 
-
-
-            {showBtn ? (<View style={styles(theme).bottombar}>
-                <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
-                    <Text style={styles(theme).Back}> Back </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={() => navigation.navigate('CalendarDetail')}>
-                    <Text style={styles(theme).Add}> Add </Text>
-                </TouchableOpacity>
-            </View>) : (<></>)}
+            {/* date */}
+            <Calendar 
+                onDayPress={this.onDayPress}
+                markedDates={{"2022-04-04": { startingDay: true, endingDay: true, color: '#00adf5', textColor: '#2e2e2e' }}}
+                // markedDates={{: { startingDay: true, endingDay: true, color: '#00adf5', textColor: '#2e2e2e' }}}
+                markingType={"period"}
+            />
         </View>
     )
 }
@@ -174,4 +176,4 @@ const styles = (theme) => StyleSheet.create({
     },
 });
 
-export default Calendar;
+export default DetailForCalendar;
