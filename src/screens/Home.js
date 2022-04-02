@@ -89,6 +89,7 @@ const Home = ({ navigation }) => {
                 nameList.map((item, index) => (
                   <TouchableOpacity
                     key={index}
+                    disabled={true}
                   >
                     <Name text={item} />
                   </TouchableOpacity>
