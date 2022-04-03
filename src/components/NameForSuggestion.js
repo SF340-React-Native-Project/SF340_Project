@@ -34,7 +34,7 @@ const styles = (theme) => StyleSheet.create({
         flexDirection: 'column',
     },
     item: {
-        margin:20,
+        marginHorizontal:25,
         borderRadius: 15,
         borderColor: '#CCFF33', // *** Color ***
         borderWidth: 2,
@@ -57,13 +57,13 @@ const styles = (theme) => StyleSheet.create({
         backgroundColor: '#FF3CBE', // *** Color ***
         opacity: 0.4,
         borderRadius: 100,
-        marginRight: 10,
+
     },
     seggestmenu:{
         marginHorizontal:20,
         padding: 10,
         fontFamily: 'ZenKurenaido-Regular',
-        fontSize: 25,
+        fontSize: 20,
         color: '#90EE90', // *** Color ***
         shadowColor: "#A540FF", // *** Color ***
         elevation: 50,
