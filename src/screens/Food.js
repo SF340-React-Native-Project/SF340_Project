@@ -26,6 +26,7 @@ const Food = ({ navigation }) => {
   }
 
   const toCalculate = () => {
+    dispatch(calculate())
     navigation.navigate('Calculated')
   }
 

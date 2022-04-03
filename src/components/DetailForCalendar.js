@@ -11,12 +11,13 @@ const DetailForCalendar = ({ route, navigation }) => {
     const dispatch = useDispatch();
     const { theme } = useSelector(state => state.theme);
 
-    const [markedDates, setMarkedDates] = useState('');
+    const [marked, setMarked] = useState(null);
+    const [baseDate, setbaseDate] = useState('');
 
-    onDayPress = (day) => {
-        const baseDate = '';
-        this.baseDate = day.dateString;
-        getMarkedDates(this.baseDate);
+
+    const onDayPress = (day) => {
+        setbaseDate();
+        getMarkedDates(day.dateString);
     }
 
     const getMarkedDates = (baseDate) => {
@@ -25,7 +26,7 @@ const DetailForCalendar = ({ route, navigation }) => {
 
         const markedDate = {};
         markedDate[baseDate] = { startingDay: true, endingDay: true, color: theme.border.pri600, textColor: theme.text.pri400 };
-        setMarkedDates(markedDate);
+        setMarked(markedDate);
     }
 
     return (
@@ -36,8 +37,8 @@ const DetailForCalendar = ({ route, navigation }) => {
                 {/* date */}
                 <View style={styles(theme).calendar}>
                     <Calendar 
-                        onDayPress={this.onDayPress}
-                        markedDates={markedDates}
+                        onDayPress={onDayPress}
+                        markedDates={marked}
                         markingType={"period"}
                         theme={{
                             calendarBackground: theme.background.pri100,

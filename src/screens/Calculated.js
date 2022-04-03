@@ -28,10 +28,12 @@ const Calculated = ({ navigation }) => {
     <View style={styles(theme).container} >
       <Text style={styles(theme).sectionTitle} > Calculated </Text>
       <ScrollView >
-        {name.map((val, idx) =>
-          <TouchableOpacity key={idx} style={{ paddingHorizontal: 20 }}>
-            <NameForCalculated text={val[0]} price={val[1]} />
-          </TouchableOpacity>)}
+        <View style={styles(theme).content}>
+          {name.map((val, idx) =>
+            <TouchableOpacity key={idx} style={{ paddingHorizontal: 20 }}>
+              <NameForCalculated text={val[0]} price={val[1]} />
+            </TouchableOpacity>)}
+        </View>
       </ScrollView>
       <TouchableOpacity onPress={() => goBlack()}>
         <Text style={styles(theme).toggleExit}> Back </Text>
@@ -48,7 +50,9 @@ const styles = (theme) => StyleSheet.create({
     flexDirection: "column",
 
   },
-
+  content: {
+    marginTop: 30,
+  },
   sectionTitle: {
     marginTop: 30,
     marginLeft: 'auto',
