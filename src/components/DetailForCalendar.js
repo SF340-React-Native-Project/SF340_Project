@@ -72,6 +72,12 @@ const DetailForCalendar = ({ route, navigation }) => {
                 />
 
                 {/* add name list here */}
+                <TextInput
+                    style={styles(theme).inputDetail}
+                    placeholder="name"
+                    placeholderTextColor={'white'}
+                    // onChangeText={val => setPrice(val)}
+                />
 
                 {/* button */}
                 <View style={{ paddingTop: 20 }}></View>

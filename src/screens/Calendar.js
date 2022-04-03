@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
 
 //redux stuff
-import { getData } from "../redux/actions/calendarActions"
-import { useSelector, useDispatch } from 'react-redux'
-// import { addDay } from '../redux/actions/calendarActions'
+import { useSelector, useDispatch } from 'react-redux';
+// import { addSchedule } from '../redux/actions/calendarActions';
 
 import DetailForCalendar from '../components/DetailForCalendar';
-
 import CalendarList from '../components/CalendarList';
 
 const Calendar = ({ navigation }) => {
@@ -30,6 +28,12 @@ const Calendar = ({ navigation }) => {
     //     return calendar;
     // }
 
+    const addScheduleButton = () => {
+        Keyboard.dismiss();
+        // dispatch(addSchedule());
+        navigation.navigate('CalendarDetail');
+    }
+
     return (
         <View style={styles(theme).container}>
             <Text style={styles(theme).sectionTitle}> Calendar </Text>
@@ -50,7 +54,7 @@ const Calendar = ({ navigation }) => {
                     <Text style={styles(theme).Back}> Back </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate('CalendarDetail')}>
+                <TouchableOpacity onPress={() => addScheduleButton() }>
                     <Text style={styles(theme).Add}> Add </Text>
                 </TouchableOpacity>
             </View>) : (<></>)}

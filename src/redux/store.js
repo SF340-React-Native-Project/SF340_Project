@@ -20,7 +20,7 @@ const reducers = combineReducers({
     data: persistReducer(persistConfig, dataReducer),
     suggest: persistReducer(persistConfig, suggestionReducer),
     theme: persistReducer(persistConfig, themeReducer),
-    // calendar: persistReducer(persistConfig, calendarReducer)
+    // calendar: persistReducer(persistConfig, calendarReducer),
 })
 
 export const Store = createStore(reducers, compose(applyMiddleware(...middleware)));

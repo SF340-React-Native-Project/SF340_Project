@@ -1,7 +1,7 @@
-import { ADD_DAY_CALENDAR } from '../types';
+import { ADD_SCHEDULE } from '../types';
 
-export const addDay = (day) => (dispatch) => {
+export const addSchedule = () => (dispatch) => {
 
-    dispatch({ type: ADD_DAY_CALENDAR, payload: day });
+    dispatch({ type: ADD_SCHEDULE });
 
 }
