@@ -67,7 +67,7 @@ const styles = (theme) => StyleSheet.create({
     borderRadius: 15,
     borderColor: '#36F2F2', // *** Color ***
     borderWidth: 4,
-    borderStyle: 'dashed',
+
   },
   backbutton: {
     fontSize: 30,
@@ -98,6 +98,7 @@ const styles = (theme) => StyleSheet.create({
     borderRadius: 15,
     borderColor: theme.border.pri200, // *** Color ***
     borderWidth: 2,
+    borderStyle: 'dashed',
   },
   describhead:{
     marginTop:10,
