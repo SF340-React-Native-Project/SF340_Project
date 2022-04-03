@@ -8,19 +8,34 @@ import NameForSuggestion from "../components/NameForSuggestion";
 const Suggestion = ({ navigation }) => {
     const { theme } = useSelector(state => state.theme);
 
-    const suggest = ['FOOD', 'FRIEND','FOOD', 'FRIEND','FOOD', 'FRIEND','FOOD', 'FRIEND','FOOD', 'FRIEND']
+    const suggest = ['FOOD', 'FRIEND', 'FOOD', 'FRIEND', 'FOOD', 'FRIEND', 'FOOD', 'FRIEND', 'FOOD', 'FRIEND']
 
     return (
         <View style={styles(theme).container}>
             <Text style={styles(theme).sectionTitle}>Suggest</Text>
-                <ScrollView style={styles(theme).scrollviewlayout}>
-                    {suggest && suggest.map((val, idx) => (
-                        <TouchableOpacity key={idx} onPress={() => { navigation.navigate('SuggestionList', { suggestname: val , data: [{val:'1', idx:'1'}, {val:'3', idx:'3'}, {val:'3', idx:'3'}], suggesttype: val }) }} >
-                            <NameForSuggestion name={val} />
-                        </TouchableOpacity>
-                    ))}
-                </ScrollView>
-            <Text style={styles(theme).backbutton}>Back</Text>
+            <ScrollView style={styles(theme).scrollviewlayout}>
+                {suggest && suggest.map((val, idx) => (
+                    <TouchableOpacity
+                        key={idx}
+                        onPress={() => {
+                            navigation.navigate(
+                                'SuggestionList',
+                                {
+                                    suggestname: val,
+                                    data: [{ header: 'Beer', idx: '1', describtion:'Beer Chang Algohol 5% Beer Chang Algohol 5%' },
+                                    ],
+                                    suggesttype: val
+                                })
+                        }} >
+                        <NameForSuggestion name={val} />
+                    </TouchableOpacity>
+                ))}
+            </ScrollView>
+            <Text
+                style={styles(theme).backbutton}
+                onPress={() => navigation.navigate('Food')}>
+                Back
+            </Text>
         </View>
     )
 }
@@ -84,11 +99,11 @@ const styles = (theme) => StyleSheet.create({
         textShadowOffset: { width: 3, height: 3 },
         textShadowRadius: 20,
     },
-    scrollviewlayout:{
-        marginLeft:'auto',
-        marginRight:'auto',
-        width:330,
-        paddingVertical:5,
+    scrollviewlayout: {
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        width: 330,
+        paddingVertical: 20,
         borderRadius: 15,
         borderColor: '#36F2F2', // *** Color ***
         borderWidth: 4,
