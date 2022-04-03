@@ -1,4 +1,3 @@
-import { Value } from 'react-native-reanimated';
 import { ADD_SCHEDULE } from '../types'
 
 const initialState = {
@@ -20,9 +19,13 @@ export default function (state = initialState, action) {
 
             var addScheduleTemp = [...state.scheduleList, { 'id': state.foodList.length, 'day': '', 'time': '', 'detail': '', 'member': '' }]
 
+
+            console.log(addScheduleTemp);
             return {
                 ...state,
                 scheduleList: addScheduleTemp,
             }
+        default:
+            return state;
     }
 }

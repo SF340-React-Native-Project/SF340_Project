@@ -3,7 +3,7 @@ import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpaci
 
 //redux stuff
 import { useSelector, useDispatch } from 'react-redux';
-// import { addSchedule } from '../redux/actions/calendarActions';
+import { addSchedule } from '../redux/actions/calendarActions';
 
 import DetailForCalendar from '../components/DetailForCalendar';
 import CalendarList from '../components/CalendarList';
@@ -30,7 +30,7 @@ const Calendar = ({ navigation }) => {
 
     const addScheduleButton = () => {
         Keyboard.dismiss();
-        // dispatch(addSchedule());
+        dispatch(addSchedule());
         navigation.navigate('CalendarDetail');
     }
 
