@@ -36,10 +36,10 @@ const Calendar = ({ navigation }) => {
 
     return (
         <View style={styles(theme).container}>
-            {/* <Text style={styles(theme).sectionTitle}> Calendar </Text> */}
+            <Text style={styles(theme).sectionTitle}> Calendar </Text>
         
             <ScrollView>
-                <Text style={styles(theme).sectionTitle}> Calendar </Text>
+                {/* <Text style={styles(theme).sectionTitle}> Calendar </Text> */}
 
                 <View style={styles(theme).tasksWrapper}>
                     <View style={styles(theme).items}>
@@ -50,15 +50,6 @@ const Calendar = ({ navigation }) => {
                     </View>
                 </View>
 
-                {/* {showBtn ? (<View style={styles(theme).bottombar}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
-                        <Text style={styles(theme).Back}> Back </Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() => addScheduleButton() }>
-                        <Text style={styles(theme).Add}> Add </Text>
-                    </TouchableOpacity>
-                </View>) : (<></>)} */}
             </ScrollView>
             
 
@@ -149,7 +140,6 @@ const styles = (theme) => StyleSheet.create({
         paddingBottom: 10,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        // backgroundColor: "black",
     },
 });
 

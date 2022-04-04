@@ -25,7 +25,7 @@ const CalendarList = (props) => {
                 </View>
                 <View style={styles(theme).itemRight}>
                     <TouchableOpacity onPress={() => props.navigation.navigate('CalendarDetail', {id: props.id, day: props.day, time: props.time, detail: props.detail, member: props.member })}>
-                        <Text style={styles(theme).itemText}>Edit  </Text>
+                        <Text style={styles(theme).textEdit}>Edit  </Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -38,7 +38,7 @@ const CalendarList = (props) => {
                 </View>
                 <View style={styles(theme).itemRight}>
                     <TouchableOpacity onPress={() => handleDeleteSchedule(props.id)}>
-                        <Text style={styles(theme).itemText}>Delete</Text>
+                        <Text style={styles(theme).textDelete}>Delete</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -74,11 +74,10 @@ const CalendarList = (props) => {
     item: {
         padding: 10,
         borderRadius: 15,
-        borderColor: '#CCFF33', // *** Color ***
+        borderColor: theme.border.pri600, // *** Color ***
         borderWidth: 2,
         borderStyle: 'dashed',
-        color: '#90EE90', // *** Color ***
-        shadowColor: "#A540FF", // *** Color ***
+        // shadowColor: theme.shadow.pri400, // *** Color ***
         // elevation: 110,
         marginBottom: 15,
         justifyContent: 'space-between',
@@ -90,9 +89,29 @@ const CalendarList = (props) => {
         padding: 5,
         fontFamily: 'ZenKurenaido-Regular',
         fontSize: 18,
-        color: '#90EE90', // *** Color ***
+        color: theme.text.pri100, // *** Color ***
         textAlign: 'center',
-        textShadowColor: '#f50abe', // *** Color ***
+        textShadowColor: theme.shadow.pri300, // *** Color ***
+        textShadowOffset: { width: 1, height: 1 },
+        textShadowRadius: 10,
+    },
+    textDelete: {
+        padding: 5,
+        fontFamily: 'ZenKurenaido-Regular',
+        fontSize: 18,
+        color: theme.text.pri900, // *** Color ***
+        textAlign: 'center',
+        textShadowColor: theme.shadow.pri100, // *** Color ***
+        textShadowOffset: { width: 1, height: 1 },
+        textShadowRadius: 10,
+    },
+    textEdit: {
+        padding: 5,
+        fontFamily: 'ZenKurenaido-Regular',
+        fontSize: 18,
+        color: theme.text.pri300, // *** Color ***
+        textAlign: 'center',
+        textShadowColor: theme.shadow.pri500, // *** Color ***
         textShadowOffset: { width: 1, height: 1 },
         textShadowRadius: 10,
     },

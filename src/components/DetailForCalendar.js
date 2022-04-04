@@ -11,12 +11,10 @@ import { setScheduleDate, setScheduleTime, setScheduleDetail, setScheduleMember 
 const DetailForCalendar = ({ route, navigation }) => {
     const dispatch = useDispatch();
     const { theme } = useSelector(state => state.theme);
-    // const { scheduleList } = useSelector(state => state.calendar);
 
     const { id, day, time, detail, member } = route.params; 
 
     const [marked, setMarked] = useState(null);
-    const [dayTemp, setDayTemp] = useState(day);
     const [timeTemp, setTimeTemp] = useState(time);
     const [detailTemp, setDetailTemp] = useState(detail);
     const [memberTemp, setMemberTemp] = useState(member);
@@ -26,8 +24,6 @@ const DetailForCalendar = ({ route, navigation }) => {
     }
 
     const getMarkedDates = (baseDate) => {
-        // baseDate is the date to keep. ***
-        console.log(baseDate);
 
         dispatch(setScheduleDate(id, baseDate));
 
@@ -51,6 +47,15 @@ const DetailForCalendar = ({ route, navigation }) => {
         dispatch(setScheduleMember(id, val));
     };
 
+    const handleMarkedDates = () => {
+        if (marked == null) {
+            const markedDate = {};
+            markedDate[day] = { startingDay: true, endingDay: true, color: theme.border.pri600, textColor: theme.text.pri400 };
+            setMarked(markedDate);
+        }
+        return marked;
+    }
+
     return (
         <View style={styles(theme).container}>
             <Text style={styles(theme).sectionTitle}> Calendar </Text>
@@ -60,7 +65,7 @@ const DetailForCalendar = ({ route, navigation }) => {
                 <View style={styles(theme).calendar}>
                     <Calendar 
                         onDayPress={onDayPress}
-                        markedDates={marked}
+                        markedDates={handleMarkedDates()}
                         markingType={"period"}
                         theme={{
                             calendarBackground: theme.background.pri100,
@@ -95,7 +100,7 @@ const DetailForCalendar = ({ route, navigation }) => {
                     onChangeText={val => setDetail(val)}
                 />
 
-                {/* add name list here */}
+                {/* member */}
                 <TextInput
                     style={styles(theme).inputDetail}
                     value={memberTemp}
@@ -188,7 +193,6 @@ const styles = (theme) => StyleSheet.create({
         borderColor: theme.border.pri900, // *** Color ***
         borderWidth: 2,
         color: 'white', // *** Color ***
-        // textAlign: 'center',
         alignContent: 'center',
     },
 });
