@@ -9,13 +9,6 @@ const CalendarList = (props) => {
     const dispatch = useDispatch();
     const { theme } = useSelector(state => state.theme);
 
-    const day = '2022-04-04';
-    const time = '10.00';
-    const ampm = 'pm';
-    const detail = 'ไปก้ำกึ่ง';
-    const member = 'Poom, Won, Pancake, Tawan';
-    // const member = 'Poom, Won, Pancake, Tawan, Poom, Won, Pancake, Tawan, Poom, Won, Pancake, Tawan, Poom, Won, Pancake, Tawan';
-
     const handleDeleteSchedule = (id) => {
         dispatch(deleteSchedule(id));
     };
@@ -31,7 +24,7 @@ const CalendarList = (props) => {
                     </View>
                 </View>
                 <View style={styles(theme).itemRight}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => props.navigation.navigate('CalendarDetail', {id: props.id, day: props.day, time: props.time, detail: props.detail, member: props.member })}>
                         <Text style={styles(theme).itemText}>Edit  </Text>
                     </TouchableOpacity>
                 </View>
@@ -86,7 +79,7 @@ const CalendarList = (props) => {
         borderStyle: 'dashed',
         color: '#90EE90', // *** Color ***
         shadowColor: "#A540FF", // *** Color ***
-        elevation: 110,
+        // elevation: 110,
         marginBottom: 15,
         justifyContent: 'space-between',
     },

@@ -6,17 +6,22 @@ import { Calendar, CalendarList } from 'react-native-calendars';
 //redux stuff
 import { getData } from "../redux/actions/calendarActions"
 import { useSelector, useDispatch } from 'react-redux'
+import { setScheduleDate, setScheduleTime, setScheduleDetail, setScheduleMember } from '../redux/actions/calendarActions';
 
 const DetailForCalendar = ({ route, navigation }) => {
     const dispatch = useDispatch();
     const { theme } = useSelector(state => state.theme);
+    // const { scheduleList } = useSelector(state => state.calendar);
+
+    const { id, day, time, detail, member } = route.params; 
 
     const [marked, setMarked] = useState(null);
-    const [baseDate, setbaseDate] = useState('');
-
+    const [dayTemp, setDayTemp] = useState(day);
+    const [timeTemp, setTimeTemp] = useState(time);
+    const [detailTemp, setDetailTemp] = useState(detail);
+    const [memberTemp, setMemberTemp] = useState(member);
 
     const onDayPress = (day) => {
-        setbaseDate();
         getMarkedDates(day.dateString);
     }
 
@@ -24,10 +29,27 @@ const DetailForCalendar = ({ route, navigation }) => {
         // baseDate is the date to keep. ***
         console.log(baseDate);
 
+        dispatch(setScheduleDate(id, baseDate));
+
         const markedDate = {};
         markedDate[baseDate] = { startingDay: true, endingDay: true, color: theme.border.pri600, textColor: theme.text.pri400 };
         setMarked(markedDate);
     }
+
+    const setTime = val => {
+        setTimeTemp(val);
+        dispatch(setScheduleTime(id, val));
+    };
+
+    const setDetail = val => {
+        setDetailTemp(val);
+        dispatch(setScheduleDetail(id, val));
+    };
+
+    const setMember = val => {
+        setMemberTemp(val);
+        dispatch(setScheduleMember(id, val));
+    };
 
     return (
         <View style={styles(theme).container}>
@@ -59,24 +81,27 @@ const DetailForCalendar = ({ route, navigation }) => {
                 {/* detail */}
                 <TextInput
                     style={styles(theme).inputTime}
+                    value={timeTemp}
                     placeholder="Time"
                     placeholderTextColor={'white'}
                     keyboardType="numeric"
-                    // onChangeText={val => setPrice(val)}
+                    onChangeText={val => setTime(val)}
                 />
                 <TextInput
                     style={styles(theme).inputDetail}
+                    value={detailTemp}
                     placeholder="Detail"
                     placeholderTextColor={'white'}
-                    // onChangeText={val => setPrice(val)}
+                    onChangeText={val => setDetail(val)}
                 />
 
                 {/* add name list here */}
                 <TextInput
                     style={styles(theme).inputDetail}
-                    placeholder="name"
+                    value={memberTemp}
+                    placeholder="Member"
                     placeholderTextColor={'white'}
-                    // onChangeText={val => setPrice(val)}
+                    onChangeText={val => setMember(val)}
                 />
 
                 {/* button */}

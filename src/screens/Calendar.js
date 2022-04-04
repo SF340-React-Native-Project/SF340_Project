@@ -10,7 +10,7 @@ import CalendarList from '../components/CalendarList';
 
 const Calendar = ({ navigation }) => {
     const dispatch = useDispatch();
-    const { scheduleList } = useSelector(state => state.data);
+    const { scheduleList } = useSelector(state => state.calendar);
     const { theme } = useSelector(state => state.theme);
 
     const [showBtn, setShowBtn] = useState(true);
@@ -19,11 +19,11 @@ const Calendar = ({ navigation }) => {
         const schedules = [];
     
         scheduleList && scheduleList.map((item, index) =>
-        schedules.push(
-            <TouchableOpacity>
-              <CalendarList id={item.id} day={item.day} time={item.time} detail={item.detail} member={item.member} navigation={navigation} />
-            </TouchableOpacity>
-          )
+            schedules.push(
+                <TouchableOpacity >
+                    <CalendarList id={item.id} day={item.day} time={item.time} detail={item.detail} member={item.member} navigation={navigation} />
+                </TouchableOpacity>
+            )
         )
         return schedules;
     }
@@ -31,13 +31,13 @@ const Calendar = ({ navigation }) => {
     const addScheduleButton = () => {
         Keyboard.dismiss();
         dispatch(addSchedule());
-        navigation.navigate('CalendarDetail');
+        navigation.navigate('CalendarDetail', {id: scheduleList.length, day: "", time: "", detail: "", member: "" });
     }
 
     return (
         <View style={styles(theme).container}>
             {/* <Text style={styles(theme).sectionTitle}> Calendar </Text> */}
-
+        
             <ScrollView>
                 <Text style={styles(theme).sectionTitle}> Calendar </Text>
 
@@ -145,10 +145,11 @@ const styles = (theme) => StyleSheet.create({
         marginTop: 15,
     },
     bottombar: {
-        marginTop: 10,
-        marginBottom: 10,
+        paddingTop: 10,
+        paddingBottom: 10,
         flexDirection: 'row',
         justifyContent: 'space-around',
+        // backgroundColor: "black",
     },
 });
 
