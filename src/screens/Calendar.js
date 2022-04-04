@@ -10,23 +10,23 @@ import CalendarList from '../components/CalendarList';
 
 const Calendar = ({ navigation }) => {
     const dispatch = useDispatch();
-    // const { calendarList } = useSelector(state => state.calendar)
+    const { scheduleList } = useSelector(state => state.data);
     const { theme } = useSelector(state => state.theme);
 
     const [showBtn, setShowBtn] = useState(true);
 
-    // const loopCaleadar = () => {
-    //     const calendar = [];
+    const loopSchedules = () => {
+        const schedules = [];
     
-    //     calendarList && calendarList.map((item, index) =>
-    //     calendar.push(
-    //         <TouchableOpacity>
-    //           <CalendarList />
-    //         </TouchableOpacity>
-    //       )
-    //     )
-    //     return calendar;
-    // }
+        scheduleList && scheduleList.map((item, index) =>
+        schedules.push(
+            <TouchableOpacity>
+              <CalendarList id={item.id} day={item.day} time={item.time} detail={item.detail} member={item.member} navigation={navigation} />
+            </TouchableOpacity>
+          )
+        )
+        return schedules;
+    }
 
     const addScheduleButton = () => {
         Keyboard.dismiss();
@@ -36,18 +36,31 @@ const Calendar = ({ navigation }) => {
 
     return (
         <View style={styles(theme).container}>
-            <Text style={styles(theme).sectionTitle}> Calendar </Text>
+            {/* <Text style={styles(theme).sectionTitle}> Calendar </Text> */}
 
-            <View style={styles(theme).tasksWrapper}>
-                <View style={styles(theme).items}>
+            <ScrollView>
+                <Text style={styles(theme).sectionTitle}> Calendar </Text>
 
-                    {/* calendar list here */}
-                    <TouchableOpacity>
-                        <CalendarList />
+                <View style={styles(theme).tasksWrapper}>
+                    <View style={styles(theme).items}>
+
+                        {/* calendar list here */}
+                        {loopSchedules()}
+
+                    </View>
+                </View>
+
+                {/* {showBtn ? (<View style={styles(theme).bottombar}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
+                        <Text style={styles(theme).Back}> Back </Text>
                     </TouchableOpacity>
 
-                </View>
-            </View>
+                    <TouchableOpacity onPress={() => addScheduleButton() }>
+                        <Text style={styles(theme).Add}> Add </Text>
+                    </TouchableOpacity>
+                </View>) : (<></>)} */}
+            </ScrollView>
+            
 
             {showBtn ? (<View style={styles(theme).bottombar}>
                 <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>

@@ -1,4 +1,4 @@
-import { ADD_SCHEDULE } from '../types'
+import { ADD_SCHEDULE, DELETE_SCHEDULE } from '../types'
 
 const initialState = {
     scheduleList: [],
@@ -17,7 +17,7 @@ export default function (state = initialState, action) {
             // });
             // console.log(setScheduleTemp);
 
-            var addScheduleTemp = [...state.scheduleList, { 'id': state.foodList.length, 'day': '', 'time': '', 'detail': '', 'member': '' }]
+            var addScheduleTemp = [...state.scheduleList, { 'id': state.scheduleList.length, 'day': '', 'time': '', 'detail': '', 'member': '' }]
 
 
             console.log(addScheduleTemp);
@@ -25,6 +25,17 @@ export default function (state = initialState, action) {
                 ...state,
                 scheduleList: addScheduleTemp,
             }
+
+        case DELETE_SCHEDULE:
+
+            var deleteScheduleTemp = [...state.scheduleList.filter(word => word.id !== action.payload)]
+
+            console.log(deleteScheduleTemp);
+            return {
+                ...state,
+                scheduleList: deleteScheduleTemp,
+            }
+
         default:
             return state;
     }

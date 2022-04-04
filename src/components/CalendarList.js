@@ -3,36 +3,56 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Swipeout from 'react-native-swipeout';
 
 import { useSelector, useDispatch } from 'react-redux';
+import { deleteSchedule } from '../redux/actions/calendarActions';
 
 const CalendarList = (props) => {
     const dispatch = useDispatch();
     const { theme } = useSelector(state => state.theme);
 
-    const date = '2022-04-04';
+    const day = '2022-04-04';
     const time = '10.00';
     const ampm = 'pm';
     const detail = 'ไปก้ำกึ่ง';
     const member = 'Poom, Won, Pancake, Tawan';
     // const member = 'Poom, Won, Pancake, Tawan, Poom, Won, Pancake, Tawan, Poom, Won, Pancake, Tawan, Poom, Won, Pancake, Tawan';
+
+    const handleDeleteSchedule = (id) => {
+        dispatch(deleteSchedule(id));
+    };
   
     return (
   
       <View style={styles(theme).item}>
+
             <View style={styles(theme).container}>
-                <View style={styles(theme).row}>
-                    <Text style={styles(theme).itemText}>Date: {date}</Text>
+                <View style={styles(theme).itemLeft}>
+                    <View style={styles(theme).row}>
+                        <Text style={styles(theme).itemText}>Date: {props.day}</Text>
+                    </View>
+                </View>
+                <View style={styles(theme).itemRight}>
+                    <TouchableOpacity>
+                        <Text style={styles(theme).itemText}>Edit  </Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+            <View style={styles(theme).container}>
+                <View style={styles(theme).itemLeft}>
+                    <View style={styles(theme).row}>
+                        <Text style={styles(theme).itemText}>Time: {props.time}</Text>
+                    </View>
+                </View>
+                <View style={styles(theme).itemRight}>
+                    <TouchableOpacity onPress={() => handleDeleteSchedule(props.id)}>
+                        <Text style={styles(theme).itemText}>Delete</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
 
             <View style={styles(theme).container}>
                 <View style={styles(theme).row}>
-                    <Text style={styles(theme).itemText}>Time: {time} {ampm}</Text>
-                </View>
-            </View>
-
-            <View style={styles(theme).container}>
-                <View style={styles(theme).row}>
-                    <Text style={styles(theme).itemText}>Detail: {detail}</Text>
+                    <Text style={styles(theme).itemText}>Detail: {props.detail}</Text>
                 </View>
             </View>
 
@@ -45,7 +65,7 @@ const CalendarList = (props) => {
 
             <View style={styles(theme).container}>
                 <View style={styles(theme).row}>
-                    <Text style={styles(theme).itemText}>Member: {member}</Text>
+                    <Text style={styles(theme).itemText}>Member: {props.member}</Text>
                 </View>
             </View>
       </View >
