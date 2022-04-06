@@ -20,7 +20,7 @@ const Calendar = ({ navigation }) => {
     
         scheduleList && scheduleList.map((item, index) =>
             schedules.push(
-                <TouchableOpacity >
+                <TouchableOpacity key={index} >
                     <CalendarList id={item.id} day={item.day} time={item.time} detail={item.detail} member={item.member} navigation={navigation} />
                 </TouchableOpacity>
             )
