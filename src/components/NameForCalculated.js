@@ -31,8 +31,7 @@ const styles = (theme) => StyleSheet.create({
     borderStyle: 'dashed',
     color: '#90EE90', // *** Color ***
     marginBottom: 20,
-    shadowColor: "#A540FF", // *** Color ***
-    elevation: 50,
+
 
   },
   itemLeft: {

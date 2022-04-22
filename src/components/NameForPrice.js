@@ -13,9 +13,9 @@ const styles = (theme) => StyleSheet.create({
   itemText: {
     fontFamily: 'ZenKurenaido-Regular',
     fontSize:25,
-    color: '#90EE90', // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
-    textShadowColor: '#f50abe', // *** Color ***
+    textShadowColor: theme.text.pri100, // *** Color ***
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 10,
   },

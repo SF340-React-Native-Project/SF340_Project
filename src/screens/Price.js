@@ -57,12 +57,10 @@ const Price = ({ route, navigation }) => {
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              fontWeight: 'bold',
               borderRadius: 15,
-              borderColor: value === 0 ? theme.border.pri100 : theme.border.pri600,
+              borderColor: value === 0 ? theme.border.pri200 : theme.border.pri210,
               borderWidth: 2,
               borderStyle: 'dashed',
-              color: theme.text.pri500, // *** Color ***
               marginBottom: 20,
             }}>
             <View style={styles(theme).itemLeft}>
@@ -91,11 +89,10 @@ const Price = ({ route, navigation }) => {
           {''} Name: <Text style={styles(theme).textShow}>{foodname}</Text>
           {'\n'} Price: <Text style={styles(theme).textShow}>{price}</Text>
         </Text>
-
         <TextInput
           style={styles(theme).input}
           placeholder="Enter amount"
-          placeholderTextColor={'white'}
+          placeholderTextColor={theme.text.pri100}
           keyboardType="numeric"
           onChangeText={val => setPrice(val)}
         />
@@ -118,14 +115,14 @@ const styles = (theme) => StyleSheet.create({
   sectionTitle: {
     fontFamily:'ZenKurenaido-Regular',
     fontSize: 30,
+    width:'80%',
     marginTop: 30,
     marginLeft: 'auto',
     marginRight: 'auto',
+    paddingLeft: 20,
     borderRadius: 25,
-    borderColor: theme.border.pri200, // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 3,
-    paddingLeft:20,
-    paddingRight:100,
     paddingVertical:15,
     color: theme.text.pri100, // *** Color ***
     shadowColor: theme.shadow.pri300, // *** Color ***
@@ -158,7 +155,7 @@ const styles = (theme) => StyleSheet.create({
     width: '80%',
     fontWeight: 'bold',
     borderRadius: 20,
-    borderColor: theme.border.pri900, // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
     color: 'white', // *** Color ***
     textAlign: 'center',
@@ -175,7 +172,7 @@ const styles = (theme) => StyleSheet.create({
     marginTop: 15,
     marginBottom: 15,
     borderRadius: 15,
-    borderColor: theme.border.pri200, // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
     color: theme.text.pri100, // *** Color ***
     textAlign: 'center',

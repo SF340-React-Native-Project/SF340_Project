@@ -27,7 +27,7 @@ const Suggestion = ({ navigation }) => {
                                     suggesttype: data.type
                                 })
                         }} >
-                        <NameForSuggestion name={val} />
+                        <NameForSuggestion name={data.name} />
                     </TouchableOpacity>
                 ))}
             </ScrollView>
@@ -81,23 +81,23 @@ const styles = (theme) => StyleSheet.create({
     },
     backbutton: {
         fontSize: 30,
-    marginTop: 40,
-    marginBottom: 25,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    fontFamily: 'ZenKurenaido-Regular',
-    borderRadius: 15,
-    borderColor: theme.border.pri200, // *** Color ***
-    borderWidth: 2,
-    color: '#36F2F2', // *** Color ***
-    textAlign: 'center',
-    paddingHorizontal: 90,
-    paddingVertical: 2,
-    shadowColor: theme.shadow.pri300, // *** Color ***
-    elevation: 67,
-    textShadowColor: theme.shadow.pri100, // *** Color ***
-    textShadowOffset: { width: 3, height: 3 },
-    textShadowRadius: 20,
+        marginTop: 40,
+        marginBottom: 25,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        fontFamily: 'ZenKurenaido-Regular',
+        borderRadius: 15,
+        borderColor: theme.border.pri200, // *** Color ***
+        borderWidth: 2,
+        color: '#36F2F2', // *** Color ***
+        textAlign: 'center',
+        paddingHorizontal: 90,
+        paddingVertical: 2,
+        shadowColor: theme.shadow.pri300, // *** Color ***
+        elevation: 67,
+        textShadowColor: theme.shadow.pri100, // *** Color ***
+        textShadowOffset: { width: 3, height: 3 },
+        textShadowRadius: 20,
     },
     scrollviewlayout: {
         marginLeft: 'auto',
@@ -106,7 +106,7 @@ const styles = (theme) => StyleSheet.create({
         paddingVertical: 20,
         borderRadius: 15,
         borderColor: '#36F2F2', // *** Color ***
-        borderWidth: 4,
+        borderWidth: 2,
 
     }
 })

@@ -236,17 +236,11 @@ const styles = (theme) => StyleSheet.create({
     color: theme.text.pri200, // *** Color ***
     textAlign: 'center',
     fontSize: 35,
-    shadowColor: theme.shadow.pri100, // *** Color ***
-    shadowOffset: {
-      width: 0,
-      height: 12,
-    },
-    shadowOpacity: 5,
-    shadowRadius: 16.0,
-    elevation: 16,
+    shadowColor: theme.shadow.pri600, // *** Color ***
+    elevation: 50,
     textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 15,
+    textShadowRadius: 25,
   },
 });
 

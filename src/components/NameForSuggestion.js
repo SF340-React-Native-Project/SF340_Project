@@ -36,12 +36,9 @@ const styles = (theme) => StyleSheet.create({
     item: {
         marginHorizontal:25,
         borderRadius: 15,
-        borderColor: '#CCFF33', // *** Color ***
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 2,
         borderStyle: 'dashed',
-        color: '#90EE90', // *** Color ***
-        shadowColor: "#A540FF", // *** Color ***
-        elevation: 50,
         marginBottom: 15,
         justifyContent: 'space-between',
     },
@@ -60,13 +57,11 @@ const styles = (theme) => StyleSheet.create({
 
     },
     seggestmenu:{
-        marginHorizontal:20,
+        marginLeft:5,
         padding: 10,
         fontFamily: 'ZenKurenaido-Regular',
         fontSize: 20,
-        color: '#90EE90', // *** Color ***
-        shadowColor: "#A540FF", // *** Color ***
-        elevation: 50,
+        color: theme.text.pri100, // *** Color ***
       }
 });
 

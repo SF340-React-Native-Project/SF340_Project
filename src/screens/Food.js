@@ -80,8 +80,8 @@ const Food = ({ navigation }) => {
           <View style={styles(theme).switchblock}>
             <Text style={styles(theme).switchtext}>snack</Text>
             <Switch
-              trackColor={{ false: "#767577", true: "#81b0ff" }}
-              thumbColor={foodType !== 'snack' ? "#f5dd4b" : "#f4f3f4"}
+              trackColor={{ false: "#81b0ff", true: "#81b0ff" }}
+              thumbColor={foodType !== 'snack' ? "#FF3CBE" : '#0CF4FF'}
               ios_backgroundColor="#3e3e3e"
               onValueChange={toggleSwitch}
               value={foodType !== 'snack' ? true : false}

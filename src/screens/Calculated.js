@@ -30,7 +30,7 @@ const Calculated = ({ navigation }) => {
       <ScrollView >
         <View style={styles(theme).content}>
           {name.map((val, idx) =>
-            <TouchableOpacity key={idx} style={{ paddingHorizontal: 20 }}>
+            <TouchableOpacity disabled={true} key={idx} style={{ paddingHorizontal: 20 }}>
               <NameForCalculated text={val[0]} price={val[1]} />
             </TouchableOpacity>)}
         </View>
