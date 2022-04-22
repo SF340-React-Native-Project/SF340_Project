@@ -1,5 +1,5 @@
 import { ADD_NAME, EDIT_NAME, DELETE_NAME, ADD_FOOD, EDIT_FOOD, DELETE_FOOD, SET_FOOD_PRICE, SET_MEMBER_VALUE, CALCULATE } from '../types';
-
+import { addFoodSuggestion } from './suggestionAcions';
 
 
 
@@ -22,6 +22,7 @@ export const deleteName = (name) => (dispatch) => {
 export const addFood = (food) => (dispatch) => {
 
     dispatch({ type: ADD_FOOD, payload: food });
+    dispatch(addFoodSuggestion(food));
 
 }
 export const editFood = (food) => (dispatch) => {

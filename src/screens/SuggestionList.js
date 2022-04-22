@@ -14,12 +14,11 @@ const SuggestionList = ({ route, navigation }) => {
           <View style={styles(theme).imglayout}>
             <Image style={styles(theme).tinyLogo} source={require('./../../image/holiday.png')}/>
           </View>
-          {data && data.map((val, idx) => (
-            <TouchableOpacity key={idx} disabled={true}  >
-              <Text style={styles(theme).describhead}>{val.header}</Text>
-              <Text style={styles(theme).describdetail}>{val.describtion}</Text>
-            </TouchableOpacity>
-          ))}
+          
+              <Text style={styles(theme).describhead}>{data.header}</Text>
+              <Text style={styles(theme).describdetail}>{data.description}</Text>
+            
+        
       </View>
       <Text 
         style={styles(theme).backbutton}

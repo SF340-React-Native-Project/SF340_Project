@@ -4,9 +4,9 @@ import {
     ADD_RESTAURANT_SUGGESTION, EDIT_RESTAURANT_SUGGESTION, DELETE_RESTAURANT_SUGGESTION
 } from '../types'
 
-export const addFoodSuggestion = (foodname) => (dispatch) => {
+export const addFoodSuggestion = (food) => (dispatch) => {
 
-    dispatch({ type: ADD_FOOD_SUGGESTION, payload: foodname });
+    dispatch({ type: ADD_FOOD_SUGGESTION, payload: food });
 
 }
 export const editFoodSuggestion = (foodname) => (dispatch) => {

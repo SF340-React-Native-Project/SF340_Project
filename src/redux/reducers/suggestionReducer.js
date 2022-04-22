@@ -13,8 +13,16 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case ADD_FOOD_SUGGESTION:
-            return {
-                ...state,
+            let check = state.food.indexOf(action.payload.food);
+            if (check === -1) {
+                return {
+                    ...state,
+                    food: [...state.food, { name: action.payload.food, detail: '', type: action.payload.foodType, idx: state.food.length > 0 ? (state.food[state.food.length - 1].idx) + 1 : 0 }]
+                }
+            } else {
+                return {
+                    ...state,
+                }
             }
         case EDIT_FOOD_SUGGESTION:
             return {

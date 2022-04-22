@@ -67,12 +67,13 @@ export default function (state = initialState, action) {
             }
         case ADD_FOOD:
             // เพิ่มรายการอาหาร
+            console.log(action.payload);
             var setNameTemp = {}
             state.nameList.forEach(e => {
                 setNameTemp[e] = 0
             });
             console.log(setNameTemp);
-            var addFoodTeme = [...state.foodList, { 'foodname': action.payload, 'price': 0, 'id': state.foodList.length, 'member': { ...setNameTemp } }]
+            var addFoodTeme = [...state.foodList, { 'foodname': action.payload.food, 'foodtype': action.payload.foodType, 'price': 0, 'id': state.foodList.length, 'member': { ...setNameTemp } }]
 
             return {
                 ...state,
