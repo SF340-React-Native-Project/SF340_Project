@@ -12,6 +12,7 @@ export const themeOptions = {
             pri700: '#FF2281',
             pri800: '#f2c504',
             pri900: '#FF0000',
+            pri110: '#36F2F2',
 
             // theme.text.pri100: '#FF3CBE',   
             // theme.text.pri200: '#d61cff',
@@ -27,6 +28,8 @@ export const themeOptions = {
         textinput: {
             pri100: '#90EE90',
             pri200: '#ffffff',
+            pri300: '#36F2F2',
+            pri400: '#FF3CBE',
 
             // theme.textinput.pri100: '#90EE90',
             // theme.textinput.pri200: '#ffffff',
@@ -49,6 +52,7 @@ export const themeOptions = {
             pri800: '#32CD32',
             pri900: '#8A2BE2',
             pri110: '#FF0000',
+            pri210: '#36F2F2',
 
             // theme.border.pri100: '#ffffff',
             // theme.border.pri200: '#FF3CBE',
@@ -68,6 +72,8 @@ export const themeOptions = {
             pri300: '#A540FF',
             pri400: '#F7FA13',
             pri500: '#D2691E',
+            pri600: '#36F2F2',
+            pri700: '#FF3CBE',
 
             // theme.shadow.pri100: '#f50abe',
             // theme.shadow.pri200: '#d61cff',
@@ -80,7 +86,7 @@ export const themeOptions = {
             '#f50abe',
             '#d61cff',
             '#A540FF',
-            '#F7FA13',
+            '#36F2F2',
             '#D2691E',
         ],
     },
@@ -90,14 +96,17 @@ export const themeOptions = {
             pri200: '#d61cff',
             pri300: '#10FF92',
             pri400: '#F7FA13',
+            pri500: '#36F2F2',
 
         },
         textinput: {
             pri100: '#90EE90',
+            pri200: '#36F2F2',
 
         },
         background: {
             pri100: '#A540FF',
+            pri200: '#36F2F2',
 
         },
         border: {
@@ -105,6 +114,7 @@ export const themeOptions = {
             pri200: '#FF3CBE',
             pri300: '#A540FF',
             pri400: '#F7FA13',
+            pri500: '#36F2F2',
 
 
         },
@@ -113,6 +123,7 @@ export const themeOptions = {
             pri200: '#d61cff',
             pri300: '#A540FF',
             pri400: '#F7FA13',
+            pri500: '#36F2F2',
 
         },
         wheel: [
@@ -121,6 +132,7 @@ export const themeOptions = {
             '#A540FF',
             '#F7FA13',
             '#D2691E',
+
         ]
     },
 };

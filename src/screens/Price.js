@@ -116,13 +116,14 @@ const styles = (theme) => StyleSheet.create({
     backgroundColor: 'rgb(15,35,45)', // *** Color ***
   },
   sectionTitle: {
+    fontFamily:'ZenKurenaido-Regular',
     fontSize: 30,
     marginTop: 30,
     marginLeft: 'auto',
     marginRight: 'auto',
     borderRadius: 25,
     borderColor: theme.border.pri200, // *** Color ***
-    borderWidth: 4,
+    borderWidth: 3,
     paddingLeft:20,
     paddingRight:100,
     paddingVertical:15,

@@ -26,11 +26,14 @@ const styles = (theme) => StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     borderRadius: 15,
-    borderColor: '#CCFF33', // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
     borderStyle: 'dashed',
     color: '#90EE90', // *** Color ***
     marginBottom: 20,
+    shadowColor: "#A540FF", // *** Color ***
+    elevation: 50,
+
   },
   itemLeft: {
     flexDirection: 'row',
@@ -40,19 +43,20 @@ const styles = (theme) => StyleSheet.create({
   circular: {
     width: 15,
     height: 15,
-    backgroundColor: '#7B68EE', // *** Color ***
+    backgroundColor: theme.text.pri100, // *** Color ***
     opacity: 0.4,
     borderRadius: 100,
     marginRight: 10,
   },
   itemText: {
-    maxWidth: '80%',
+
     fontFamily: 'ZenKurenaido-Regular',
     fontSize:25,
     color: '#FF3CBE', // *** Color ***
     textShadowColor: '#f50abe', // *** Color ***
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 10,
+    
   },
 });
 

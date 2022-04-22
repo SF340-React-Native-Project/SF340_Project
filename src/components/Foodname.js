@@ -72,10 +72,9 @@ const styles = (theme) => StyleSheet.create({
   item: {
     padding: 10,
     borderRadius: 15,
-    borderColor: '#CCFF33', // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
     borderStyle: 'dashed',
-    color: '#90EE90', // *** Color ***
     shadowColor: "#A540FF", // *** Color ***
     elevation: 50,
     marginBottom: 15,
@@ -97,14 +96,13 @@ const styles = (theme) => StyleSheet.create({
     width: 15,
     height: 15,
     backgroundColor: '#FF3CBE', // *** Color ***
-    opacity: 0.4,
     borderRadius: 100,
     marginRight: 10,
   },
   itemText: {
     fontFamily: 'ZenKurenaido-Regular',
     fontSize: 25,
-    color: '#90EE90', // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
     textShadowColor: '#f50abe', // *** Color ***
     textShadowOffset: { width: 1, height: 1 },

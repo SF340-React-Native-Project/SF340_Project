@@ -128,7 +128,7 @@ const styles = (theme) => StyleSheet.create({
         textAlign: 'center',
         paddingHorizontal:25,
         paddingVertical:10,
-        shadowColor: theme.shadow.pri300, // *** Color ***
+        shadowColor: theme.shadow.pri600, // *** Color ***
         elevation: 67,
         textShadowColor: theme.shadow.pri100, // *** Color ***
         textShadowOffset: { width: 3, height: 3 },
@@ -166,7 +166,7 @@ const styles = (theme) => StyleSheet.create({
         fontFamily: 'ZenKurenaido-Regular',
         paddingHorizontal:15,
         paddingVertical:1,
-        textShadowColor: theme.shadow.pri100, // *** Color ***
+        textShadowColor: theme.shadow.pri600, // *** Color ***
         textShadowOffset: { width: 2, height: 2 },
         textShadowRadius: 20,
 

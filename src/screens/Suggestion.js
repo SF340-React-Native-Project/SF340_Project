@@ -107,7 +107,7 @@ const styles = (theme) => StyleSheet.create({
         borderRadius: 15,
         borderColor: '#36F2F2', // *** Color ***
         borderWidth: 4,
-        borderStyle: 'dashed',
+
     }
 })
 

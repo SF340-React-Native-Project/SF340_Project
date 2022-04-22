@@ -76,7 +76,7 @@ const Food = ({ navigation }) => {
         <TextInput
           style={styles(theme).input}
           placeholder={'Enter food name'}
-          placeholderTextColor={'#90EE90'} // *** Color ***
+          placeholderTextColor={theme.text.pri100} // *** Color ***
           value={food}
           onPressIn={() => { setShowBtn(false) }}
           onEndEditing={() => { setShowBtn(true) }}
@@ -105,11 +105,12 @@ const Food = ({ navigation }) => {
 
 const styles = (theme) => StyleSheet.create({
   Game: {
+    width:150,
     fontSize: 15,
     borderRadius: 15,
-    borderColor: theme.border.pri500, // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
-    color: theme.text.pri500, // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
     paddingTop: 10,
     paddingBottom: 10,
@@ -122,11 +123,12 @@ const styles = (theme) => StyleSheet.create({
     textShadowRadius: 10,
   },
   Calculated: {
+    width:150,
     fontSize: 15,
     borderRadius: 15,
-    borderColor: theme.border.pri500, // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
-    color: theme.text.pri500, // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
     paddingTop: 10,
     paddingBottom: 10,
@@ -154,8 +156,8 @@ const styles = (theme) => StyleSheet.create({
     marginRight: 'auto',
     fontFamily: 'ZenKurenaido-Regular',
     borderRadius: 15,
-    borderColor: theme.border.pri200, // *** Color ***
-    borderWidth: 4,
+    borderColor: theme.border.pri210, // *** Color ***
+    borderWidth: 3,
     color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
     paddingHorizontal: 25,
@@ -183,20 +185,20 @@ const styles = (theme) => StyleSheet.create({
     fontFamily: 'ZenKurenaido-Regular',
     fontSize: 20,
     borderRadius: 60,
-    borderColor: 'white', // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
-    width: 250,
-    color: theme.textinput.pri100, // *** Color ***
+    width: '80%',
+    color: theme.textinput.pri400, // *** Color ***
   },
   addWrapper: {
     marginBottom: 10,
-    width: 60,
-    height: 60,
+    width: 55,
+    height: 55,
     borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: theme.border.pri300, // *** Color ***
-    borderWidth: 5,
+    borderColor: theme.border.pri210, // *** Color ***
+    borderWidth: 3,
   },
   toggleAdd: {
     bottom: 15,
@@ -228,7 +230,7 @@ const styles = (theme) => StyleSheet.create({
   addText: {
     marginBottom: 10,
     fontSize: 35,
-    color: theme.text.pri300, // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 10,

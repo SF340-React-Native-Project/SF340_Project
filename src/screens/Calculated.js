@@ -57,17 +57,16 @@ const styles = (theme) => StyleSheet.create({
     marginTop: 30,
     marginLeft: 'auto',
     marginRight: 'auto',
-    fontWeight: 'bold',
     borderRadius: 15,
-    borderColor: theme.border.pri200, // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 3,
-    color: theme.text.pri800, // *** Color ***
+    paddingHorizontal:20,
+    paddingVertical:5,
+    color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
-    width: 300,
-    height: 70,
     fontSize: 45,
-    fontFamily: 'Neonderthaw-Regular',
-    shadowColor: theme.shadow.pri300, // *** Color ***
+    fontFamily: 'ZenKurenaido-Regular',
+    shadowColor: theme.shadow.pri600, // *** Color ***
     elevation: 50,
     textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 2, height: 2 },
@@ -75,26 +74,20 @@ const styles = (theme) => StyleSheet.create({
   },
   toggleExit: {
     borderRadius: 10,
-    borderColor: theme.border.pri110, // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     width: '70%',
     borderWidth: 2,
-    color: theme.text.pri900, // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textAlign: "center",
     fontSize: 30,
     marginBottom: 15,
     marginLeft: 'auto',
     marginRight: 'auto',
-    shadowColor: theme.shadow.pri500, // *** Color ***
-    shadowOffset: {
-      width: 0,
-      height: 12,
-    },
-    shadowOpacity: 5,
-    shadowRadius: 16.00,
-    elevation: 16,
-    textShadowColor: theme.shadow.pri500, // *** Color ***
+    shadowColor: theme.shadow.pri600, // *** Color ***
+    elevation: 50,
+    textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 15,
+    textShadowRadius: 25,
   },
 });
 

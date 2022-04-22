@@ -60,8 +60,8 @@ const Home = ({ navigation }) => {
           {/* actions */}
           <TextInput
             style={styles(theme).input}
-            placeholder={' Enter name'}
-            placeholderTextColor={'#90EE90'}
+            placeholder={'Enter name'}
+            placeholderTextColor={theme.text.pri100}
             value={name}
             onChangeText={text => setName(text)}
           />
@@ -133,7 +133,7 @@ const styles = (theme) => StyleSheet.create({
     marginVertical: 15,
     fontSize: 45,
     fontFamily: 'ZenKurenaido-Regular',
-    color: theme.text.pri200, // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textShadowColor: theme.shadow.pri100, // *** Color ***
     textShadowOffset: { width: 3, height: 3 },
     textShadowRadius: 20,
@@ -153,24 +153,24 @@ const styles = (theme) => StyleSheet.create({
     fontFamily: 'ZenKurenaido-Regular',
     fontSize: 20,
     borderRadius: 60,
-    borderColor: 'white', // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
     width: 250,
-    color: theme.textinput.pri100, // *** Color ***
+    color: theme.textinput.pri400, // *** Color ***
   },
   addWrapper: {
-    width: 60,
-    height: 60,
+    width: 55,
+    height: 55,
 
     borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: theme.border.pri300, // *** Color ***
-    borderWidth: 5,
+    borderColor: theme.border.pri210, // *** Color ***
+    borderWidth: 2,
   },
   addText: {
     fontSize: 35,
-    color: theme.text.pri300, // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     paddingBottom: 10
   },
   toggleopen: {
@@ -184,15 +184,9 @@ const styles = (theme) => StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 40,
     fontFamily: 'ZenKurenaido-Regular',
-    shadowColor: theme.shadow.pri300, // *** Color ***
-    shadowOffset: {
-      width: 0,
-      height: 12,
-    },
-    shadowOpacity: 5,
-    shadowRadius: 16.0,
-    elevation: 50,
-    textShadowColor: theme.shadow.pri100, // *** Color ***
+    shadowColor: theme.shadow.pri700, // *** Color ***
+    elevation: 67,
+    textShadowColor: theme.shadow.pri700, // *** Color ***
     textShadowOffset: { width: 3, height: 3 },
     textShadowRadius: 20,
   },
@@ -201,7 +195,7 @@ const styles = (theme) => StyleSheet.create({
     // borderRadius: 100,
     // borderColor: theme.border.pri110, // *** Color ***
     // borderWidth: 2,
-    color: theme.text.pri900, // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
     paddingVertical: 0,
     paddingHorizontal: 10,
@@ -237,12 +231,12 @@ const styles = (theme) => StyleSheet.create({
     borderRadius: 10,
     marginHorizontal: 60,
     marginVertical: 15,
-    borderColor: theme.border.pri400, // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
     color: theme.text.pri200, // *** Color ***
     textAlign: 'center',
     fontSize: 35,
-    shadowColor: theme.shadow.pri200, // *** Color ***
+    shadowColor: theme.shadow.pri100, // *** Color ***
     shadowOffset: {
       width: 0,
       height: 12,
