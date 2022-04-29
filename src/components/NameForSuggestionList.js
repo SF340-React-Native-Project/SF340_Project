@@ -40,9 +40,7 @@ const NameForSuggestion = (props) => {
                                 {
                                     screen: 'SuggestionDetail',
                                     params: {
-                                        suggestname: data.name,
-                                        data: { header: 'Beer', idx: '1', description: 'Beer Chang Algohol 5% Beer Chang Algohol 5%' },
-                                        suggestType: data.type
+                                        data: data
                                     }
 
                                 })

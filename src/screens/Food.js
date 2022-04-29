@@ -119,8 +119,8 @@ const Food = ({ navigation }) => {
       <View>
         {showBtn ? (
           <View style={styles(theme).bottombar}>
-            <TouchableOpacity onPress={() => navigation.navigate('Game')}>
-              <Text style={styles(theme).Game}> Game </Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+              <Text style={styles(theme).Home}> Home </Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => toCalculate()}>
@@ -170,11 +170,8 @@ const styles = (theme) => StyleSheet.create({
     textShadowRadius: 15,
   },
 
-
-
-
-  Game: {
-    width:150,
+  Home: {
+    width: 150,
     fontSize: 15,
     borderRadius: 15,
     borderColor: theme.border.pri210, // *** Color ***
@@ -192,7 +189,7 @@ const styles = (theme) => StyleSheet.create({
     textShadowRadius: 10,
   },
   Calculated: {
-    width:150,
+    width: 150,
     fontSize: 15,
     borderRadius: 15,
     borderColor: theme.border.pri210, // *** Color ***
