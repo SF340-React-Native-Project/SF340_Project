@@ -1,7 +1,8 @@
 import { CHANGE_THEME } from '../types';
 
 export const themeOptions = {
-    '#2fbe74': {
+    'light': {
+        name: "light",
         text: {
             pri100: '#FF3CBE',
             pri200: '#d61cff',
@@ -90,7 +91,8 @@ export const themeOptions = {
             '#D2691E',
         ],
     },
-    '#F7FA13': {
+    'dark': {
+        name:"dark",
         text: {
             pri100: '#FF3CBE',
             pri200: '#d61cff',

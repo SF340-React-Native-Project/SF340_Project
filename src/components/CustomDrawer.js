@@ -21,8 +21,8 @@ const CustomDrawer = props => {
                 contentContainerStyle={{ backgroundColor: '#8200d6' }}>
 
                 <View style={{
-                    alignItems:'center',
-                    padding:10
+                    alignItems: 'center',
+                    padding: 10
                 }}>
                     <Text
                         style={{
@@ -43,31 +43,6 @@ const CustomDrawer = props => {
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: -55, paddingBottom: 20 }}>
                     <ColorPalette />
                 </View>
-                <TouchableOpacity onPress={() => { }} style={{ paddingVertical: 15 }}>
-
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <Text
-                            style={{
-                                fontSize: 15,
-                                fontFamily: 'Roboto-Medium',
-                                marginLeft: 5,
-                            }}>
-                            Tell a Friend
-                        </Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => { }} style={{ paddingVertical: 15 }}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <Text
-                            style={{
-                                fontSize: 15,
-                                fontFamily: 'Roboto-Medium',
-                                marginLeft: 5,
-                            }}>
-                            Sign Out
-                        </Text>
-                    </View>
-                </TouchableOpacity>
             </View>
         </View>
     );

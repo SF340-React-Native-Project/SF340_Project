@@ -2,6 +2,7 @@ import { CHANGE_THEME } from "../types";
 
 const initialState = {
     theme: {
+        name: "dark",
         text: {
             pri100: '#FF3CBE',
             pri200: '#d61cff',
@@ -57,7 +58,7 @@ const initialState = {
             '#36F2F2',
             '#D2691E',
         ],
-        
+
     },
 };
 
