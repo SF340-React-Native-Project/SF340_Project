@@ -1,19 +1,6 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Button,
-  Image,
-  ImageBackground,
-  View,
-  SafeAreaView,
-  Text,
-  Alert,
-} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import Home from './Home';
-import { color } from 'react-native-reanimated';
-import { useSelector, useDispatch } from 'react-redux';
+import { StyleSheet, Image, View, Text } from 'react-native';
+import { useSelector } from 'react-redux';
 import Blink from '../components/Blink';
 
 
@@ -22,12 +9,12 @@ const Welcome = ({ navigation }) => {
 
   return (
     <View style={styles(theme).container}>
-      <Image style={styles(theme).tinyLogo} source={require('./../../image/newbg.png')} />
+      <Image style={styles(theme).tinyLogo} source={require('./../../assets/images/newbg.png')} />
       <View style={{ flexDirection: 'row' }}>
-        <Image style={styles(theme).label} source={require('./../../image/label.png')} />
+        <Image style={styles(theme).label} source={require('./../../assets/images/label.png')} />
         <Image
           style={styles(theme).pinkbeer}
-          source={require('./../../image/pinkbeer.png')}
+          source={require('./../../assets/images/pinkbeer.png')}
         />
       </View>
       <View style={{ flexDirection: 'row' }}>
@@ -40,7 +27,7 @@ const Welcome = ({ navigation }) => {
           </Text>
         </Blink>
 
-        <Image style={styles(theme).beerimg} source={require('./../../image/beer2.png')} />
+        <Image style={styles(theme).beerimg} source={require('./../../assets/images/beer2.png')} />
       </View>
     </View>
   );

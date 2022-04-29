@@ -15,7 +15,7 @@ const SuggestionDetail = ({ route, navigation }) => {
     const images = {
         friend: require("./../../assets/images/people.png"),
         drink: require("./../../assets/images/holiday.png"),
-        snack: require("./../../assets/images/holiday.png")
+        snack: require("./../../assets/images/snack.png")
     }
 
 
