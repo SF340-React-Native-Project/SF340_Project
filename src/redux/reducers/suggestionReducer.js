@@ -43,11 +43,11 @@ export default function (state = initialState, action) {
         case EDIT_FOOD_SUGGESTION:
 
             if (action.payload.data.type === 'drink') {
-                let check = state.drink.indexOf(action.payload.data);
+                let idx = state.drink.indexOf(action.payload.data);
                 let dataTemp = action.payload.data;
                 dataTemp.description = action.payload.description
                 let dataTemp1 = state.drink;
-                dataTemp1[check] = dataTemp
+                dataTemp1[idx] = dataTemp
 
                 return {
                     ...state,
@@ -56,6 +56,7 @@ export default function (state = initialState, action) {
 
 
             } else {
+
                 let check = state.snack.indexOf(action.payload.data);
                 let dataTemp = action.payload.data;
                 dataTemp.description = action.payload.description
@@ -68,6 +69,7 @@ export default function (state = initialState, action) {
             }
 
         case DELETE_FOOD_SUGGESTION:
+
             if (action.payload.type === 'drink') {
                 let deleteFoodTemp = [...state.drink.filter(word => word.idx !== action.payload.idx)]
                 return {
@@ -82,6 +84,7 @@ export default function (state = initialState, action) {
                 }
             }
         case ADD_FRIEND_SUGGESTION:
+
             let check = state.friend.indexOf(action.payload);
             if (check === -1) {
                 return {
@@ -96,8 +99,16 @@ export default function (state = initialState, action) {
             }
 
         case EDIT_FRIEND_SUGGESTION:
+
+            let idx = state.friend.indexOf(action.payload.data);
+            let dataTemp = action.payload.data;
+            dataTemp.description = action.payload.description
+            let dataTemp1 = state.friend;
+            dataTemp1[idx] = dataTemp
+
             return {
                 ...state,
+                friend: dataTemp1
             }
         case DELETE_FRIEND_SUGGESTION:
 

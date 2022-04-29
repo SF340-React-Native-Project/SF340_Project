@@ -39,9 +39,9 @@ export const addFriendSuggestion = (name) => (dispatch) => {
     dispatch({ type: ADD_FRIEND_SUGGESTION, payload: name });
 
 }
-export const editFriendSuggestion = (foodname) => (dispatch) => {
+export const editFriendSuggestion = (data) => (dispatch) => {
 
-    dispatch({ type: EDIT_FRIEND_SUGGESTION, payload: foodname });
+    dispatch({ type: EDIT_FRIEND_SUGGESTION, payload: data });
 
 }
 export const deleteFriendSuggestion = (data) => (dispatch) => {

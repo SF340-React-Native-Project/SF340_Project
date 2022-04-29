@@ -2,30 +2,43 @@ import React, { useState } from 'react'
 import { Image, KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { editFoodSuggestion, editFriendSuggestion } from '../redux/actions/suggestionActions'
+
+
+
 const SuggestionDetail = ({ route, navigation }) => {
-    const { data } = route.params;
+    const { data, image } = route.params;
     const { theme } = useSelector(state => state.theme);
+    const dispatch = useDispatch()
 
     const [description, setDescription] = useState('');
     const [showBtn, setShowBtn] = useState(false);
-
-
-    const handle = () => {
-        // if (data.type === "drink" || data.type === "snack") {
-        //     useDispatch(editFoodSuggestion(data, description))
-        // } else if (data.type === "friend") {
-        //     useDispatch(editFriendSuggestion(data, description))
-        // }
-        setShowBtn(false)
-        console.log(121);
+    const images = {
+        friend: require("./../../assets/images/people.png"),
+        drink: require("./../../assets/images/holiday.png"),
+        snack: require("./../../assets/images/holiday.png")
     }
+
+
+    const HaddleSetDescription = () => {
+        if (data.type === "drink" || data.type === "snack") {
+            dispatch(editFoodSuggestion({ data, description }))
+        } else if (data.type === "friend") {
+            dispatch(editFriendSuggestion({ data, description }))
+        }
+        setShowBtn(false)
+    }
+
+    const selectImage = async (val) => {
+        return await images[val]
+    }
+    const imageAt = selectImage(data.type);
     return (
         <View style={styles(theme).container}>
             <Text style={styles(theme).sectionTitle}>{data.name}</Text>
 
             <View style={styles(theme).menudescrip}>
                 <View style={styles(theme).imglayout}>
-                    <Image style={styles(theme).tinyLogo} source={require('./../../image/holiday.png')} />
+                    <Image style={styles(theme).tinyLogo} source={images[data.type]} />
                 </View>
 
                 <Text style={styles(theme).describhead}>{data.name}</Text>
@@ -47,15 +60,14 @@ const SuggestionDetail = ({ route, navigation }) => {
                                 onChangeText={text => setDescription(text)} />
 
                         </KeyboardAvoidingView>
-                        <TouchableOpacity
-                            style={styles(theme).btnadd}
-                            onPress={() => { () => handle() }}>
-                            <Text
 
-                            >
-                                +
-                            </Text>
-                        </TouchableOpacity>
+                        <Text
+                            style={styles(theme).btnadd}
+                            onPress={() => HaddleSetDescription()}
+                        >
+                            +
+                        </Text>
+
 
                     </View>
                 ) :
@@ -82,7 +94,7 @@ const SuggestionDetail = ({ route, navigation }) => {
             >
                 Back
             </Text>
-        </View>
+        </View >
     )
 }
 
@@ -161,7 +173,7 @@ const styles = (theme) => StyleSheet.create({
     },
     adddiscription: {
         fontSize: 25,
-        marginTop: 0,
+        marginTop: 10,
         marginBottom: 0,
         marginLeft: 'auto',
         marginRight: 'auto',
