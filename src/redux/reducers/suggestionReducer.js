@@ -5,7 +5,8 @@ import {
 } from '../types'
 
 const initialState = {
-    food: [],
+    drink: [],
+    snack: [],
     restaurant: [],
     friend: []
 };
@@ -13,15 +14,30 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case ADD_FOOD_SUGGESTION:
-            let check = state.food.indexOf(action.payload.food);
-            if (check === -1) {
-                return {
-                    ...state,
-                    food: [...state.food, { name: action.payload.food, detail: '', type: action.payload.foodType, idx: state.food.length > 0 ? (state.food[state.food.length - 1].idx) + 1 : 0 }]
+
+            if (action.payload.foodType === 'drink') {
+                let check = state.drink.indexOf(action.payload.food);
+                if (check === -1) {
+                    return {
+                        ...state,
+                        drink: [...state.drink, { name: action.payload.food, detail: '', type: action.payload.foodType, idx: state.drink.length > 0 ? (state.drink[state.drink.length - 1].idx) + 1 : 0 }]
+                    }
+                } else {
+                    return {
+                        ...state,
+                    }
                 }
             } else {
-                return {
-                    ...state,
+                let check = state.snack.indexOf(action.payload.food);
+                if (check === -1) {
+                    return {
+                        ...state,
+                        snack: [...state.snack, { name: action.payload.food, detail: '', type: action.payload.foodType, idx: state.snack.length > 0 ? (state.snack[state.snack.length - 1].idx) + 1 : 0 }]
+                    }
+                } else {
+                    return {
+                        ...state,
+                    }
                 }
             }
         case EDIT_FOOD_SUGGESTION:
@@ -29,21 +45,45 @@ export default function (state = initialState, action) {
                 ...state,
             }
         case DELETE_FOOD_SUGGESTION:
-            return {
-                ...state,
+            if (action.payload.type === 'drink') {
+                let deleteFoodTemp = [...state.drink.filter(word => word.idx !== action.payload.idx)]
+                return {
+                    ...state,
+                    drink: deleteFoodTemp
+                }
+            } else {
+                let deleteFoodTemp = [...state.snack.filter(word => word.idx !== action.payload.idx)]
+                return {
+                    ...state,
+                    snack: deleteFoodTemp
+                }
             }
         case ADD_FRIEND_SUGGESTION:
-            return {
-                ...state,
+            let check = state.friend.indexOf(action.payload);
+            if (check === -1) {
+                return {
+                    ...state,
+                    friend: [...state.friend, { name: action.payload, type: 'friend', idx: state.friend.length > 0 ? (state.friend[state.friend.length - 1].idx) + 1 : 0 }]
+                }
+
+            } else {
+                return {
+                    ...state,
+                }
             }
+
         case EDIT_FRIEND_SUGGESTION:
             return {
                 ...state,
             }
         case DELETE_FRIEND_SUGGESTION:
+
+            let deleteFriendTemp = [...state.friend.filter(word => word.idx !== action.payload.idx)]
             return {
                 ...state,
+                friend: deleteFriendTemp
             }
+
         case ADD_RESTAURANT_SUGGESTION:
             return {
                 ...state,
@@ -51,6 +91,7 @@ export default function (state = initialState, action) {
         case EDIT_RESTAURANT_SUGGESTION:
             return {
                 ...state,
+                restaurant: []
             }
         case DELETE_RESTAURANT_SUGGESTION:
             return {

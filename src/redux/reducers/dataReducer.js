@@ -5,24 +5,20 @@ const initialState = {
     nameList: [],
     foodList: [],
     namecalculate: []
-
-    // nameList: ["wonyus", "macdecade", "man", "poom"],
-    // foodList: [{ 'foodname': 'beer', 'price': 30, 'id': 0, 'member': { "wonyus": 1, "macdecade": 1, "man": 0, "poom": 1 } },{ 'foodname': 'water', 'price': 30, 'id': 1, 'member': { "wonyus": 1, "macdecade": 1, "man": 1, "poom": 0 } }],
-    // namecalculate: []
 };
 
 export default function (state = initialState, action) {
     switch (action.type) {
         case ADD_NAME:
             // เพิ่มชื่อ
-            var addNameTemp = [...state.nameList, action.payload]
+            let addNameTemp = [...state.nameList, action.payload]
 
 
             // เพิ่มชื่อในรายการอาหาร
-            var foodListTemp = state.foodList;
-            for (var num = 0; num < state.foodList.length; num++) {
-                var addMemberTemp = state.foodList[num].member
-                var memberTemp = Object.keys(state.foodList[num].member);
+            let foodListTemp = state.foodList;
+            for (let num = 0; num < state.foodList.length; num++) {
+                let addMemberTemp = state.foodList[num].member
+                let memberTemp = Object.keys(state.foodList[num].member);
                 addNameTemp.forEach(val => {
                     if (memberTemp.indexOf(val) == -1) {
                         addMemberTemp[val] = 0;
@@ -37,19 +33,19 @@ export default function (state = initialState, action) {
                 // foodList: foodListTemp,
             }
         case EDIT_NAME:
-            var editNameTemp = []
+            let editNameTemp = []
             return {
                 data: action.payload,
             }
         case DELETE_NAME:
             // ลบชื่อ
-            var deleteNameTemp = [...state.nameList.filter(word => word !== action.payload)]
-            var editMemberTemp = state.foodList;
+            let deleteNameTemp = [...state.nameList.filter(word => word !== action.payload)]
+            let editMemberTemp = state.foodList;
 
             // ลบชื่อในรายการอาหาร
-            for (var num = 0; num < state.foodList.length; num++) {
-                var delMemberTemp = state.foodList[num].member
-                var memberTemp = {}
+            for (let num = 0; num < state.foodList.length; num++) {
+                let delMemberTemp = state.foodList[num].member
+                let memberTemp = {}
                 for (const [key, value] of Object.entries(delMemberTemp)) {
                     deleteNameTemp.forEach(val => {
                         if (key === val) {
@@ -59,7 +55,6 @@ export default function (state = initialState, action) {
                 };
                 editMemberTemp[num].member = memberTemp;
             }
-            console.log(editMemberTemp)
             return {
                 ...state,
                 foodList: editMemberTemp,
@@ -67,17 +62,14 @@ export default function (state = initialState, action) {
             }
         case ADD_FOOD:
             // เพิ่มรายการอาหาร
-            console.log(action.payload);
-            var setNameTemp = {}
+            let setNameTemp = {}
             state.nameList.forEach(e => {
                 setNameTemp[e] = 0
             });
-            console.log(setNameTemp);
-            var addFoodTeme = [...state.foodList, { 'foodname': action.payload.food, 'foodtype': action.payload.foodType, 'price': 0, 'id': state.foodList.length, 'member': { ...setNameTemp } }]
-
+            let addFoodTeme = [...state.foodList, { 'foodname': action.payload.food, 'foodtype': action.payload.foodType, 'price': 0, 'id': state.foodList.length, 'member': { ...setNameTemp } }]
             return {
                 ...state,
-                foodList: addFoodTeme,
+                foodList: [...addFoodTeme],
             }
         case EDIT_FOOD:
             return {
@@ -85,7 +77,7 @@ export default function (state = initialState, action) {
             }
         case DELETE_FOOD:
 
-            var deleteFoodTemp = [...state.foodList.filter(word => word.id !== action.payload)]
+            let deleteFoodTemp = [...state.foodList.filter(word => word.id !== action.payload)]
 
             return {
                 ...state,
@@ -94,8 +86,7 @@ export default function (state = initialState, action) {
         case SET_FOOD_PRICE:
             // ใส่จำนวนเงินของอาหาร
 
-            console.log(action.payload, "reducer");
-            var foodPriceTemp = state.foodList;
+            let foodPriceTemp = state.foodList;
             foodPriceTemp[action.payload.id].price = action.payload.price
 
             return {
@@ -105,8 +96,8 @@ export default function (state = initialState, action) {
 
         case SET_MEMBER_VALUE:
             // เลือกคนที่กินอาหาร
-            var listTemp = [...state.foodList.slice(0, action.payload.id), ...state.foodList.slice(action.payload.id + 1)]
-            var setValueTemp = state.foodList[action.payload.id];
+            let listTemp = [...state.foodList.slice(0, action.payload.id), ...state.foodList.slice(action.payload.id + 1)]
+            let setValueTemp = state.foodList[action.payload.id];
             setValueTemp.member[action.payload.name] = setValueTemp.member[action.payload.name] === 0 ? 1 : 0;
             listTemp = [...listTemp.slice(0, action.payload.id), setValueTemp, ...listTemp.slice(action.payload.id)]
             return {
@@ -114,20 +105,19 @@ export default function (state = initialState, action) {
                 foodList: listTemp,
             }
         case CALCULATE:
-            console.log(state.foodList, "reducer");
-            var calculateTemp = [];
+            let calculateTemp = [];
             state.foodList.forEach((data) => {
-                var nameTemp = []
+                let nameTemp = []
 
                 for (const [key, value] of Object.entries(data.member)) {
                     if (value === 1) {
                         nameTemp.push(key)
                     }
                 }
-                var calculatePrice = data.price / nameTemp.length;
+                let calculatePrice = data.price / nameTemp.length;
                 if (calculateTemp.length === 0) {
                     // ใส่ชื่อและเงินตอนเริ่มต้น
-                    for (var idx = 0; idx < state.nameList.length; idx++) {
+                    for (let idx = 0; idx < state.nameList.length; idx++) {
                         if (nameTemp.indexOf(state.nameList[idx]) !== -1) {
                             calculateTemp.push([state.nameList[idx], calculatePrice])
                         } else {
@@ -137,8 +127,8 @@ export default function (state = initialState, action) {
                     }
                 } else {
                     //บวกเงินทั้งหมด
-                    for (var idx = 0; idx < nameTemp.length; idx++) {
-                        for (var num = 0; num < calculateTemp.length; num++) {
+                    for (let idx = 0; idx < nameTemp.length; idx++) {
+                        for (let num = 0; num < calculateTemp.length; num++) {
                             if (calculateTemp[num][0] === nameTemp[idx]) {
                                 calculateTemp.splice(num, 1, [calculateTemp[num][0], calculateTemp[num][1] + calculatePrice])
                             }

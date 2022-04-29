@@ -1,11 +1,12 @@
 import { ADD_NAME, EDIT_NAME, DELETE_NAME, ADD_FOOD, EDIT_FOOD, DELETE_FOOD, SET_FOOD_PRICE, SET_MEMBER_VALUE, CALCULATE } from '../types';
-import { addFoodSuggestion } from './suggestionAcions';
+import { addFoodSuggestion, addFriendSuggestion } from './suggestionActions';
 
 
 
 export const addName = (name) => (dispatch) => {
 
     dispatch({ type: ADD_NAME, payload: name });
+    dispatch(addFriendSuggestion(name));
 
 }
 export const editName = (name) => (dispatch) => {

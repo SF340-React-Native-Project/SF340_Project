@@ -1,36 +1,33 @@
-import React from 'react'
-import { Image,KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
+import { style } from "@mui/system";
+import React, { useState } from "react";
+import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
+import { connect } from 'react-redux';
 import { useSelector, useDispatch } from 'react-redux';
+import NameForSuggestionList from "../components/NameForSuggestionList";
 
 const SuggestionList = ({ route, navigation }) => {
-  const { suggestname, data, suggesttype } = route.params;
+  const { suggestType } = route.params;
+  const suggestTypeLowerCase = suggestType.toLowerCase()
   const { theme } = useSelector(state => state.theme);
-  console.log(data)
+  const data = useSelector(state => state.suggest[suggestTypeLowerCase]);
+
   return (
     <View style={styles(theme).container}>
-      <Text style={styles(theme).sectionTitle}>{suggestname}</Text> 
-      
-        <View style={styles(theme).menudescrip}>
-          <View style={styles(theme).imglayout}>
-            <Image style={styles(theme).tinyLogo} source={require('./../../image/holiday.png')}/>
-          </View>
-          
-              <Text style={styles(theme).describhead}>{data.header}</Text>
-              <Text style={styles(theme).describdetail}>{data.description}</Text>
-            
-        
-      </View>
-      <Text 
+      <Text style={styles(theme).sectionTitle}>{suggestType}</Text>
+      <ScrollView style={styles(theme).scrollviewlayout}>
+        {data && data.map((data, idx) => (
+
+          <NameForSuggestionList key={idx} data={data} navigation={navigation} />
+        ))}
+      </ScrollView>
+      <Text
         style={styles(theme).backbutton}
-        onPress={() => navigation.navigate('Suggest')}
-        >
-          Back
+        onPress={() => navigation.navigate('Suggestion', { screen: 'SuggestionType' })}>
+        Back
       </Text>
     </View>
   )
 }
-
-export default SuggestionList
 
 const styles = (theme) => StyleSheet.create({
   container: {
@@ -38,7 +35,7 @@ const styles = (theme) => StyleSheet.create({
     backgroundColor: 'rgb(15,35,45)',
   },
   sectionTitle: {
-    fontSize: 30,
+    fontSize: 40,
     marginTop: 20,
     marginBottom: 20,
     marginLeft: 'auto',
@@ -57,16 +54,19 @@ const styles = (theme) => StyleSheet.create({
     textShadowOffset: { width: 3, height: 3 },
     textShadowRadius: 20,
   },
-  menudescrip:{
-    marginLeft:'auto',
-    marginRight:'auto',
-    width: '80%',
-    height:'70%',
-    paddingVertical:5,
+  seggestmenu: {
+    marginHorizontal: 20,
+    padding: 10,
+    fontFamily: 'ZenKurenaido-Regular',
+    fontSize: 25,
     borderRadius: 15,
-    borderColor: '#36F2F2', // *** Color ***
-    borderWidth: 4,
-
+    borderColor: '#CCFF33', // *** Color ***
+    borderWidth: 2,
+    borderStyle: 'dashed',
+    color: '#90EE90', // *** Color ***
+    shadowColor: "#A540FF", // *** Color ***
+    elevation: 50,
+    marginBottom: 15,
   },
   backbutton: {
     fontSize: 30,
@@ -88,41 +88,16 @@ const styles = (theme) => StyleSheet.create({
     textShadowOffset: { width: 3, height: 3 },
     textShadowRadius: 20,
   },
-  imglayout:{
-    marginTop:20,
+  scrollviewlayout: {
     marginLeft: 'auto',
     marginRight: 'auto',
-    width:'90%',
-    height:'45%',
+    width: 330,
+    paddingVertical: 20,
     borderRadius: 15,
-    borderColor: theme.border.pri200, // *** Color ***
+    borderColor: '#36F2F2', // *** Color ***
     borderWidth: 2,
-    borderStyle: 'dashed',
-  },
-  describhead:{
-    marginTop:10,
-    marginLeft:'5%',
-    marginRight:'5%',
-    fontSize:25,
-    color:theme.text.pri200,
-    textAlign: 'left',
-  },
-  describdetail:{
-    marginTop:10,
-    marginLeft:'5%',
-    fontSize:17,
-    color:theme.text.pri200,
-    textAlign: 'left',
-  },
-  tinyLogo:{
-    width: '80%',
-    height:'80%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginBottom: 'auto',
-    marginTop: 'auto',
-    
-
-    
   }
 })
+
+
+export default SuggestionList;

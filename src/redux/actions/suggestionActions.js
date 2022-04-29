@@ -14,9 +14,9 @@ export const editFoodSuggestion = (foodname) => (dispatch) => {
     dispatch({ type: EDIT_FOOD_SUGGESTION, payload: foodname });
 
 }
-export const deleteFoodSuggestion = (id) => (dispatch) => {
+export const deleteFoodSuggestion = (data) => (dispatch) => {
 
-    dispatch({ type: DELETE_FOOD_SUGGESTION, payload: id });
+    dispatch({ type: DELETE_FOOD_SUGGESTION, payload: data });
 
 }
 export const addRestaurantSuggestion = (foodname) => (dispatch) => {
@@ -34,9 +34,9 @@ export const deleteRestaurantSuggestion = (id) => (dispatch) => {
     dispatch({ type: DELETE_RESTAURANT_SUGGESTION, payload: id });
     
 }
-export const addFriendSuggestion = (foodname) => (dispatch) => {
+export const addFriendSuggestion = (name) => (dispatch) => {
 
-    dispatch({ type: ADD_FRIEND_SUGGESTION, payload: foodname });
+    dispatch({ type: ADD_FRIEND_SUGGESTION, payload: name });
 
 }
 export const editFriendSuggestion = (foodname) => (dispatch) => {
@@ -44,8 +44,8 @@ export const editFriendSuggestion = (foodname) => (dispatch) => {
     dispatch({ type: EDIT_FRIEND_SUGGESTION, payload: foodname });
 
 }
-export const deleteFriendSuggestion = (id) => (dispatch) => {
+export const deleteFriendSuggestion = (data) => (dispatch) => {
 
-    dispatch({ type: DELETE_FRIEND_SUGGESTION, payload: id });
+    dispatch({ type: DELETE_FRIEND_SUGGESTION, payload: data });
     
 }

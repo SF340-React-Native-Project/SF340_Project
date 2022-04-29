@@ -16,13 +16,15 @@ const persistConfig = {
 
 const middleware = [thunk];
 
-const reducers = combineReducers({
-    data: persistReducer(persistConfig, dataReducer),
-    suggest: persistReducer(persistConfig, suggestionReducer),
-    theme: persistReducer(persistConfig, themeReducer),
-    calendar: persistReducer(persistConfig, calendarReducer),
+const rootReducer = combineReducers({
+    data: dataReducer,
+    suggest: suggestionReducer,
+    theme: themeReducer,
+    calendar: calendarReducer,
 })
 
-export const Store = createStore(reducers, compose(applyMiddleware(...middleware)));
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+export const Store = createStore(persistedReducer, compose(applyMiddleware(...middleware)));
 
 export const persistor = persistStore(Store);

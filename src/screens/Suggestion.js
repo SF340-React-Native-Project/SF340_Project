@@ -7,27 +7,28 @@ import NameForSuggestion from "../components/NameForSuggestion";
 
 const Suggestion = ({ navigation }) => {
     const { theme } = useSelector(state => state.theme);
-    const { food } = useSelector(state => state.suggest);
+    const suggest = ['DRINK', 'SNACK', 'FRIEND']
 
-    const suggest = ['FOOD', 'FRIEND', 'FOOD', 'FRIEND', 'FOOD', 'FRIEND', 'FOOD', 'FRIEND', 'FOOD', 'FRIEND']
 
     return (
         <View style={styles(theme).container}>
             <Text style={styles(theme).sectionTitle}>Suggest</Text>
             <ScrollView style={styles(theme).scrollviewlayout}>
-                {food && food.map((data, idx) => (
+                {suggest && suggest.map((data, idx) => (
                     <TouchableOpacity
                         key={idx}
                         onPress={() => {
                             navigation.navigate(
-                                'SuggestionList',
+                                'Suggestion',
                                 {
-                                    suggestname: data.name,
-                                    data: { header: 'Beer', idx: '1', description: 'Beer Chang Algohol 5% Beer Chang Algohol 5%' },
-                                    suggesttype: data.type
+                                    screen: 'SuggestionList',
+                                    params: {
+                                        suggestType: data
+                                    }
+
                                 })
                         }} >
-                        <NameForSuggestion name={data.name} />
+                        <NameForSuggestion name={data} />
                     </TouchableOpacity>
                 ))}
             </ScrollView>

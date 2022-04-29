@@ -13,7 +13,6 @@ export default function (state = initialState, action) {
 
             var addScheduleTemp = [...state.scheduleList, { 'id': state.scheduleList.length, 'day': '', 'time': '', 'detail': '', 'member': '' }];
 
-            console.log(addScheduleTemp);
             return {
                 ...state,
                 scheduleList: addScheduleTemp,
@@ -23,7 +22,6 @@ export default function (state = initialState, action) {
 
             var deleteScheduleTemp = [...state.scheduleList.filter(word => word.id !== action.payload)];
 
-            console.log(deleteScheduleTemp);
             return {
                 ...state,
                 scheduleList: deleteScheduleTemp,
@@ -32,10 +30,7 @@ export default function (state = initialState, action) {
         case SET_SCHEDULE_DATE:
 
             // ใส่วันที่นัด
-
-            console.log(action.payload, "reducer");
             var scheduleDateTemp = state.scheduleList;
-            // console.log(scheduleDateTemp);
             scheduleDateTemp[action.payload.id].day = action.payload.baseDate;
 
             return {
@@ -47,7 +42,6 @@ export default function (state = initialState, action) {
 
             // ใส่เวลาที่นัด
 
-            console.log(action.payload, "reducer");
             var scheduleTimeTemp = state.scheduleList;
             scheduleTimeTemp[action.payload.id].time = action.payload.time;
 
@@ -59,8 +53,6 @@ export default function (state = initialState, action) {
         case SET_SCHEDULE_DETAIL:
 
             // ใส่รายละเอียดที่นัด
-
-            console.log(action.payload, "reducer");
             var scheduleDetailTemp = state.scheduleList;
             scheduleDetailTemp[action.payload.id].detail = action.payload.detail;
 
@@ -72,8 +64,6 @@ export default function (state = initialState, action) {
         case SET_SCHEDULE_MEMBER:
 
             // ใส่รายชื่อเพื่อนที่นัด
-
-            console.log(action.payload, "reducer");
             var scheduleMemberTemp = state.scheduleList;
             scheduleMemberTemp[action.payload.id].member = action.payload.member;
 

@@ -23,17 +23,12 @@ const Home = ({ navigation }) => {
   const [name, setName] = useState();
   const [toggle, setToggle] = useState(true);
 
-  console.log(nameList, 'HOME');
-  console.log(foodList, 'HOME');
-  console.log(namecalculate, 'HOME');
   const handleAddName = () => {
     Keyboard.dismiss();
     dispatch(addName(name));
     setName(null);
   };
 
-
-  console.log(theme);
   return (
     <View style={styles(theme).container}>
       {/* Added this scroll view to enable scrolling when list gets longer than the page */}

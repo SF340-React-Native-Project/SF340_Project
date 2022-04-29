@@ -18,7 +18,7 @@ import Suggestion from '../screens/Suggestion';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { Store, persistor } from "../redux/store"
-import SuggestionList from '../screens/SuggestionList';
+import SuggestionStack from './SuggestionStack';
 
 
 
@@ -46,14 +46,14 @@ const AppStack = () => {
             <Drawer.Screen name="Welcome" component={Welcome} />
             <Drawer.Screen name="Home" component={Home} />
             <Drawer.Screen name="Food" component={FoodStack} />
-            <Drawer.Screen name="Suggest" component={Suggestion} />
+            <Drawer.Screen name="Suggestion" component={SuggestionStack} />
             <Drawer.Screen name="Calendar" component={CalendarStack} />
             <Drawer.Screen name="Game" component={Game} />
-            <Drawer.Screen name="SuggestionList" component={SuggestionList}
+            {/* <Drawer.Screen name="Suggestion" component={SuggestionStack}
               options={{
                 drawerLabel: () => null,
                 drawerItemStyle: { height: 0 }
-              }} />
+              }} /> */}
           </Drawer.Navigator>
 
         </NavigationContainer>
