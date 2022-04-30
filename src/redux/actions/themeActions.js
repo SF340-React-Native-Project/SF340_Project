@@ -94,10 +94,10 @@ export const themeOptions = {
     'dark': {
         name:"dark",
         text: {
-            pri100: '#FF3CBE',
+            pri100: '#F7FA13',
             pri200: '#d61cff',
             pri300: '#10FF92',
-            pri400: '#F7FA13',
+            pri400: '#FF3CBE',
             pri500: '#36F2F2',
 
         },
@@ -107,7 +107,7 @@ export const themeOptions = {
 
         },
         background: {
-            pri100: '#A540FF',
+            pri100: '#0f232d',
             pri200: '#36F2F2',
 
         },
@@ -117,14 +117,17 @@ export const themeOptions = {
             pri300: '#A540FF',
             pri400: '#F7FA13',
             pri500: '#36F2F2',
+            pri700: '#FF0000',
+            pri800: '#32CD32',
+            pri210: '#d61cff',
 
 
         },
         shadow: {
-            pri100: '#f50abe',
+            pri100: '#F7FA13',
             pri200: '#d61cff',
             pri300: '#A540FF',
-            pri400: '#F7FA13',
+            pri400: '#f50abe',
             pri500: '#36F2F2',
 
         },

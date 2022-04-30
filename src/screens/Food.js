@@ -252,7 +252,7 @@ const styles = (theme) => StyleSheet.create({
     borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
     width: 250,
-    color: theme.textinput.pri400, // *** Color ***
+    color: theme.text.pri100, // *** Color ***
   },
   addWrapper: {
     width: 55,

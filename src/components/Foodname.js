@@ -93,7 +93,7 @@ const styles = (theme) => StyleSheet.create({
   circular: {
     width: 15,
     height: 15,
-    backgroundColor: '#FF3CBE', // *** Color ***
+    backgroundColor: theme.border.pri210, // *** Color ***
     borderRadius: 100,
     marginRight: 10,
   },

@@ -51,8 +51,7 @@ const styles = (theme) => StyleSheet.create({
     circular: {
         width: 15,
         height: 15,
-        backgroundColor: '#FF3CBE', // *** Color ***
-        opacity: 0.4,
+        backgroundColor: theme.border.pri210, // *** Color ***
         borderRadius: 100,
 
     },

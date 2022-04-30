@@ -228,7 +228,7 @@ const styles = (theme) => StyleSheet.create({
     marginVertical: 15,
     borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
-    color: theme.text.pri200, // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
     fontSize: 35,
     shadowColor: theme.shadow.pri600, // *** Color ***

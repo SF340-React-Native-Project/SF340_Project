@@ -29,7 +29,6 @@ const styles = (theme) => StyleSheet.create({
     borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
     borderStyle: 'dashed',
-    color: '#90EE90', // *** Color ***
     marginBottom: 20,
 
 
@@ -43,7 +42,6 @@ const styles = (theme) => StyleSheet.create({
     width: 15,
     height: 15,
     backgroundColor: theme.text.pri100, // *** Color ***
-    opacity: 0.4,
     borderRadius: 100,
     marginRight: 10,
   },
@@ -51,7 +49,7 @@ const styles = (theme) => StyleSheet.create({
 
     fontFamily: 'ZenKurenaido-Regular',
     fontSize:25,
-    color: '#FF3CBE', // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textShadowColor: '#f50abe', // *** Color ***
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 10,

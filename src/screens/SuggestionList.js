@@ -42,9 +42,9 @@ const styles = (theme) => StyleSheet.create({
     marginRight: 'auto',
     fontFamily: 'ZenKurenaido-Regular',
     borderRadius: 15,
-    borderColor: theme.border.pri200, // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 4,
-    color: '#36F2F2', // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
     paddingHorizontal: 25,
     paddingVertical: 10,
@@ -76,9 +76,9 @@ const styles = (theme) => StyleSheet.create({
     marginRight: 'auto',
     fontFamily: 'ZenKurenaido-Regular',
     borderRadius: 15,
-    borderColor: theme.border.pri200, // *** Color ***
+    borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
-    color: '#36F2F2', // *** Color ***
+    color: theme.text.pri100, // *** Color ***
     textAlign: 'center',
     paddingHorizontal: 90,
     paddingVertical: 2,
@@ -94,7 +94,7 @@ const styles = (theme) => StyleSheet.create({
     width: 330,
     paddingVertical: 20,
     borderRadius: 15,
-    borderColor: '#36F2F2', // *** Color ***
+    borderColor:  theme.border.pri210,
     borderWidth: 2,
   }
 })

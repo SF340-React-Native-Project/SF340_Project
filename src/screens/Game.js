@@ -116,15 +116,14 @@ const styles = (theme) => StyleSheet.create({
     },
     Header:{
         marginTop:30,
-        color: theme.text.pri200,
         fontSize: 50,
         marginLeft: 'auto',
         marginRight: 'auto',
         fontFamily: 'ZenKurenaido-Regular',
         borderRadius: 15,
-        borderColor: theme.border.pri200, // *** Color ***
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 4,
-        color: '#36F2F2', // *** Color ***
+        color: theme.text.pri100, // *** Color ***
         textAlign: 'center',
         paddingHorizontal:25,
         paddingVertical:10,
@@ -140,7 +139,7 @@ const styles = (theme) => StyleSheet.create({
         height:370,
         paddingTop:46,
         borderRadius: 15,
-        borderColor: '#36F2F2', // *** Color ***
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 4,
         borderStyle: 'dashed',
     },
@@ -152,9 +151,8 @@ const styles = (theme) => StyleSheet.create({
         marginLeft: 'auto',
         marginRight: 'auto',
         borderRadius: 15,
-        borderColor: theme.border.pri200, // *** Color ***
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 3,
-        color: theme.text.pri400, // *** Color ***
         textAlign: 'center',
         fontSize: 45,
         shadowColor: theme.shadow.pri300, // *** Color ***
@@ -162,7 +160,7 @@ const styles = (theme) => StyleSheet.create({
     },
     startButtonText: {
         fontSize: 50,
-        color: '#36F2F2',
+        color: theme.text.pri100,
         fontFamily: 'ZenKurenaido-Regular',
         paddingHorizontal:15,
         paddingVertical:1,
@@ -204,9 +202,9 @@ const styles = (theme) => StyleSheet.create({
         marginRight: 'auto',
         fontFamily: 'ZenKurenaido-Regular',
         borderRadius: 15,
-        borderColor: theme.border.pri200, // *** Color ***
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 4,
-        color: '#36F2F2', // *** Color ***
+        color: theme.text.pri100, // *** Color ***
         textAlign: 'center',
         paddingHorizontal:25,
         paddingVertical:10,

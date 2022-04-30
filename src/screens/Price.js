@@ -153,7 +153,8 @@ const styles = (theme) => StyleSheet.create({
     marginRight:'auto',
     marginTop:20,
     width: '80%',
-    fontWeight: 'bold',
+    fontSize:25,
+    fontFamily:'ZenKurenaido-Regular',
     borderRadius: 20,
     borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
