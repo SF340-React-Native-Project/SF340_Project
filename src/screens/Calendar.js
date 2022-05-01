@@ -68,11 +68,11 @@ const Calendar = ({ navigation }) => {
 
 const styles = (theme) => StyleSheet.create({
     Back: {
-        fontSize: 15,
+        fontSize: 25,
         borderRadius: 15,
-        borderColor: theme.border.pri500, // *** Color ***
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 2,
-        color: theme.text.pri500, // *** Color ***
+        color: theme.text.pri100, // *** Color ***
         textAlign: 'center',
         paddingTop: 10,
         paddingBottom: 10,
@@ -85,11 +85,11 @@ const styles = (theme) => StyleSheet.create({
         textShadowRadius: 10,
     },
     Add: {
-        fontSize: 15,
+        fontSize: 25,
         borderRadius: 15,
-        borderColor: theme.border.pri500, // *** Color ***
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 2,
-        color: theme.text.pri500, // *** Color ***
+        color: theme.text.pri100, // *** Color ***
         textAlign: 'center',
         paddingTop: 10,
         paddingBottom: 10,
@@ -117,9 +117,9 @@ const styles = (theme) => StyleSheet.create({
         marginRight: 'auto',
         fontFamily: 'ZenKurenaido-Regular',
         borderRadius: 15,
-        borderColor: theme.border.pri200, // *** Color ***
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 3,
-        color: theme.text.pri400, // *** Color ***
+        color: theme.text.pri100, // *** Color ***
         textAlign: 'center',
         paddingHorizontal: 25,
         paddingVertical: 10,

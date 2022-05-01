@@ -88,7 +88,7 @@ const DetailForCalendar = ({ route, navigation }) => {
                     style={styles(theme).inputTime}
                     value={timeTemp}
                     placeholder="Time"
-                    placeholderTextColor={'white'}
+                    placeholderTextColor={theme.text.pri100}
                     keyboardType="numeric"
                     onChangeText={val => setTime(val)}
                 />
@@ -96,7 +96,7 @@ const DetailForCalendar = ({ route, navigation }) => {
                     style={styles(theme).inputDetail}
                     value={detailTemp}
                     placeholder="Detail"
-                    placeholderTextColor={'white'}
+                    placeholderTextColor={theme.text.pri100}
                     onChangeText={val => setDetail(val)}
                 />
 
@@ -105,7 +105,7 @@ const DetailForCalendar = ({ route, navigation }) => {
                     style={styles(theme).inputDetail}
                     value={memberTemp}
                     placeholder="Member"
-                    placeholderTextColor={'white'}
+                    placeholderTextColor={theme.text.pri100}
                     onChangeText={val => setMember(val)}
                 />
 
@@ -123,19 +123,16 @@ const DetailForCalendar = ({ route, navigation }) => {
 
 const styles = (theme) => StyleSheet.create({
     Add: {
-        width: 100,
         marginLeft: 'auto',
         marginRight: 'auto',
-        fontSize: 15,
+        fontSize: 25,
         borderRadius: 15,
-        borderColor: theme.border.pri400, // *** Color ***
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 2,
-        color: theme.text.pri400, // *** Color ***
+        color: theme.text.pri100, // *** Color ***
         textAlign: 'center',
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: 20,
-        paddingRight: 20,
+        paddingHorizontal:100,
+        paddingVertical:7,
         shadowColor: theme.shadow.pri300, // *** Color ***
         elevation: 18,
         textShadowColor: theme.shadow.pri100, // *** Color ***
@@ -154,9 +151,9 @@ const styles = (theme) => StyleSheet.create({
         marginRight: 'auto',
         fontFamily: 'ZenKurenaido-Regular',
         borderRadius: 15,
-        borderColor: theme.border.pri200, // *** Color ***
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 3,
-        color: theme.text.pri400, // *** Color ***
+        color: theme.text.pri100, // *** Color ***
         textAlign: 'center',
         paddingHorizontal: 25,
         paddingVertical: 10,
@@ -172,27 +169,29 @@ const styles = (theme) => StyleSheet.create({
         justifyContent: 'center',
     },
     inputTime: {
+        fontFamily: 'ZenKurenaido-Regular',
+        fontSize:25,
         marginLeft: 20,
         marginTop:20,
-        width: '25%',
-        fontWeight: 'bold',
+        width: '30%',
         borderRadius: 20,
-        borderColor: theme.border.pri900, // *** Color ***
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 2,
-        color: 'white', // *** Color ***
+        color: theme.text.pri100, // *** Color ***
         textAlign: 'center',
         alignContent: 'center',
     },
     inputDetail: {
+        fontFamily: 'ZenKurenaido-Regular',
+        fontSize:25,
         marginLeft: 20,
         marginTop:20,
         paddingLeft: 20,
         width: '90%',
-        fontWeight: 'bold',
         borderRadius: 20,
-        borderColor: theme.border.pri900, // *** Color ***
+        color: theme.text.pri100,
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 2,
-        color: 'white', // *** Color ***
         alignContent: 'center',
     },
 });

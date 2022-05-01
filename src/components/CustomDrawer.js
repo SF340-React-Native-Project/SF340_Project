@@ -31,7 +31,7 @@ const CustomDrawer = props => {
                             fontFamily: 'Roboto-Medium',
                             marginBottom: 5,
                         }}>
-                        WONG LOU
+                        ฮากบ่นับหลับก้าน
                     </Text>
                 </View>
 

@@ -74,7 +74,7 @@ const CalendarList = (props) => {
     item: {
         padding: 10,
         borderRadius: 15,
-        borderColor: theme.border.pri600, // *** Color ***
+        borderColor: theme.border.pri210, // *** Color ***
         borderWidth: 2,
         borderStyle: 'dashed',
         // shadowColor: theme.shadow.pri400, // *** Color ***
