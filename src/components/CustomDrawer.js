@@ -11,14 +11,16 @@ import {
     DrawerItemList,
 } from '@react-navigation/drawer';
 import ColorPalette from './ColorPalette';
-
+import { useSelector, useDispatch } from 'react-redux';
 
 const CustomDrawer = props => {
+    const { theme } = useSelector(state => state.theme);
+
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1 ,backgroundColor: '#0f232d',}}>
             <DrawerContentScrollView
                 {...props}
-                contentContainerStyle={{ backgroundColor: '#8200d6' }}>
+                contentContainerStyle={{ backgroundColor: theme.text.pri100 }}>
 
                 <View style={{
                     alignItems: 'center',
@@ -26,16 +28,17 @@ const CustomDrawer = props => {
                 }}>
                     <Text
                         style={{
-                            color: '#fff',
+                            color: 'black',
                             fontSize: 20,
                             fontFamily: 'Roboto-Medium',
                             marginBottom: 5,
+                            
                         }}>
                         ฮากบ่นับหลับก้าน
                     </Text>
                 </View>
 
-                <View style={{ flex: 1, backgroundColor: '#fff', paddingTop: 10, }}>
+                <View style={{ flex: 1, backgroundColor: '#0f232d', paddingTop: 10, }}>
                     <DrawerItemList {...props} />
                 </View>
             </DrawerContentScrollView>

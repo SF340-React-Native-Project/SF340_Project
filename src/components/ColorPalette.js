@@ -32,7 +32,7 @@ export class ColorPalette extends Component {
 
 const styles = StyleSheet.create({
     topic: {
-        color: '#000',
+        color: 'white',
         alignSelf: 'center',
         fontSize: 20,
         fontWeight: 'bold'

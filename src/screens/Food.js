@@ -257,11 +257,12 @@ const styles = (theme) => StyleSheet.create({
   addWrapper: {
     width: 55,
     height: 55,
+    top: 20,
     borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: theme.border.pri300, // *** Color ***
-    borderWidth: 5,
+    borderWidth: 3,
   },
   toggleButton: {
     marginLeft: 'auto',
