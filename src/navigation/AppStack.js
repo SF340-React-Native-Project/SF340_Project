@@ -26,40 +26,35 @@ const Drawer = createDrawerNavigator();
 
 const AppStack = () => {
   return (
-    <Provider store={Store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <NavigationContainer>
-          <Drawer.Navigator
-            drawerContent={props => <CustomDrawer {...props} />}
-            screenOptions={{
-              headerShown: false,
-              drawerActiveBackgroundColor: '#aa18ea',
-              drawerActiveTintColor: '#fff',
-              drawerInactiveTintColor: '#333',
-              drawerLabelStyle: {
-                marginLeft: 5,
-                fontFamily: 'Roboto-Medium',
-                fontSize: 15,
-              },
-            }} >
 
-            <Drawer.Screen name="Welcome" component={Welcome} />
-            <Drawer.Screen name="Home" component={Home} />
-            <Drawer.Screen name="Food" component={FoodStack} />
-            <Drawer.Screen name="Suggestion" component={SuggestionStack} />
-            <Drawer.Screen name="Calendar" component={CalendarStack} />
-            <Drawer.Screen name="Game" component={Game} />
-            {/* <Drawer.Screen name="Suggestion" component={SuggestionStack}
+    <NavigationContainer>
+      <Drawer.Navigator
+        drawerContent={props => <CustomDrawer {...props} />}
+        screenOptions={{
+          headerShown: false,
+          drawerActiveBackgroundColor: '#aa18ea',
+          drawerActiveTintColor: '#fff',
+          drawerInactiveTintColor: '#333',
+          drawerLabelStyle: {
+            marginLeft: 5,
+            fontFamily: 'Roboto-Medium',
+            fontSize: 15,
+          },
+        }} >
+
+        <Drawer.Screen name="Welcome" component={Welcome} />
+        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Food" component={FoodStack} />
+        <Drawer.Screen name="Suggestion" component={SuggestionStack} />
+        <Drawer.Screen name="Calendar" component={CalendarStack} />
+        <Drawer.Screen name="Game" component={Game} />
+        {/* <Drawer.Screen name="Suggestion" component={SuggestionStack}
               options={{
                 drawerLabel: () => null,
                 drawerItemStyle: { height: 0 }
               }} /> */}
-          </Drawer.Navigator>
-
-        </NavigationContainer>
-      </PersistGate>
-    </Provider>
-
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
 
