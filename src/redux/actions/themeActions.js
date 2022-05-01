@@ -38,6 +38,7 @@ export const themeOptions = {
         },
         background: {
             pri100: '#0f232d',
+            pri300: '#FF3CBE',
 
             // theme.background.pri100: '#0f232d',
 
@@ -69,7 +70,7 @@ export const themeOptions = {
         },
         shadow: {
             pri100: '#f50abe',
-            pri200: '#d61cff',
+            pri200: '#36F2F2',
             pri300: '#A540FF',
             pri400: '#F7FA13',
             pri500: '#D2691E',
@@ -109,6 +110,7 @@ export const themeOptions = {
         background: {
             pri100: '#0f232d',
             pri200: '#36F2F2',
+            pri300: '#d61cff',
 
         },
         border: {
