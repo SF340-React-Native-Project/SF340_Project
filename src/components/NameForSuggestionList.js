@@ -28,7 +28,8 @@ const NameForSuggestion = (props) => {
     return (
         <View style={styles(theme).container}>
             <View style={styles(theme).item}>
-                <Swipeout right={swipeBtns}
+                <Swipeout
+                    right={swipeBtns}
                     autoClose={true}
                     backgroundColor='transparent'
                     style={styles(theme).btndelete}
@@ -46,7 +47,7 @@ const NameForSuggestion = (props) => {
                                 })
                         }} >
                         <View style={styles(theme).itemLeft}>
-                            <View style={styles(theme).circular}></View>
+                            <View style={styles(theme).circular}/>
                             <Text style={styles(theme).seggestmenu}>{data.name}</Text>
                         </View>
                     </TouchableOpacity>

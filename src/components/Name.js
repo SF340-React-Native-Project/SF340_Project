@@ -23,40 +23,47 @@ const Name = (props) => {
 
 
   return (
-    <View style={styles(theme).item}>
-      <Swipeout right={swipeBtns}
-        autoClose={true}
-        backgroundColor='transparent'
-        style={styles(theme).btndelete}
-      >
-
-        <View style={styles(theme).itemLeft}>
-          <View style={styles(theme).circular} />
-          <Text style={styles(theme).itemText}>{props.text}</Text>
-        </View>
-      </Swipeout>
+    <View style={styles(theme).container}>
+      <View style={styles(theme).item}>
+        <Swipeout right={swipeBtns}
+          autoClose={true}
+          backgroundColor='transparent'
+          style={styles(theme).btndelete}
+        >
+          <TouchableOpacity
+            disabled={true}
+          >
+            <View style={styles(theme).itemLeft}>
+              <View style={styles(theme).circular} />
+              <Text style={styles(theme).itemText}>{props.text}</Text>
+            </View>
+          </TouchableOpacity>
+        </Swipeout>
+      </View>
     </View>
-
-
   )
 }
 
 const styles = (theme) => StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    flexDirection: 'column',
+  },
   btndelete: {
     borderRadius: 10,
     borderWidth: 0,
   },
   item: {
-    padding: 10,
-    fontSize: 15,
-    fontWeight: 'bold',
+    marginHorizontal: 25,
     borderRadius: 15,
     borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
     borderStyle: 'dashed',
     marginBottom: 15,
+    justifyContent: 'space-between',
   },
   itemLeft: {
+    marginLeft: 10,
     flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'wrap'
@@ -70,6 +77,8 @@ const styles = (theme) => StyleSheet.create({
     marginRight: 10,
   },
   itemText: {
+    marginLeft: 5,
+    padding: 9,
     fontFamily: 'ZenKurenaido-Regular',
     fontSize: 25,
     color: theme.text.pri100, // *** Color ***

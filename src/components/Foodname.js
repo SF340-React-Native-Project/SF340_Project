@@ -31,81 +31,90 @@ const Foodname = (props) => {
   }];
 
   return (
-
-    <View style={styles(theme).item}>
-      <Swipeout
-        right={swipeBtnsRight}
-        left={swipeBtnsLeft}
-        autoClose={true}
-        backgroundColor='transparent'
-        style={styles(theme).btndelete}
-      >
-        <View style={styles(theme).container}>
-          <View style={styles(theme).itemLeft}>
-            <View style={styles(theme).circular}></View>
-            <View>
-              <Text style={styles(theme).itemText}>{props.foodname}</Text>
+    <View style={styles(theme).container}>
+      <View style={styles(theme).item}>
+        <Swipeout
+          right={swipeBtnsRight}
+          left={swipeBtnsLeft}
+          autoClose={true}
+          backgroundColor='transparent'
+          style={styles(theme).btndelete}
+        >
+          <TouchableOpacity
+            onPress={() => {
+              props.navigation.navigate('Price',
+                {
+                  foodname: props.foodname,
+                  member: props.member,
+                  price: props.price,
+                  id: props.idx
+                })
+            }} >
+            <View style={styles(theme).containerText}>
+              <View style={styles(theme).itemLeft}>
+                <View style={styles(theme).circular}></View>
+                <Text style={styles(theme).seggestmenu}>{props.foodname}</Text>
+              </View>
+              <Text style={styles(theme).price}>{props.price}</Text>
             </View>
-          </View>
-          <View style={styles(theme).itemRight}>
-            <Text style={styles(theme).itemText}>{props.price}</Text>
-          </View>
-        </View>
-
-
-      </Swipeout>
-    </View >
+          </TouchableOpacity>
+        </Swipeout>
+      </View >
+    </View>
 
   )
 }
 
 const styles = (theme) => StyleSheet.create({
-  container: {
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-
-  },
   btndelete: {
     borderRadius: 10,
     borderWidth: 0,
   },
+  container: {
+    justifyContent: 'center',
+    flexDirection: 'column',
+  },
+  containerText: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
   item: {
-    padding: 10,
+    marginHorizontal: 20,
     borderRadius: 15,
     borderColor: theme.border.pri210, // *** Color ***
     borderWidth: 2,
     borderStyle: 'dashed',
     marginBottom: 15,
     justifyContent: 'space-between',
-
-
   },
   itemLeft: {
     marginLeft: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    flexWrap: 'wrap'
-  },
-  itemRight: {
-    alignItems: 'flex-end',
-    marginRight: 10,
   },
   circular: {
     width: 15,
     height: 15,
-    backgroundColor: theme.border.pri210, // *** Color ***
+    backgroundColor: '#FF3CBE', // *** Color ***
+    opacity: 0.4,
     borderRadius: 100,
-    marginRight: 10,
+
   },
-  itemText: {
+  seggestmenu: {
+    marginLeft: 5,
+    padding: 10,
     fontFamily: 'ZenKurenaido-Regular',
-    fontSize: 25,
+    fontSize: 20,
     color: theme.text.pri100, // *** Color ***
-    textAlign: 'center',
-    textShadowColor: '#f50abe', // *** Color ***
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 10,
   },
+  price: {
+    alignSelf: 'flex-end',
+    marginLeft: 5,
+    padding: 10,
+    fontFamily: 'ZenKurenaido-Regular',
+    fontSize: 20,
+    color: theme.text.pri100, // *** Color ***
+  }
 });
 
 export default Foodname;

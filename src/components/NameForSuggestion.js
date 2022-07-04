@@ -1,13 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Swipeout from 'react-native-swipeout';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { deleteFood, editFood } from '../redux/actions/dataActions';
+
+import { useSelector } from 'react-redux';
+
 
 const NameForSuggestion = (props) => {
 
-    const dispatch = useDispatch();
     const { theme } = useSelector(state => state.theme);
  
 

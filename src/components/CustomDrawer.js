@@ -17,10 +17,10 @@ const CustomDrawer = props => {
     const { theme } = useSelector(state => state.theme);
 
     return (
-        <View style={{ flex: 1 ,backgroundColor: '#0f232d',}}>
+        <View style={{ flex: 1, backgroundColor: '#0f232d', }}>
             <DrawerContentScrollView
                 {...props}
-                contentContainerStyle={{ backgroundColor: theme.text.pri100 }}>
+            >
 
                 <View style={{
                     alignItems: 'center',
@@ -28,13 +28,13 @@ const CustomDrawer = props => {
                 }}>
                     <Text
                         style={{
-                            color: 'black',
+                            color: theme.text.pri100,
                             fontSize: 20,
                             fontFamily: 'Roboto-Medium',
                             marginBottom: 5,
-                            
+
                         }}>
-                        ฮากบ่นับหลับก้าน
+                        Wong Lou
                     </Text>
                 </View>
 

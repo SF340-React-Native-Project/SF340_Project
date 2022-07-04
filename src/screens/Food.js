@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView, Switch } from 'react-native';
+import uuid from 'react-native-uuid';
 
 //redux stuff
 import { getData } from "../redux/actions/dataActions"
@@ -23,7 +24,7 @@ const Food = ({ navigation }) => {
   const handleAddTask = () => {
     if (food !== '' && food.length > 0) {
       Keyboard.dismiss();
-      dispatch(addFood({ food, foodType }))
+      dispatch(addFood({ food, foodType, id: uuid.v4() }))
     }
     setFood('');
   }

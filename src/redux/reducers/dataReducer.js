@@ -66,7 +66,7 @@ export default function (state = initialState, action) {
             state.nameList.forEach(e => {
                 setNameTemp[e] = 0
             });
-            let addFoodTeme = [...state.foodList, { 'foodname': action.payload.food, 'foodtype': action.payload.foodType, 'price': 0, 'id': state.foodList.length, 'member': { ...setNameTemp } }]
+            let addFoodTeme = [...state.foodList, { 'foodname': action.payload.food, 'foodtype': action.payload.foodType, 'price': 0, 'id': action.payload.id, 'member': { ...setNameTemp } }]
             return {
                 ...state,
                 foodList: [...addFoodTeme],
@@ -85,9 +85,9 @@ export default function (state = initialState, action) {
             }
         case SET_FOOD_PRICE:
             // ใส่จำนวนเงินของอาหาร
-
+            let idx = state.foodList.findIndex((data) => data.id === action.payload.id)
             let foodPriceTemp = state.foodList;
-            foodPriceTemp[action.payload.id].price = action.payload.price
+            foodPriceTemp[idx].price = action.payload.price
 
             return {
                 ...state,
@@ -96,10 +96,12 @@ export default function (state = initialState, action) {
 
         case SET_MEMBER_VALUE:
             // เลือกคนที่กินอาหาร
-            let listTemp = [...state.foodList.slice(0, action.payload.id), ...state.foodList.slice(action.payload.id + 1)]
-            let setValueTemp = state.foodList[action.payload.id];
-            setValueTemp.member[action.payload.name] = setValueTemp.member[action.payload.name] === 0 ? 1 : 0;
-            listTemp = [...listTemp.slice(0, action.payload.id), setValueTemp, ...listTemp.slice(action.payload.id)]
+            let index = state.foodList.findIndex((data) => data.id === action.payload.id)
+            let setValueTemp = state.foodList.filter((data) => data.id === action.payload.id);
+            let setValueTemp1 = setValueTemp.pop()
+            setValueTemp1.member[action.payload.name] = setValueTemp1.member[action.payload.name] === 0 ? 1 : 0;
+            let listTemp = [...state.foodList]
+            listTemp.splice(index, 1, setValueTemp1)
             return {
                 ...state,
                 foodList: listTemp,

@@ -37,21 +37,11 @@ export default class Blink extends Component {
                     duration: this.props.duration,
                     useNativeDriver: true,
                 }),
-                // Animated.timing(this.fadeAnimation, {
-                //     toValue: 1,
-                //     duration: this.props.duration,
-                //     useNativeDriver: true,
-                // }),
                 Animated.timing(this.fadeAnimation, {
                     toValue: 0.3,
                     duration: this.props.duration,
                     useNativeDriver: true,
                 }),
-                // Animated.timing(this.fadeAnimation, {
-                //     toValue: ,
-                //     duration: this.props.duration,
-                //     useNativeDriver: true,
-                // }),
                 Animated.timing(this.fadeAnimation, {
                     toValue: 0.75,
                     duration: this.props.duration,
