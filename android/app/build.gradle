@@ -130,14 +130,13 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    
-
     defaultConfig {
         applicationId "com.project_sf340"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     splits {
         abi {
